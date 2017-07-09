@@ -29,6 +29,10 @@ html {
     height: 100%;
 }
 
+.container {
+    margin-bottom: 4em;
+}
+
 *,
 *:before,
 *:after {
@@ -47,25 +51,20 @@ h1 {
     letter-spacing: -0.04em;
 }
 
+.hero {
+    background-color: #b2b2b2;
+}
+
 .main {
   margin-top: 40px;
   margin-bottom: 0px; }
-  .main h1 {
-    margin-top: 40px !important; }
-  .main h2 {
-    margin-top: 40px !important; }
-  .main h3 {
-    margin-top: 40px !important; }
-  .main h4 {
-    margin-top: 40px !important; }
-  .main h5 {
-    margin-top: 40px !important; }
-  .main h6 {
-    margin-top: 40px !important; }
-
-
+ 
 .hidden {
     display: none;
+}
+
+.feature {
+    margin-top: 30px;
 }
 
 .right { float: right; }
@@ -333,3 +332,55 @@ span {
 }
 
 .window_content { background-color: #333333; }
+
+/**
+ * Animations
+ */
+
+h1 *[data-ix="fade-in-heading"] {
+  opacity: 0;
+  -webkit-transform: translate(0px, -30px);
+  -ms-transform: translate(0px, -30px);
+  transform: translate(0px, -30px);
+}
+
+.cursor { 
+  position: relative;
+  display: inline-block;
+  line-height: 73px;
+}
+
+.cursor::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: -30px;
+  /* Remove display: inline-block if not required to be on the same line as text etc */
+  display: inline-block;
+  background-color: #666;
+  vertical-align: top;
+  width: 18px;
+  /* Set height to the line height of .text */
+  height: 50px;
+  /* 
+  Animation paramaters:
+  blink = animation-name, 
+  1s = animation-duration, 
+  step-end = animation-timing-function,
+  infinite = animation-iteration-count
+  */
+  -webkit-animation: blink 1s step-end infinite;
+  animation: blink 1s step-end infinite;
+}
+
+@-webkit-keyframes blink {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+@keyframes blink {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
