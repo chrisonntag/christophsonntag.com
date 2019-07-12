@@ -1,8 +1,6 @@
 
 html, body {
   background: #fff;
-  width: 100%;
-  height: 100%;
   cursor: url(http://cur.cursors-4u.net/others/oth-7/oth670.cur), auto !important;
 }
 
@@ -10,74 +8,31 @@ a { color: rgb(0, 0, 238); }
 a:visited { color: rgb(85, 26, 139); }
 a:focus { color: rgb(85, 26, 139); }
 
-::-moz-selection { background: rgb(0, 0, 238); }
-::selection { background: rgb(0, 0, 238); }
+::-moz-selection { background: blue; }
+::selection { background: blue; }
 
-#main {
-  position: relative;
+
+img {
   width: 100%;
-  height: 100%;
-  margin: 0 auto;
 }
 
+.center {
+  margin: 0 auto;
+  width: 600px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 60px;
+}
 
 /* RESPONSIVE */
 
-@media (min-width: 451px) {
-  .h-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+@media (max-width: 700px) {
 
-  .panel {
-    width: 314px;
-    height: 540px;
-  }
-
-  .description {
-    margin: 0;
-    width: 200%;
-    font-size: 64px;
-    line-height: 75px;
-    margin-top: -40px;
-  }
-
-}
-
-@media (max-width: 450px) {  
-  .panel {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-
-  .content {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    padding: 16px;
-    box-sizing: border-box;
-  }
-
-  .description {
-    font-size: 37px;
-    width: 100%;
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .footer {
-    position: relative;
-    margin-top: -70%;
-  }
-
-  .small {
-    font-size: 0.65em;
-    line-height: 3.5;
+  .center {
+    margin: 30px;
+    width: auto;
   }
 
 }
@@ -87,14 +42,5 @@ a:focus { color: rgb(85, 26, 139); }
   and (device-height: 812px)
   and (-webkit-device-pixel-ratio : 3) {
 
-  .footer {
-    position: relative;
-    margin-top: -115%;
-  }
-
-  .small {
-    font-size: 0.65em;
-    line-height: 3.5;
-  }
 }
 
