@@ -1,46 +1,45 @@
-
-html, body {
-  background: #fff;
-  cursor: url(http://cur.cursors-4u.net/others/oth-7/oth670.cur), auto !important;
+@font-face{
+    font-family:MessinaSans;
+    src: url(../fonts/MessinaSansWeb-Regular.eot?) format("embedded-opentype"),
+    url(../fonts/MessinaSansWeb-Regular.woff2) format("woff2"),
+    url(../fonts/MessinaSansWeb-Regular.woff) format("woff");
+    font-weight:400;
+    font-style:normal;
 }
-
-a { color: rgb(0, 0, 238); }
-a:visited { color: rgb(85, 26, 139); }
-a:focus { color: rgb(85, 26, 139); }
-
-::-moz-selection { background: blue; }
-::selection { background: blue; }
-
-
-img {
-  width: 100%;
+body { 
+  margin: 40px auto;
+  max-width: 770px;
+  font-size: 18px;
+  color: rgb(12, 20, 59);
+  font-family: MessinaSans,sans-serif;
+  font-weight: 400;
+  padding: 0 10px; 
 }
-
-.center {
-  margin: 0 auto;
-  width: 600px;
+h1,h2,h3 { line-height: 93.6px; }
+h1 { border-top: 3px solid rgb(22, 193, 100); display: inline-block; }
+h2 { font-size: 36px; line-height: 39.6px;  }
+a { color: rgb(12, 20, 59); text-decoration: underline; text-decoration-color: rgb(22, 193, 100); }
+a:hover { color: rgb(22, 193, 100) !important; }
+a:focus { color: rgb(22, 193, 100) !important; }
+a:visited { color: rgb(12, 20, 59); }
+p, ul, li { line-height: 28.8px; }
+ol { counter-reset: a; padding-left: 18px; }
+ul, ol { list-style: none; }
+ol > li { position: relative; padding-left: 25px; }
+ol > li::before { 
+    content: counter(a,decimal-leading-zero) "."; 
+    width: 25px; 
+    color: rgb(22, 193, 100); 
+    counter-increment: a;
+    font-size: .777777em;
+    position: absolute;
+    left: 0;
 }
-
-footer {
-  text-align: center;
-  margin-top: 60px;
+ul > li::before {
+    content: "•"; color: rgb(22, 193, 100);
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
 }
-
-/* RESPONSIVE */
-
-@media (max-width: 700px) {
-
-  .center {
-    margin: 30px;
-    width: auto;
-  }
-
-}
-
-/* iPhone X media query */
-@media (device-width: 375px) 
-  and (device-height: 812px)
-  and (-webkit-device-pixel-ratio : 3) {
-
-}
-
+img { padding: 0 12px; float: right; }
+hr { border-top: .2px solid #e8e8e8; }
