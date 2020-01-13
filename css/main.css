@@ -3,10 +3,24 @@
 * blue: blue;
 */
 @font-face{
-    font-family:MessinaSans;
-    src: url(../fonts/MessinaSansWeb-Regular.eot?) format("embedded-opentype"),
-    url(../fonts/MessinaSansWeb-Regular.woff2) format("woff2"),
-    url(../fonts/MessinaSansWeb-Regular.woff) format("woff");
+    font-family:Walsheim;
+    src: url(../fonts/gt-walsheim-web.eot?) format("embedded-opentype"),
+    url(../fonts/gt-walsheim-web.woff2) format("woff2"),
+    url(../fonts/gt-walsheim-web.woff) format("woff");
+    font-weight:200;
+    font-style:normal;
+}
+@font-face{
+    font-family:Butler;
+    url(../fonts/Butler.woff2) format("woff2"),
+    url(../fonts/Butler.woff) format("woff");
+    font-weight:200;
+    font-style:normal;
+}
+@font-face{
+    font-family:Butler;
+    url(../fonts/Butler-Bold.woff2) format("woff2"),
+    url(../fonts/Butler-Bold.woff) format("woff");
     font-weight:400;
     font-style:normal;
 }
@@ -14,12 +28,12 @@ body {
   margin: 40px auto;
   max-width: 770px;
   font-size: 18px;
-  color: rgb(12, 20, 59);
-  font-family: MessinaSans,sans-serif;
+  color: black;
+  font-family: Walsheim, sans-serif;
   font-weight: 400;
   padding: 0 10px; 
 }
-h1,h2,h3 { line-height: 93.6px; }
+h1,h2,h3 { line-height: 2.6em; font-family: Butler, serif; font-weight: 200; }
 h1 { border-top: 3px solid rgb(22, 193, 100); display: inline-block; }
 h2 { font-size: 36px; line-height: 39.6px;  }
 a { color: rgb(12, 20, 59); text-decoration: underline; text-decoration-color: rgb(22, 193, 100); }
@@ -45,5 +59,6 @@ ul > li::before {
     width: 1em;
     margin-left: -1em;
 }
-img { padding: 0 12px; float: right; }
+img { padding: 0 0 0 12px; float: right; }
 hr { border-top: .2px solid #e8e8e8; }
+
