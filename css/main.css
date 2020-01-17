@@ -61,4 +61,14 @@ ul > li::before {
 }
 img { padding: 0 0 0 12px; float: right; }
 hr { border-top: .2px solid #e8e8e8; }
+.center { text-align: center; }
+.pgp {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 400;
+    font-size: 0.7em;
+    width: 200px;
+    display: inline-block;
+    line-height: 1.4;
+}
+
 
