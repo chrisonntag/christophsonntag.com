@@ -1,66 +1,44 @@
 /**
 * green: rgb(22, 193, 100);
-* blue: blue;
+* red: rgb(235, 44, 55);
+* light-grey: #a2a2a2;
+* regular grey: #333;
 */
-@font-face{
-    font-family:Walsheim;
-    src: url(../fonts/gt-walsheim-web.eot?) format("embedded-opentype"),
-    url(../fonts/gt-walsheim-web.woff2) format("woff2"),
-    url(../fonts/gt-walsheim-web.woff) format("woff");
-    font-weight:200;
-    font-style:normal;
+
+* {
+	color: #333;
+	font-size: 1.125rem;
+	font-weight: 400;
 }
-@font-face{
-    font-family:Butler;
-    url(../fonts/Butler.woff2) format("woff2"),
-    url(../fonts/Butler.woff) format("woff");
-    font-weight:200;
-    font-style:normal;
+
+p {
+	font-weight: 400;
 }
-@font-face{
-    font-family:Butler;
-    url(../fonts/Butler-Bold.woff2) format("woff2"),
-    url(../fonts/Butler-Bold.woff) format("woff");
-    font-weight:400;
-    font-style:normal;
-}
-body { 
-  margin: 40px auto;
-  max-width: 770px;
-  font-size: 18px;
-  color: black;
-  font-family: Walsheim, sans-serif;
-  font-weight: 400;
-  padding: 0 10px; 
-}
-h1,h2,h3 { line-height: 2.6em; font-family: Butler, serif; font-weight: 200; }
-h1 { border-top: 3px solid rgb(22, 193, 100); display: inline-block; }
-h2 { font-size: 36px; line-height: 39.6px;  }
-a { color: rgb(12, 20, 59); text-decoration: underline; text-decoration-color: rgb(22, 193, 100); }
-a:hover { color: rgb(22, 193, 100) !important; }
-a:focus { color: rgb(22, 193, 100) !important; }
-a:visited { color: rgb(12, 20, 59); }
-p, ul, li { line-height: 28.8px; }
+
+h1,h2,h3 { color: #333; font-weight: 600; }
+h1 { display: inline-block; }
+a { color: #a2a2a2; text-decoration: none; }
+a:hover { color: rgb(235, 44, 55) !important; }
+a:focus { color: rgb(235, 44, 55) !important; }
+a:visited { color: #a2a2a2; }
 ol { counter-reset: a; padding-left: 18px; }
-ul, ol { list-style: none; }
+ul, ol { list-style: none; padding-left: 0; }
 ol > li { position: relative; padding-left: 25px; }
 ol > li::before { 
     content: counter(a,decimal-leading-zero) "."; 
     width: 25px; 
-    color: rgb(22, 193, 100); 
+    color: rgb(235, 44, 55); 
     counter-increment: a;
     font-size: .777777em;
     position: absolute;
     left: 0;
+    margin-top: .2em;
 }
-ul > li::before {
-    content: "•"; color: rgb(22, 193, 100);
-    display: inline-block; 
-    width: 1em;
-    margin-left: -1em;
+ul.spaced > li {
+	margin-bottom: 1em;
 }
-img { padding: 0 0 0 12px; float: right; }
 hr { border-top: .2px solid #e8e8e8; }
+footer { margin: 4em 0 4em 0; }
 .center { text-align: center; }
 .pgp {
     font-family: 'Roboto Mono', monospace;
