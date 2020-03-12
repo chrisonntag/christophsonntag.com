@@ -17,6 +17,7 @@ p {
 }
 
 h1,h2,h3 { color: #333; font-weight: 600; }
+h4 { font-size: 1rem !important; }
 h1 { display: inline-block; }
 a { color: #a2a2a2; text-decoration: none; }
 a:hover { color: rgb(235, 44, 55) !important; }
