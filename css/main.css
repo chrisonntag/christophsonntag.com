@@ -5,20 +5,17 @@
 * regular grey: #333;
 */
 
-* {
+body {
 	color: #333;
 	font-size: 1rem;
-	font-weight: 400;
+	font-size: 1.125rem;
+font-weight: 200;
+line-height: 1.5;
 }
 
-p {
-	font-weight: 400;
-  font-size: 1rem;
-}
-
-h1,h2,h3 { color: #333; font-weight: 600; }
+h1,h2,h3 { color: #000; font-weight: 600; font-family: 'Helvetica Neue', 'Roboto', 'Lato', sans-serif; }
+h1 { font-size: 3em; }
 h4 { font-size: 1rem !important; }
-h1 { display: inline-block; }
 a { color: #a2a2a2; text-decoration: none; }
 a:hover { color: rgb(235, 44, 55) !important; }
 a:focus { color: rgb(235, 44, 55) !important; }
@@ -49,6 +46,18 @@ footer { margin: 4em 0 4em 0; }
     width: 200px;
     display: inline-block;
     line-height: 1.4;
+}
+
+::selection {
+    background: #0e0e0e;
+    color: #fff;
+    text-shadow: 0 0 0 transparent;
+}
+
+.intro > p {
+	font-size: 2.5em;
+	font-weight: 100;
+	line-height: 1.3;
 }
 
 
