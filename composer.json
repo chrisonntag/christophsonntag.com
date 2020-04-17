@@ -8,5 +8,8 @@
             "email": "info@chrisonntag.com"
         }
     ],
-    "require": {}
+    "require": {
+        "slim/slim": "^3.0",
+        "slim/twig-view": "^2.0"
+    }
 }

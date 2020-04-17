@@ -1,44 +1,34 @@
-<!DOCTYPE html>
-<html lang="en" prefix="og: http://ogp.me/ns#">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends "base.twig" %}
 
-  <title>Newsletter – Christoph Sonntag</title>
+{% block title %}Newsletter{% endblock %}
+{% block head %}
+    {{ parent() }}
+    <link href="https://cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
+    </style>
+{% endblock %}
 
-  <link rel="shortcut icon" href="../images/favicon.ico">
-  <link rel="stylesheet" type="text/css" href="../css/simple-grid.min.css">
-  <link rel="stylesheet" type="text/css" href="../css/main.css">
-
-  <link href="https://cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
-  <style type="text/css">
-    #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
-  </style>
-  
-</head>
-<body>
-
-<main class="container">
-  <div class="row center">
+{% block content %}
+    <div class="row center">
     <div class="row-12">
 
       <h1>Newsletter – nur auf Deutsch</h1>
 
       <p>
-        Hier k&ouml;nnt ihr euch f&uuml;r meinen w&ouml;chentlich erscheinenden Newsletter anmelden, welcher in 
+        Hier k&ouml;nnt ihr euch f&uuml;r meinen w&ouml;chentlich erscheinenden Newsletter anmelden, welcher in
         regelm&auml;&szlig;igen Abst&auml;nden (meistens sonntags) erscheinen wird.
       </p>
 
       <br/>
 
-      
+
       <!-- Begin Mailchimp Signup Form -->
-      
+
       <div id="mc_embed_signup">
       <form action="https://snn.us4.list-manage.com/subscribe/post?u=88a6559107d0329a0a63b777f&amp;id=0417465557" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
           <div id="mc_embed_signup_scroll">
-        
+
       <div class="mc-field-group">
         <label for="mce-EMAIL"><strong>Email-Addresse</strong> </label>
         <input type="email" value="" name="EMAIL" placeholder="meinemail@web.de" class="required email" id="mce-EMAIL">
@@ -64,13 +54,4 @@
     </div>
 
   </div>
-</main>
-
-<footer class="container">
-  <a href="mailto:forename at snn.tg" target="_blank">Contact</a> 
-  or stand a <a href="https://paypal.me/chrisonntag/2.50" target="_blank">Coffee</a>.
-  <a href="https://snn.tg/imprint" style="float: right;">Imprint</a>
-</footer>
-
-</body>
-</html>
+{% endblock %}

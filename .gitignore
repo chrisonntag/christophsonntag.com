@@ -6,6 +6,7 @@ fonts/
 images/cs.jpg
 .DS_Store
 *.asc
+tmp/
 
 
 # Created by https://www.gitignore.io/api/intellij+all

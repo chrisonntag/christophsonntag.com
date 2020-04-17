@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+<head>
+  {% block head %}
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{% block title %}{% endblock %} – Christoph Sonntag</title>
+
+  <!-- Semantic -->
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@chrisonntag">
+  <meta name="twitter:title" content="Christoph Sonntag">
+  <meta name="twitter:description" content="software engineer, music, python, java, go, django, ...">
+  <meta name="twitter:image" content="https://christoph.snn.tg/images/cs.jpg">
+  <!-- Facebook -->
+  <meta property="og:url" content="https://christoph.snn.tg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Christoph Sonntag">
+  <meta property="og:description" content="software engineer, music, python, java, go, django, ...">
+  <meta property="og:image" content="https://christoph.snn.tg/images/cs.jpg">
+
+  <link rel="canonical" href="https://christoph.snn.tg">
+
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="css/simple-grid.min.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  {% endblock %}
+</head>
+<body>
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="container">
+    {% block footer %}
+      <a href="mailto:forename at snn.tg" target="_blank">Contact</a>
+      or stand a <a href="https://paypal.me/chrisonntag/2.50" target="_blank">Coffee</a>.
+      <a href="{{ path_for('imprint') }}" style="float: right;">Imprint</a>
+    {% endblock %}
+  </footer>
+
+  <!-- <img class="motivation" src="images/labeouf.gif" width="480" height="358"></img> -->
+</body>
+</html>
