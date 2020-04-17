@@ -1,0 +1,12 @@
+{
+    "name": "chrisonntag/portfolio",
+    "description": "This is the personal website of Christoph Sonntag.",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Christoph Sonntag",
+            "email": "info@chrisonntag.com"
+        }
+    ],
+    "require": {}
+}
