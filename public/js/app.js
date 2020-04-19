@@ -50,11 +50,3 @@ function slideToggle (id) {
     slideUp(elem);
   }
 }
-
-// Quick fix
-window.addEventListener('resize', function () {
-  if (state === 0) {
-    state = 1;
-    slideDown(document.getElementById('navigation-list'));
-  }
-});
