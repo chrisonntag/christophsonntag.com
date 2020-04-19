@@ -113,12 +113,12 @@ footer { padding: 4em 0 4em 0; }
   }
 
   .container {
-    padding: 2em 0 2em 2em;
+    padding: 2em 0 2em 1.5em;
     margin: 0;
   }
 
   .header {
-    padding: 2em 0 2em 2em;
+    padding: 2em 0 2em 1.5em;
     margin-bottom: 0em;
   }
 
