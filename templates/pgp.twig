@@ -1,17 +1,30 @@
 {% extends "base.twig" %}
 
 {% block title %}PGP{% endblock %}
+{% block head %}
+  {{ parent() }}
+  <style>
+    .pgp {
+      font-family: monospace;
+      font-weight: 400;
+      font-size: 0.8em;
+      width: 45em;
+      display: inline-block;
+      line-height: 1.4;
+      max-width: 100%;
+    }
+  </style>
+{% endblock %}
 
 {% block content %}
-  <div class="row center">
+  <div class="row">
     <div class="col-12">
 
       <h1>PGP Key</h1>
 
       <p>
         <a class="pgp" href="christoph-sonntag.asc">
-          <span>4FF1 A263 146F EA72 724E 187A</span>
-          <span>B231 0301 37BC 1738 21A7 CD93</span>
+          22 41 6e 64 20 49 20 77 69 6c 6c 20 73 74 72 69 6b 65 20 64 6f 77 6e 20 75 70 6f 6e 20 74 68 65 65 20 77 69 74 68 20 67 72 65 61 74 20 76 65 6e 67 65 61 6e 63 65 20 61 6e 64 20 66 75 72 69 6f 75 73 20 61 6e 67 65 72 20 74 68 6f 73 65 20 77 68 6f 20 61 74 74 65 6d 70 74 20 74 6f 20 70 6f 69 73 6f 6e 20 61 6e 64 20 64 65 73 74 72 6f 79 20 6d 79 20 62 72 6f 74 68 65 72 73 22
         </a>
       </p>
       <p>
@@ -19,7 +32,6 @@
         this works checkout the pretty good wiki article for <a
                 href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy">Pretty Good Privacy</a>.
       </p>
-      <p><a href="{{ path_for('home') }}">⬅️ Home</a></p>
     </div>
   </div>
 {% endblock %}
