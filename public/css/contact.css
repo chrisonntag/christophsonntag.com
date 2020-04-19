@@ -1,0 +1,93 @@
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+form fieldset, form legend {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+form .fields {
+  margin: 0 0 0 -2%;
+}
+
+form .form-item .title {
+  font-size: 1em;
+  font-weight: normal;
+  color: #121212;
+}
+
+form .field {
+  margin-bottom: 2em;
+}
+form .fields.name .field {
+  width: 48%;
+}
+form .fields .field {
+  float: left;
+}
+form .fields .title, .fields .description, .fields .field, .fields .field-error {
+  margin-left: 2%;
+}
+
+form .caption {
+  font-size: .8em;
+}
+
+label {
+  cursor: pointer;
+}
+
+form .field {
+  position: relative;
+  margin: 0 0 24px;
+}
+
+form .field-element {
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  box-shadow: none;
+}
+
+form .field .field-element {
+  width: 100%;
+  padding: 12px;
+  margin: 6px 0 4px;
+  border: 1px solid #ccc;
+  background: #fafafa;
+  color: #000;
+  font-family: sans-serif;
+  font-size: 12px;
+  line-height: normal;
+  box-sizing: border-box;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
+button, input, select, textarea {
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+  *vertical-align: middle;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+  overflow: auto;
+  vertical-align: top;
+}
+
+.response {
+  padding: 1em;
+  width: 100%;
+}
+.response.error {
+  color: red;
+}
+.response.success {
+  color: green;
+}

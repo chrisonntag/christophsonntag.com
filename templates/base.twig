@@ -33,19 +33,34 @@
 </head>
 <body>
 
+<nav class="container navigation">
+  <div class="row">
+    <div class="col-12">
+      <div class="header">
+        <a href="{{ path_for('home') }}"><img src="images/pagelogo.png"></a>
+      </div>
+      <ul class="spaced-m uppercase">
+        <li {% if is_current_path('home') %}class="active"{% endif %}><a href="{{ path_for('home') }}">Home</a></li>
+        <li><a href="{{ path_for('home') }}#about">About</a></li>
+        <li {% if is_current_path('contact') %}class="active"{% endif %}><a href="{{ path_for('contact') }}">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
 <main class="container">
-  <a href="{{ path_for('home') }}"><img src="images/pagelogo.png"></a>
   {% block content %}{% endblock %}
+
+  <footer class="row">
+    <div class="col-12">
+      {% block footer %}
+        <a href="mailto:forename at snn.tg" target="_blank">Contact</a>
+        or stand a <a href="https://paypal.me/chrisonntag/2.50" target="_blank">Coffee</a>.
+        <a href="{{ path_for('imprint') }}" style="float: right;">Imprint</a>
+      {% endblock %}
+    </div>
+  </footer>
 </main>
 
-<footer class="container">
-  {% block footer %}
-    <a href="mailto:forename at snn.tg" target="_blank">Contact</a>
-    or stand a <a href="https://paypal.me/chrisonntag/2.50" target="_blank">Coffee</a>.
-    <a href="{{ path_for('imprint') }}" style="float: right;">Imprint</a>
-  {% endblock %}
-</footer>
-
-<!-- <img class="motivation" src="images/labeouf.gif" width="480" height="358"></img> -->
 </body>
 </html>

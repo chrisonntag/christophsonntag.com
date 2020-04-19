@@ -1,24 +1,57 @@
 {% extends "base.twig" %}
 
-{% block title %}PGP{% endblock %}
+{% block title %}Contact{% endblock %}
+{% block head %}
+  {{ parent() }}
+  <link rel="stylesheet" type="text/css" href="css/contact.css">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+{% endblock %}
 
 {% block content %}
   <div class="row">
-    <div class="col-12">
-
-      <h1>PGP Key</h1>
-
+    <div class="col-6">
+      <img src="images/cs_contact.jpeg" class="image" title="contact christoph sonntag" alt="contact christoph sonntag">
+    </div>
+    <div class="col-6">
       <p>
-        <a class="pgp" href="christoph-sonntag.asc">
-          <span>4FF1 A263 146F EA72 724E 187A</span>
-          <span>B231 0301 37BC 1738 21A7 CD93</span>
-        </a>
+        {% if not success or not error %}
+          I hope you're fine.
+        {% endif %}
+        <span class="success response">{{ success }}</span>
+        <span class="error response">{{ error }}</span>
       </p>
-      <p>
-        Use this key to send encrypted messages to my mail address. For more information on how
-        this works checkout the pretty good wiki article for <a
-                href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy">Pretty Good Privacy</a>.
-      </p>
+
+      <form action="{{ path_for('contact-post') }}" method="POST">
+        <fieldset class="form-item fields name">
+          <legend class="title">Name *</legend>
+          <div class="field first-name">
+            <label class="caption">
+              <input class="field-element" name="first_name" type="text" required aria-required="true">
+              <span class="caption-text">First Name</span>
+            </label>
+          </div>
+          <div class="field last-name">
+            <label class="caption">
+              <input class="field-element" name="last_name" type="text" required aria-required="true">
+              <span class="caption-text">Last Name</span>
+            </label>
+          </div>
+        </fieldset>
+        <div class="form-item field">
+          <label class="title" for="email">E-mail *</label>
+          <input class="field-element" type="email" id="email" name="email" autocomplete="email" required aria-required="true">
+        </div>
+        <div class="form-item field">
+          <label class="title" for="message">Message *</label>
+          <textarea class="field-element" id="message" name="message" required aria-required="true"></textarea>
+        </div>
+        <div class="form-item field">
+          <div class="g-recaptcha" data-sitekey="6LebUOsUAAAAAJO5BxxGEjV--ftcVKau8W32TUXG"></div>
+        </div>
+        <div class="form-item field">
+          <input class="button" type="submit" value="Submit">
+        </div>
+      </form>
     </div>
   </div>
 {% endblock %}
