@@ -156,7 +156,7 @@ footer { padding: 4em 0 4em 0; }
 .mobile { display: none; }
 @media (max-width: 1024px) {
 
-  .outer {
+  body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
