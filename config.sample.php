@@ -7,3 +7,6 @@ define("MAIL_FROM", "");
 define("MAIL_TO", "");
 
 define("CAPTCHA_SECRET", "");
+
+define("POCKET_CKEY", "");
+define("POCKET_AKEY", "");

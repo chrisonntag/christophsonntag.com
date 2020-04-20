@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 require __DIR__. '/../controller/MailController.php';
+require __DIR__. '/../controller/PocketController.php';
 require_once __DIR__. '/../config.php';
 
 $app = new Slim\App;
@@ -16,6 +17,11 @@ $container['view'] = function ($container) {
     $router = $container->get('router');
     $uri = \Slim\Http\Uri::createFromEnvironment(new \Slim\Http\Environment($_SERVER));
     $view->addExtension(new \Slim\Views\TwigExtension($router, $uri));
+
+    $filter = new Twig_SimpleFilter('base_url', function ($string) {
+        return preg_replace('/https?:\/\/|(\/.*){1}/', '', $string);
+    });
+    $view->getEnvironment()->addFilter($filter);
 
     return $view;
 };
@@ -62,8 +68,13 @@ $app->post('/contact', function ($request, $response) {
     } else {
         return $this->view->render($response, 'contact.twig', ['error' => 'Captcha failed.']);
     }
-
-
 })->setName('contact-post');
+
+$app->get('/links', function ($request, $response) {
+    $pocket = new PocketController(POCKET_AKEY);
+    $links = $pocket->retrieveStarred(30);
+    //print_r($links, false);
+    return $this->view->render($response, 'links.twig', ['links' => $links]);
+})->setName('links');
 
 $app->run();

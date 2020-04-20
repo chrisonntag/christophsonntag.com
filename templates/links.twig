@@ -1,0 +1,44 @@
+{% extends "base.twig" %}
+
+{% block title %}Links{% endblock %}
+{% block head %}
+  {{ parent() }}
+  <link rel="stylesheet" type="text/css" href="css/contact.css">
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-12">
+      <h2>This is a small collection of links i found interesting in the last few years</h2>
+      <p>
+        The list is continually being extended by me on <a href="https://getpocket.com" target="_blank">Pocket</a>.
+      </p>
+    </div>
+  </div>
+  {% set cols = 2 %}
+  {% for link in links %}
+    {% if loop.index0 % cols == 0 %}
+      <div class="row">
+    {% endif %}
+      <div class="col-{{ 12/cols }}">
+        <h3>
+          {{ link.resolved_title }}
+          <br />
+          <span class="subtitle">
+            {% if link.domain_metadata.greyscale_logo %}
+            <img src="{{ link.domain_metadata.greyscale_logo }}" class="header-image" title="" alt="" />
+            {% endif %}
+            {{ link.time_added|date('M j, Y') }} | {{ link.word_count }} words
+          </span>
+        </h3>
+        <p>{{ link.excerpt }}</p>
+        <a href="{{ link.resolved_url }}" title="{{ link.resolved_url }}" target="_blank">
+          {{ link.resolved_url|base_url }}
+        </a>
+      </div>
+    {% if (loop.index0 % cols == cols - 1 or loop.last) %}
+      </div>
+    {% endif %}
+  {% endfor %}
+
+{% endblock %}

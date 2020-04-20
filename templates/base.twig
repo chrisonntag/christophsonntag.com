@@ -45,6 +45,7 @@
       <ul class="spaced-m uppercase nav" id="navigation-list">
         <li {% if is_current_path('home') %}class="active"{% endif %}><a href="{{ path_for('home') }}">Home</a></li>
         <li><a href="{{ path_for('home') }}#about">About</a></li>
+        <li {% if is_current_path('links') %}class="active"{% endif %}><a href="{{ path_for('links') }}">Links</a></li>
         <li {% if is_current_path('contact') %}class="active"{% endif %}><a href="{{ path_for('contact') }}">Contact</a></li>
       </ul>
     </div>
