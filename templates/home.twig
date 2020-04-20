@@ -3,7 +3,8 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-
+  {% set breadcrumb = "Home" %}
+  {{ parent() }}
   <div class="row">
     <div class="col-12 intro">
       <h1>christoph sonntag</h1>

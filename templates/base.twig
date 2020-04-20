@@ -65,7 +65,16 @@
 </nav>
 
 <main class="container main">
-  {% block content %}{% endblock %}
+  {% block content %}
+  <div class="row breadcrumbs">
+    <div class="col-12">
+      <span class="breadcrumb text-inline"></span>
+      <h5 class="text-inline">
+        {{ breadcrumb }}
+      </h5>
+    </div>
+  </div>
+  {% endblock %}
 
   <footer class="row">
     <div class="col-12">
