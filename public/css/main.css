@@ -73,7 +73,7 @@ div > h1:first-child { margin-top: 0; }
 
 p, a, li {
   font-weight: 300;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   line-height: 1.58;
 }
 h1,h2,h3 { color: #000; font-weight: 600; font-family: 'Helvetica Neue', 'Roboto', 'Lato', sans-serif; }
@@ -147,7 +147,7 @@ img.icon {
 .image { max-width: 100%; }
 .header-image {
   max-width: 1em;
-  height: 100%;
+  height: auto;
   vertical-align: middle;
   margin: -.2em .5em 0 0;
 }
@@ -157,7 +157,13 @@ hr { border-top: .2px solid #e8e8e8; }
 }
 .logo > img { width: 60px; }
 footer { padding: 4em 0 4em 0; }
-.center { text-align: center; }
+.text-center { text-align: center; }
+.center {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
 
 
 ::selection {
