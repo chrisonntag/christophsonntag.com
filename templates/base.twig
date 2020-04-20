@@ -47,10 +47,18 @@
         <li><a href="{{ path_for('home') }}#about">About</a></li>
         <li {% if is_current_path('links') %}class="active"{% endif %}><a href="{{ path_for('links') }}">Links</a></li>
         <li {% if is_current_path('contact') %}class="active"{% endif %}><a href="{{ path_for('contact') }}">Contact</a></li>
-        <li>
+        <li class="desktop-only">
           <ul class="social">
-            <li>Instagram</li>
-            <li>GitHub</li>
+            <li>
+              <a href="https://instagram.com/chrisonntag" target="_blank">
+                <img src="images/instagram.svg" width="18rem" class="icon" alt="Instagram" />
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/chrisonntag" target="_blank">
+                <img src="images/github.svg" width="18rem" class="icon" alt="GitHub" />
+              </a>
+            </li>
           </ul>
         </li>
       </ul>
