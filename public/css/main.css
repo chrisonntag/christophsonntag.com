@@ -156,6 +156,13 @@ footer { padding: 4em 0 4em 0; }
 .mobile { display: none; }
 @media (max-width: 1024px) {
 
+  .outer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
   .navigation {
     max-width: 100%;
     width: 100%;
@@ -169,10 +176,11 @@ footer { padding: 4em 0 4em 0; }
     width: 100%;
     max-width: 100%;
     padding: 0;
+    margin: 0;
   }
   .container.main {
-    margin-left: 0;
-    padding: 0 0 0 2em;
+    margin: 0 auto;
+    padding: 0;
     width: 90%;
   }
 
@@ -187,11 +195,6 @@ footer { padding: 4em 0 4em 0; }
   .mobile-nav-button {
     float: right;
     padding-right: 2em;
-  }
-
-  .container {
-    padding: 2em 0 2em 1.5em;
-    margin: 0;
   }
 
   .header {
