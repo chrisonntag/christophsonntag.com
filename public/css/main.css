@@ -20,13 +20,20 @@ body {
 div > h1:first-child { margin-top: 0; }
 
 .container {
-  margin: 3em 0 0 2em;
+  padding: 3em 0 0 2em;
   float: left;
+  width: 80%;
 }
 .navigation {
   float: left;
-  width: 25%;
-  max-width: 15rem;
+  width: 20%;
+  border-right: .1rem solid #dce3ea;
+  min-height: 100vh;
+  position: fixed;
+}
+.container.main {
+  margin-left: 20%;
+  padding-left: 4em;
 }
 
 p { font-size: 1rem; }
@@ -69,6 +76,11 @@ hr {
 }
 .uppercase { text-transform: uppercase; }
 .subtitle { font-size: .6em }
+img.icon {
+  margin-top: -.25rem;
+  margin-right: .5rem;
+  vertical-align: middle;
+}
 .image { max-width: 100%; }
 .header-image {
   max-width: 1em;
@@ -96,6 +108,12 @@ footer { padding: 4em 0 4em 0; }
 	line-height: 1.3;
 }
 
+.sidebar-footer {
+  position: absolute;
+  bottom: 2em;
+  left: 1em;
+}
+
 .button {
   text-transform: uppercase;
   background-color: #0e0e0e;
@@ -111,12 +129,32 @@ footer { padding: 4em 0 4em 0; }
 }
 
 .mobile { display: none; }
-@media (max-width: 779px) {
+@media (max-width: 1024px) {
+
   .navigation {
     max-width: 100%;
     width: 100%;
     margin: 0;
     padding: 0 !important;
+    min-height: unset;
+    position: relative;
+    border: none;
+  }
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+  .container.main {
+    margin-left: 0;
+    padding: 0 0 0 2em;
+    width: 90%;
+  }
+
+  .intro > p { font-size: 2em; }
+
+  .desktop-only {
+    display: none;
   }
 
   .mobile { display: block; }
