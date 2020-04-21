@@ -11,7 +11,7 @@
   {{ parent() }}
   <div class="row">
     <div class="col-12">
-      <h2>This is a small collection of links i found interesting in the last few years</h2>
+      <h2 class="serif p6">This is a small collection of links i found interesting in the last few years</h2>
       <p>
         This list is updated on an ongoing basis with the help of <a href="https://getpocket.com" target="_blank">Pocket</a>.
       </p>
@@ -35,7 +35,7 @@
           </span>
         </h3>
         <p>{{ link.excerpt }}</p>
-        <a href="{{ link.resolved_url }}" title="{{ link.resolved_url }}" target="_blank">
+        <a href="{{ link.resolved_url }}" title="{{ link.resolved_url }}" target="_blank" class="ext">
           {{ link.resolved_url|base_url }}
         </a>
       </div>

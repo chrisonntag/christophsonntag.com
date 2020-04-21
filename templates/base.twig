@@ -40,7 +40,14 @@
     <div class="col-12">
       <div class="header">
         <a class="logo" href="{{ path_for('home') }}"><img src="images/pagelogo.svg"></a>
-        <a href="#" class="mobile mobile-nav-button" onclick="slideToggle('navigation-list')">Menu</a>
+        <div class="mobile mobile-nav-button">
+          <input id="burger" onclick="slideToggle('navigation-list')" type="checkbox" value="0" />
+          <label for="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
       </div>
       <ul class="spaced-m nav" id="navigation-list">
         <li {% if is_current_path('home') %}class="active"{% endif %}><a href="{{ path_for('home') }}">Home</a></li>
@@ -70,7 +77,7 @@
         <h6>
           <img src="images/spotify.svg" width="15.0rem" class="icon">
           <span>
-            inbox - add songs to the playlist
+            inbox - follow and add songs to the playlist
           </span>
         </h6>
       </a>
