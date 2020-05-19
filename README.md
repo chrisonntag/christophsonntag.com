@@ -3,7 +3,7 @@
 This is the my personal website running on the [Slimframework](http://www.slimframework.com/). It includes a controller for fetching starred links from [Pocket](https://getpocket.com) as well as a simple Blog engine. 
 
 ## Blog
-Articles can be Markdown files with an additional meta header with the following structure
+Articles can be Markdown files (in ```/blog``` by default) with an additional meta header with the following structure
 
 ```
 {
