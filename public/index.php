@@ -9,6 +9,7 @@ use Psr\Http\Message\RequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
 $app = new Slim\App;
+define("BLOG_DIR", __DIR__ . '/../blog/');
 
 $app->add(function (Request $request, Response $response, callable $next) {
     $uri = $request->getUri();
@@ -104,5 +105,59 @@ $app->get('/links', function ($request, $response) {
     //print_r($links, false);
     return $this->view->render($response, 'links.twig', ['links' => $links]);
 })->setName('links');
+
+function extract_article($path) {
+    $handle = fopen($path, 'r');
+    $content = stream_get_contents($handle);
+    // split the content to get metadata
+    $content = explode("\n\n", $content);
+    $rawMeta = array_shift($content);
+    // metadata is json encoded. so decode it.
+    $meta = json_decode($rawMeta,true);
+    $meta['date'] = strtotime($meta['date']);
+    $content = implode("\n\n", $content);
+
+    $Parsedown = new Parsedown();
+    $content = $Parsedown->text($content);
+
+    return array(
+        'meta' => $meta ,
+        'content' => $content
+    );
+}
+
+$app->get('/blog', function ($request, $response) {
+    $path = BLOG_DIR;
+    $dir = new DirectoryIterator($path);
+    $articles = array();
+    foreach($dir as $file){
+        if($file->isFile()){
+            $handle = $path . '/' . $file->getFilename();
+            $article = extract_article($handle);
+
+            // Cut content after 120 characters (full-word).
+            if (preg_match('/^.{1,500}\b/s', $article['content'], $match))
+            {
+                $article['content'] = $match[0] . '...';
+            }
+            $articles[$file->getFilename()] = $article;
+        }
+    }
+    // Sort according to given date in descending order.
+    usort($articles, function ($item1, $item2) {
+        return $item2['meta']['date'] <=> $item1['meta']['date'];
+    });
+
+    return $this->view->render($response, 'blog.twig', array('articles' => $articles));
+})->setName('blog');
+
+$app->get('/blog/{slug}', function ($request, $response, $args) {
+    $path = BLOG_DIR;
+    //open text file and read it
+    $handle = $path . '/' . $args['slug'] . '.md';
+    $article = extract_article($handle);
+
+    return $this->view->render($response, 'article.twig', $article);
+})->setName('article');
 
 $app->run();

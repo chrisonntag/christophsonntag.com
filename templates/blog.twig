@@ -1,0 +1,41 @@
+{% extends "base.twig" %}
+
+{% block title %}Blog{% endblock %}
+{% block head %}
+  {{ parent() }}
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'] ],
+      processEscapes: true,
+      skipTags: ["script","noscript","style","textarea","pre","code"]
+    }
+  });
+  </script>
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+{% endblock %}
+
+{% block content %}
+  {% set breadcrumb = "Blog" %}
+  {{ parent() }}
+  {% for article in articles %}
+  <div class="row">
+    <div class="col-12">
+      <div class="headline">
+        <a href="{{ path_for('article', {'slug': article.meta.slug}) }}">
+          <h2 class="p6">{{ article.meta.title }}</h2>
+        </a>
+        <span class="subtitle">
+          {{ article.meta.author }} | {{ article.meta.date|date("d.m.Y") }}
+        </span>
+      </div>
+      <p>
+        {{ article.content|raw }}
+      </p>
+      <br />
+    </div>
+  </div>
+  {% endfor %}
+
+{% endblock %}
