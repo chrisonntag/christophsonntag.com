@@ -81,7 +81,11 @@ p, a, li {
 }
 h1,h2,h3 { color: #000; font-weight: 600; font-family: 'Helvetica Neue', 'Roboto', 'Lato', sans-serif; }
 h1 { font-size: 3em; }
-h4 { font-size: 1rem !important; }
+h4 {
+  font-size: 1rem !important;
+  margin: 0;
+  color: rgb(235, 44, 55);
+}
 h5, h6 { margin: 0; }
 h5 {
   font-weight: 300;
@@ -105,8 +109,8 @@ a:visited { color: #a2a2a2; }
 a.unstyled { font-size: 1rem; }
 ol { counter-reset: a; padding-left: 18px; }
 ul, ol { list-style: none; padding-left: 0; }
-ol > li { position: relative; padding-left: 25px; }
-ol > li::before { 
+ol > li:not(.surpress-numbering) { position: relative; padding-left: 25px; }
+ol > li:not(.surpress-numbering)::before {
     content: counter(a,decimal-leading-zero) "."; 
     width: 25px; 
     color: rgb(235, 44, 55); 

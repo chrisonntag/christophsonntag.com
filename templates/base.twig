@@ -54,7 +54,7 @@
         <li><a href="{{ path_for('home') }}#about">About</a></li>
         <li {% if is_current_path('links') %}class="active"{% endif %}><a href="{{ path_for('links') }}">Links</a></li>
         <li {% if is_current_path('contact') %}class="active"{% endif %}><a href="{{ path_for('contact') }}">Contact</a></li>
-        <li class="desktop-only">
+        <li class="desktop-only surpress-numbering">
           <ul class="social">
             <li>
               <a href="https://instagram.com/chrisonntag" target="_blank">
