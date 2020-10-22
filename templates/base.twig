@@ -35,9 +35,9 @@
 </head>
 <body>
 
-<nav class="container navigation">
+<nav class="navigation container-b">
   <div class="row">
-    <div class="col-12">
+    <div class="col-2">
       <div class="header">
         <a class="logo" href="{{ path_for('home') }}"><img src="{{ base_url() }}/images/pagelogo.svg"></a>
         <div class="mobile mobile-nav-button">
@@ -49,7 +49,9 @@
           </label>
         </div>
       </div>
-      <ul class="spaced-m nav" id="navigation-list">
+    </div>
+    <div class="col-10">
+      <ul class="nav float-right" id="navigation-list">
         <li {% if is_current_path('home') %}class="active"{% endif %}><a href="{{ path_for('home') }}">Home</a></li>
         <li><a href="{{ path_for('home') }}#about">About</a></li>
         <li {% if is_current_path('links') %}class="active"{% endif %}><a href="{{ path_for('links') }}">Links</a></li>
@@ -66,26 +68,26 @@
                 <img src="{{ base_url() }}/images/github.svg" width="18rem" class="icon" alt="GitHub" />
               </a>
             </li>
+            <li>
+              <a href="https://open.spotify.com/playlist/4PbqKGbteDh1Mnr0xtuZoV?si=uDYSZRU8TGqzmym9z7icMQ" target="_blank" class="spotify">
+                <img src="{{ base_url() }}/images/spotify.svg" width="18.0rem" class="icon" alt="Spotify">
+              </a>
+            </li>
+            <li>
+              <div class="scroller">
+                <h6>
+                inbox - follow and add songs to the playlist
+                </h6>
+              </div>
+            </li>
           </ul>
         </li>
       </ul>
     </div>
   </div>
-  <div class="row sidebar-footer desktop-only">
-    <div class="col-12">
-      <a href="https://open.spotify.com/playlist/4PbqKGbteDh1Mnr0xtuZoV?si=uDYSZRU8TGqzmym9z7icMQ" target="_blank" class="spotify">
-        <h6>
-          <img src="{{ base_url() }}/images/spotify.svg" width="15.0rem" class="icon">
-          <span>
-            inbox - follow and add songs to the playlist
-          </span>
-        </h6>
-      </a>
-    </div>
-  </div>
 </nav>
 
-<main class="container main">
+<main class="main container-b">
   {% block content %}
   <div class="row breadcrumbs">
     <div class="col-12">
