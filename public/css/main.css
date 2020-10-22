@@ -374,10 +374,13 @@ footer { padding: 4em 0 4em 0; }
     overflow: hidden;
     transition: max-height 0.9s ease 0s;
   }
-  ul.nav li {
-    padding: 1em 2em;
+  .navigation ul.nav li {
+    padding: 1em 0em;
+    float: left;
+    text-align: center;
+    width: 100%;
   }
-  ul.nav li a {
+  .navigation ul.nav li a {
     color: #fff;
     font-weight: 400;
   }
