@@ -179,7 +179,15 @@ hr { border-top: .2px solid #e8e8e8; }
 .header {
   margin-bottom: 3.5em;
 }
-.logo > img { width: 60px; }
+.logo > img {
+  width: 60px;
+  -webkit-transition: 550ms;
+  transition: 550ms;
+  opacity: 60%;
+}
+.logo > img:hover {
+  opacity: 100%;
+}
 footer { padding: 4em 0 4em 0; }
 .text-center { text-align: center; }
 .center {
