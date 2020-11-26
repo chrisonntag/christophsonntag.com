@@ -65,7 +65,7 @@ $app->get('/pgp', function ($request, $response) {
 
 $app->get('/newsletter', function ($request, $response) {
     return $this->view->render($response, 'newsletter.twig');
-});
+})->setName('newsletter');
 
 $app->get('/imprint', function ($request, $response) {
     return $this->view->render($response, 'imprint.twig');

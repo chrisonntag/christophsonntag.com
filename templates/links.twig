@@ -24,20 +24,22 @@
       <div class="row">
     {% endif %}
       <div class="col-{{ 12/cols }}">
-        <h3>
-          {{ link.resolved_title }}
-          <br />
-          <span class="subtitle">
-            {% if link.domain_metadata.greyscale_logo %}
-            <img src="{{ link.domain_metadata.greyscale_logo }}" class="header-image" title="" alt="" />
-            {% endif %}
-            {{ link.time_added|date('M j, Y') }} | {{ link.word_count }} words
-          </span>
-        </h3>
-        <p>{{ link.excerpt }}</p>
-        <a href="{{ link.resolved_url }}" title="{{ link.resolved_url }}" target="_blank" class="ext">
-          {{ link.resolved_url|base_url }}
-        </a>
+        <div class="masonry-inner">
+          <h3>
+            {{ link.resolved_title }}
+            <br />
+            <span class="subtitle">
+              {% if link.domain_metadata.greyscale_logo %}
+              <img src="{{ link.domain_metadata.greyscale_logo }}" class="header-image" title="" alt="" />
+              {% endif %}
+              {{ link.time_added|date('M j, Y') }} | {{ link.word_count }} words
+            </span>
+          </h3>
+          <p>{{ link.excerpt }}</p>
+          <a href="{{ link.resolved_url }}" title="{{ link.resolved_url }}" target="_blank" class="ext">
+            {{ link.resolved_url|base_url }}
+          </a>
+        </div>
       </div>
     {% if (loop.index0 % cols == cols - 1 or loop.last) %}
       </div>

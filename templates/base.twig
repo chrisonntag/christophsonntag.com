@@ -35,6 +35,8 @@
 </head>
 <body>
 
+<input type="checkbox" id="dark-mode" checked />
+
 <nav class="navigation container-b">
   <div class="row">
     <div class="col-2">
@@ -99,7 +101,20 @@
   </div>
   {% endblock %}
 
-  <footer class="row">
+</main>
+
+<footer class="container-b">
+  <div class="row text-center">
+    <div class="col-12">
+      <h3>Join the Newsletter</h3>
+      <p>
+        For irregularly published notes on current world events, memes and Wikipedia articles.<br />
+        <a href="{{ path_for('newsletter') }}">Register here</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="col-12">
       {% block footer %}
         <a href="mailto:forename at snn.tg" target="_blank">Contact</a>
@@ -107,8 +122,8 @@
         <a href="{{ path_for('imprint') }}" style="float: right;">Imprint</a>
       {% endblock %}
     </div>
-  </footer>
-</main>
+  </div>
+</footer>
 
 </body>
 </html>

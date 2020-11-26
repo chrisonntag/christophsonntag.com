@@ -7,23 +7,27 @@
         type="text/css">
   <style type="text/css">
     #mc_embed_signup {
-      background: #fff;
-      clear: left;
       font: 14px Helvetica, Arial, sans-serif;
+    }
+    #mc-embedded-subscribe-form {
+      width: 50%;
+      padding: 0 !important;
     }
   </style>
 {% endblock %}
 
 {% block content %}
-  <div class="row text-center">
-    <div class="row-12">
+  {% set breadcrumb = "Home / Newsletter" %}
+  {{ parent() }}
+  <div class="row">
+    <div class="col-7">
 
-      <h1>Newsletter – nur auf Deutsch</h1>
+      <h1>Newsletter</h1>
 
       <p>
-        Hier k&oumlnnt ihr euch f&uumlr meinen w&oumlchentlich erscheinenden Newsletter anmelden,
+        Hier k&ouml;nnt ihr euch f&uuml;r meinen w&ouml;chentlich erscheinenden Newsletter anmelden,
         welcher in
-        regelm&auml&szlig;igen Abst&auml;nden (meistens sonntags) erscheinen wird.
+        <em><strong>unregelm&auml;&szlig;igen</strong></em> Abst&auml;nden (meistens sonntags) erscheint.
       </p>
 
       <br/>
@@ -46,7 +50,7 @@
               <strong>Format </strong>
               <ol>
                 <li><input type="radio" value="html" name="EMAILTYPE" id="mce-EMAILTYPE-0"><label
-                          for="mce-EMAILTYPE-0"> HTML (good looking)</label></li>
+                          for="mce-EMAILTYPE-0"> HTML (sieht bisschen besser aus)</label></li>
                 <li><input type="radio" value="text" name="EMAILTYPE" id="mce-EMAILTYPE-1"><label
                           for="mce-EMAILTYPE-1"> reiner Text</label></li>
               </ol>

@@ -5,41 +5,38 @@
 {% block content %}
   {% set breadcrumb = "Home" %}
   {{ parent() }}
+
   <div class="row">
     <div class="col-9 intro">
       <h1>Christoph Sonntag.</h1>
       <p>
-        i'm a software engineer interested in using computer science methods and technologies for
-        helping to solve up-coming challenges due to climate challenge, population growth or
-        diseases.
+        Software Engineer interested in using computer science methods and technologies for
+        helping to solve up-coming challenges for humanity.
       </p>
     </div>
   </div>
 
+
+
   <div class="row">
-    <div class="col-9" id="about">
+    <div class="col-8" id="about">
       <h2>About Me</h2>
       <p>
-        <a href="https://github.com/chrisonntag/cv/raw/master/dist/cv.pdf">Download my CV</a> or
-        send a secure message via <a href="{{ path_for('pgp') }}">PGP</a>. I'm German, speak English
-        and just started to learn French. I also love playing guitar and drums.
-        In the past I have worked with several languages, frameworks and technologies. Some of
-        them are listed below.
-      </p>
-    </div>
-  </div>
+        I'm a passionate programmer, mostly using Python and started diving into Deep Learning
+        during the work on my bachelor thesis about a multi-labeling problem involving the
+        idea of Residual Networks. What makes me happy is to work with a skillful team on
+        something that makes a difference in the world.
 
-  <div class="row">
-    <div class="col-8">
+      </p>
       <p>Here are a few technologies I've been working with recently:</p>
-       <ul>
+      <ul>
         <li>Python, PHP, Java, Javascript, C</li>
         <li>Django, Laravel, Classical Web Stack (HTML, CSS, MySQL, ...)</li>
         <li>Unix Systems, Vim, LaTeX, Git, JetBrains IDEs</li>
       </ul>
     </div>
 
-    <div class="col-4">
+    <div class="col-4 box" draggable="true">
       <ul>
         <li><a href="https://github.com/chrisonntag">github.com/chrisonntag</a></li>
         <li><a href="https://linkedin.com/in/chrisonntag">linkedin.com/chrisonntag</a></li>
@@ -49,7 +46,24 @@
         <li><a href="mailto:forename at snn.tg">mail/christoph</a></li>
       </ul>
     </div>
+  </div>
 
+  <br />
+  <br />
+
+  <div class="row">
+    <div class="col-12">
+      <div class="row hero">
+        <div class="col-4 feature-image">
+          <img class="image" src="images/cs.jpg" />
+        </div>
+        <div class="col-8">
+          <a class="inverted" href="https://github.com/chrisonntag/cv/raw/master/dist/cv.pdf">Download my CV</a> or
+        send a secure message via <a class="inverted" href="{{ path_for('pgp') }}">PGP</a>. I'm German, speak English
+        and just started to learn French. I also love playing guitar and drums.
+        </div>
+      </div>
+    </div>
   </div>
 
   <br />
@@ -57,7 +71,7 @@
 
   <div class="row center">
 
-    <div class="col-8">
+    <div class="col-6">
       <h2>Projects &amp; Interests</h2>
       <ol>
         <li>
@@ -77,21 +91,25 @@
           Various professional contract work for customers in Germany <em>(since 2013)</em>.
         </li>
       </ol>
-      <br />
+    </div>
+    <div class="col-6">
       <h2>Education</h2>
       <ul class="spaced">
-        <li><em>B.Sc. Internet Computing</em><br/><a href="http://www.fim.uni-passau.de/">Faculty of
-            Computer Science and Mathematics</a>, University of Passau
-        </li>
-        <li><em><a href="https://fsinfo.fim.uni-passau.de">Student Committee Member</a></em>,
+        <li>
+          <strong><em>B.Sc. Internet Computing</em></strong>, University of Passau, Germany
+          <br />
+          <a href="http://www.fim.uni-passau.de/">Faculty of
+            Computer Science and Mathematics</a>
+          <br />
+          <a href="https://fsinfo.fim.uni-passau.de">Student Committee Member</a>,
           University of Passau
         </li>
-        <li><em>German Abitur (resp. A-Levels).</em> Gymnasium Neutraubling, Germany</li>
+        <li><strong><em>German Abitur (resp. A-Levels).</em></strong>, Gymnasium Neutraubling, Germany</li>
       </ul>
     </div>
-    <div class="col-4">
-      <img class="image" src="images/cs_big.jpg" />
-    </div>
   </div>
+
+
+
 
 {% endblock %}
