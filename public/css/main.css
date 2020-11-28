@@ -537,6 +537,9 @@ html[data-theme="dark"] #dark-light-switch:after {
     opacity: 1;
     transform: rotate(-405deg); }
 
+  .switch-wrapper {
+    margin: 5em 3em 0 0; }
+
   .header {
     padding: 2em 0 2em 1.5em;
     margin-bottom: 0em; }
@@ -548,7 +551,7 @@ html[data-theme="dark"] #dark-light-switch:after {
   ul.nav {
     display: block;
     width: 100%;
-    background-color: #a2a2a2;
+    background-color: var(--depth-contrast);
     text-align: center;
     max-height: 0;
     opacity: 0;
@@ -562,7 +565,7 @@ html[data-theme="dark"] #dark-light-switch:after {
     width: 100%; }
 
   .navigation ul.nav li a {
-    color: #fff;
+    color: var(--link-color);
     font-weight: 400; }
 
   .p6 {
