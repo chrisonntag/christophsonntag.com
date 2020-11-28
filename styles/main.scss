@@ -20,8 +20,8 @@ html {
 }
 
 body {
-	color: $text-color;
-  background-color: $bg-color;
+	color: var(--text-color);
+  background-color: var(--bg-color);
 	font-size: 1rem;
   font-family: 'Cerebri Sans', 'Helvetica Neue', 'Roboto', sans-serif;
   line-height: 1.6;
@@ -50,16 +50,16 @@ p, a, li {
   font-size: 1.25rem;
   line-height: 1.58;
 }
-h1,h2,h3 { color: $heading-color; font-weight: 600; font-family: 'Helvetica Neue', 'Roboto', 'Lato', sans-serif; }
+h1,h2,h3 { color: var(--heading-color); font-weight: 600; font-family: 'Helvetica Neue', 'Roboto', 'Lato', sans-serif; }
 h1 { font-size: 4em; }
 h1:first-child {margin-top: 0}
 h3 { font-size: 1.5rem; }
 h4 {
   font-size: 1rem !important;
   margin: 0;
-  color: $contrast-color;
+  color: var(--contrast-color);
 }
-h5, h6 { margin: 0; color: $heading-light-color }
+h5, h6 { margin: 0; color: var(--heading-light-color) }
 h5 {
   font-weight: 300;
   letter-spacing: .03rem;
@@ -74,20 +74,20 @@ h1.serif, h2.serif, h3.serif, h4.serif, h5.serif, h6.serif {
   font-family: 'Cormorant', serif;
   line-height: 1.2;
 }
-a { color: $link-color; text-decoration: none; }
-a:hover { color: $link-hover-color !important; }
-a:focus { color: $link-hover-color !important; }
-a:visited { color: $link-visited-color; }
+a { color: var(--link-color); text-decoration: none; }
+a:hover { color: var(--link-hover-color) !important; }
+a:focus { color: var(--link-hover-color) !important; }
+a:visited { color: var(--link-visited-color); }
 a.unstyled { font-size: 1rem; }
-a.inverted { color: $depth-1 !important; }
-a.inverted:hover { color: $depth-0 !important; }
+a.inverted { color: var(--depth-1) !important; }
+a.inverted:hover { color: var(--depth-0) !important; }
 ol { counter-reset: a; padding-left: 18px; }
 ul, ol { list-style: none; padding-left: 0; }
 ol > li:not(.surpress-numbering) { position: relative; padding-left: 25px; }
 ol > li:not(.surpress-numbering)::before {
     content: counter(a,decimal-leading-zero) "."; 
     width: 25px; 
-    color: $contrast-color;
+    color: var(--contrast-color);
     counter-increment: a;
     font-size: .777777em;
     position: absolute;
@@ -101,14 +101,14 @@ ul.spaced-m > li {
   margin-bottom: 0.5em;
 }
 li.active > a {
-  color: $heading-color;
+  color: var(--heading-color);
   font-weight: 400;
 }
 
 
 .navigation {
-  background-color: $navigation-color;
-  border-bottom: 2px solid $navigation-border-color;
+  background-color: var(--navigation-color);
+  border-bottom: 2px solid var(--navigation-border-color);
 }
 
 .header {
@@ -177,13 +177,13 @@ img.icon:hover {
   vertical-align: middle;
   margin: -.2em .5em 0 0;
 }
-hr { border-top: .2px solid $text-color; }
+hr { border-top: .2px solid var(--text-color); }
 
 footer {
   padding-bottom: 3em !important;
   padding-top: 3em !important;
   margin: 3em 0 0 0;
-  background-color: $depth-0;
+  background-color: var(--footer-bg-color);
 }
 .text-center { text-align: center; }
 .center {
@@ -195,8 +195,8 @@ footer {
 
 
 ::selection {
-    background: $selection-bg-color;
-    color: $selection-color;
+    background: var(--selection-bg-color);
+    color: var(--selection-color);
     text-shadow: 0 0 0 transparent;
 }
 
@@ -213,15 +213,15 @@ footer {
 }
 
 .button {
-  background-color: $btn-bg-color;
-  color: $btn-color;
+  background-color: var(--btn-bg-color);
+  color: var(--btn-color);
   padding: .8em 1.5em;
   border-radius: 4px;
   border: 0;
   transition: 0.3s;
 }
 .button:hover {
-  background-color: $contrast-color-bright;
+  background-color: var(--contrast-color-bright);
   cursor: pointer;
 }
 
@@ -250,7 +250,7 @@ footer {
 }
 
 .box {
-  background-color: $depth-3;
+  background-color: var(--depth-contrast);
   box-sizing: border-box;
   border-radius: 9px;
 }
@@ -259,7 +259,7 @@ footer {
 }
 
 .hero.row {
-  background-color: $contrast-color;
+  background-color: var(--contrast-color);
   display: flex;
   align-items: center;
   font-size: 1.5rem;
@@ -273,9 +273,80 @@ footer {
   line-height: 0;
 }
 
+/* Used on the links page */
 .masonry-inner {
   padding: 1em;
 }
+
+/* Dark/Light mode switch */
+.switch-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1.5em;
+  height: 1.5em;
+}
+#dark-light-switch {
+  z-index: 1;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  position: absolute;
+  margin: auto;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  background: var(--navigation-color);
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: background-color .3s ease;
+}
+
+#dark-light-switch:before {
+  content: "";
+  z-index: 1;
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  left: 50%;
+  background: var(--heading-light-color),;
+  transition: border-radius .3s ease, background-color .3s ease, width .3s ease, transform .3s ease;
+}
+
+#dark-light-switch:after {
+  content: "";
+  white-space: nowrap;
+  text-indent: 60px;
+  line-height: 45px;
+  z-index: 2;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid var(--navigation-color);
+  box-shadow: 0 0 0 0 var(--navigation-color), 0 0 0 3px var(--heading-light-color), 0 0 0 .5em var(--navigation-color);
+  box-sizing: border-box;
+  transition: border-color .3s ease,box-shadow .3s ease;
+}
+
+html[data-theme="dark"] #dark-light-switch {
+  background-color: var(--heading-light-color);
+}
+
+html[data-theme="dark"] #dark-light-switch:before {
+  background-color: var(--navigation-color);
+  border-radius: 50%;
+  width: 150%;
+  transform: translate(-5%,-35%) rotate(-25deg);
+}
+
+html[data-theme="dark"] #dark-light-switch:after {
+  content: "";
+  box-shadow: 0 0 0 0 var(--navigation-color), 0 0 0 0 var(--navigation-color), 0 0 0 3px var(--heading-light-color), 0 0 0 .5em var(--navigation-color);
+  border-color: var(--navigation-color);
+}
+
 
 .mobile { display: none; }
 @media (max-width: 1024px) {
@@ -343,7 +414,7 @@ footer {
     margin-top: -1px;
     left: 0;
     display: block;
-    background: $text-color;
+    background: var(--text-color);
     transition: .5s;
   }
   .mobile-nav-button input + label span:first-child {
