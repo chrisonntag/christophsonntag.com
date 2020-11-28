@@ -10,7 +10,7 @@
   <div class="container container-b text-center linktree">
     <div class="row">
       <div class="col-12">
-        <img src="images/cs.jpg" alt="@chrisonntag" class="image rounded hundred">
+        <img src="{{ base_url() }}/images/cs.jpg" alt="@chrisonntag" class="image rounded hundred">
         <h2 class="mono">@chrisonntag</h2>
       </div>
     </div>
@@ -24,4 +24,7 @@
     </div>
     {% endfor %}
   </div>
+  <a href="{{ path_for('home') }}" alt="Christoph Sonntag | Home" class="home-link">
+    <img src="{{ base_url() }}/images/pagelogo.svg">
+  </a>
 {% endblock %}
