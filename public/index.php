@@ -4,6 +4,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 require __DIR__. '/../controller/MailController.php';
 require __DIR__. '/../controller/PocketController.php';
 require_once __DIR__. '/../config.php';
+include __DIR__.'/../model/WebsiteModel.php';
 
 use Psr\Http\Message\RequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -62,6 +63,12 @@ $app->get('/', function ($request, $response) {
 $app->get('/pgp', function ($request, $response) {
     return $this->view->render($response, 'pgp.twig');
 })->setName('pgp');
+
+$app->get('/linktree', function ($request, $response) {
+    // Whacky in this place
+    $linklist = WebsiteModel::getLinkTreeList();
+    return $this->view->render($response, 'linktree.twig', ['links' => $linklist]);
+})->setName('linktree');
 
 $app->get('/newsletter', function ($request, $response) {
     return $this->view->render($response, 'newsletter.twig');

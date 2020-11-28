@@ -1,35 +1,8 @@
 /**
 Base file setting up font and colors for later use.
  */
-
-$depth-contrast: #1e1f26;
-$depth-0: #e9e9e9;
-$depth-1: #b1b1b1;
-$depth-2: #c1c1c1;
-$depth-3: #e9e9e9;
-$depth-4: #f2f2f2;
-
-$bg-color: #fafafa;
-$contrast-color: #df242f;
-$contrast-color-bright: #f72a37;
-$navigation-color: $bg-color;
-$navigation-border-color: $bg-color;
-$heading-color: #000;
-$heading-light-color: #414141;
-$text-color: #0e0d0d;
-$link-color: #a2a2a2;
-$link-hover-color: $contrast-color;
-$link-visited-color: $link-color;
-$btn-color: #fff;
-$btn-bg-color: #0e0e0e;
-$field-color: #f1f1f1;
-$field-color-border: $depth-4;
-$selection-color: #fff;
-$selection-bg-color: #0e0e0e;
-
 /*Dark Theme:
 */
-
 /*
 $depth-contrast: #dddddd;
 $depth-0: #131313;
@@ -57,29 +30,48 @@ $field-color-border: $depth-4;
 $selection-color: #0e0e0e;
 $selection-bg-color: #fdfdfd;
 */
-
-
-@import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500&display=swap");
 @font-face {
   font-family: "Cerebri Sans";
   src: url(../fonts/Cerebri-Sans/CerebriSans-Light.eot);
   src: url(../fonts/Cerebri-Sans/CerebriSans-Light.ttf);
   font-weight: 300;
-  font-style: normal;
-}
-
+  font-style: normal; }
 @font-face {
   font-family: "Cerebri Sans";
   src: url(../fonts/Cerebri-Sans/CerebriSans-Regular.eot);
   src: url(../fonts/Cerebri-Sans/CerebriSans-Regular.ttf);
   font-weight: 500;
-  font-style: normal;
-}
-
+  font-style: normal; }
 @font-face {
   font-family: "Cerebri Sans";
   src: url(../fonts/Cerebri-Sans/CerebriSans-Bold.eot);
   src: url(../fonts/Cerebri-Sans/CerebriSans-Bold.ttf);
   font-weight: 700;
-  font-style: normal;
-}
+  font-style: normal; }
+.linktree-element {
+  background-color: #1e1f26;
+  border: 3px solid #1e1f26;
+  margin-top: .5em !important;
+  margin-bottom: .5em !important;
+  transition: box-shadow 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s, color 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s, border-color 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s, transform 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s, background-color 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s; }
+
+.linktree-element:hover {
+  background-color: transparent; }
+
+.linktree-element > a {
+  margin: 0;
+  width: 100%;
+  display: block;
+  padding: 16px 0;
+  font-weight: 500; }
+
+.linktree-element > a:hover {
+  color: #1e1f26 !important; }
+
+.image.rounded.hundred {
+  border-radius: 50px;
+  width: 100px;
+  height: 100px; }
+
+/*# sourceMappingURL=linktree.css.map */

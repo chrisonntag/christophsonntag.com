@@ -1,0 +1,30 @@
+
+@import 'base';
+
+.linktree-element {
+  background-color: $depth-contrast;
+  border: 3px solid $depth-contrast;
+  margin-top: .5em !important;
+  margin-bottom: .5em !important;
+  transition: box-shadow 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s, color 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s, border-color 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s, transform 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s, background-color 0.25s cubic-bezier(0.08, 0.59, 0.29, 0.99) 0s;
+}
+.linktree-element:hover {
+  background-color: transparent;
+}
+
+.linktree-element > a {
+  margin: 0;
+  width: 100%;
+  display: block;
+  padding: 16px 0;
+  font-weight: 500;
+}
+.linktree-element > a:hover {
+  color: $depth-contrast !important;
+}
+
+.image.rounded.hundred {
+  border-radius: 50px;
+  width: 100px;
+  height: 100px;
+}

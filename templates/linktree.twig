@@ -1,0 +1,27 @@
+{% extends "base.twig" %}
+
+{% block title %}Linktree{% endblock %}
+{% block head %}
+  {{ parent() }}
+  <link rel="stylesheet" type="text/css" href="css/linktree.css">
+{% endblock %}
+
+{% block body %}
+  <div class="container container-b text-center linktree">
+    <div class="row">
+      <div class="col-12">
+        <img src="images/cs.jpg" alt="@chrisonntag" class="image rounded hundred">
+        <h2 class="mono">@chrisonntag</h2>
+      </div>
+    </div>
+    {% for link in links %}
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-6 linktree-element">
+        <a href="{{ link.url }}">{{ link.name }}</a>
+      </div>
+      <div class="col-3"></div>
+    </div>
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -41,7 +41,8 @@ body {
 }
 
 .container-b {
-  padding: 1.5em 2em 0 2em;
+  padding: 1.5em 2em 0 2em !important;
+  float: none;
 }
 
 p, a, li {
@@ -427,9 +428,9 @@ pre {
 }
 
 code,
-pre {
+pre,
+.mono {
   font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
-  font-size: 12px;
 }
 
 code {

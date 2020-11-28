@@ -8,10 +8,10 @@
 /**
 Base file setting up font and colors for later use.
  */
+/*Dark Theme:
+*/
 /*
-Dark Theme:
-
-$depth-contrast: #1e1f26;
+$depth-contrast: #dddddd;
 $depth-0: #131313;
 $depth-1: #212121;
 $depth-2: #313131;
@@ -27,7 +27,7 @@ $navigation-border-color: $depth-2;
 $heading-color: #fdfdfd;
 $heading-light-color: #dddddd;
 $text-color: #fdfdfd;
-$link-color: $depth-4;
+$link-color: $depth-3;
 $link-hover-color: $contrast-color;
 $link-visited-color: $link-color;
 $btn-color: $text-color;
@@ -86,7 +86,8 @@ body {
   float: left; }
 
 .container-b {
-  padding: 1.5em 2em 0 2em; }
+  padding: 1.5em 2em 0 2em !important;
+  float: none; }
 
 p, a, li {
   font-weight: 300;
@@ -504,9 +505,9 @@ pre {
   font-size: 1em; }
 
 code,
-pre {
-  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
-  font-size: 12px; }
+pre,
+.mono {
+  font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace; }
 
 code {
   padding: .2em .4em;
