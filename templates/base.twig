@@ -29,105 +29,140 @@
     <link rel="shortcut icon" href="{{ base_url() }}/images/favicon.ico">
     <link rel="stylesheet" type="text/css" href="{{ base_url() }}/css/simple-grid.min.css">
     <link rel="stylesheet" type="text/css" href="{{ base_url() }}/css/main.css">
-
-    <script src="{{ base_url() }}/js/app.js" type="text/javascript"></script>
   {% endblock %}
 </head>
-<body>
+<body class="loading">
 {% block body %}
 
-
-<nav class="navigation container-b">
-  <div class="row">
-    <div class="col-2">
-      <div class="header">
-        <a class="logo" href="{{ path_for('home') }}"><img src="{{ base_url() }}/images/pagelogo.svg"></a>
-        <div class="mobile mobile-nav-button">
-          <input id="burger" onclick="slideToggle('navigation-list')" type="checkbox" value="0" />
-          <label for="burger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </label>
+  <nav class="navigation container-b">
+    <div class="row">
+      <div class="col-2">
+        <div class="header">
+          <a class="logo" href="{{ path_for('home') }}"><img src="{{ base_url() }}/images/pagelogo.svg"></a>
+          <div class="mobile mobile-nav-button">
+            <input id="burger" onclick="slideToggle('navigation-list')" type="checkbox" value="0"/>
+            <label for="burger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </label>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-10">
-      <div class="switch-wrapper">
-        <div id="dark-light-switch"></div>
+      <div class="col-10">
+        <ul class="nav float-right" id="navigation-list">
+          <li {% if is_current_path('home') %}class="active"{% endif %}><a href="{{ path_for('home') }}">Home</a></li>
+          <li {% if is_current_path('links') %}class="active"{% endif %}><a href="{{ path_for('links') }}">Links</a>
+          </li>
+          <li {% if is_current_path('contact') %}class="active"{% endif %}><a
+                    href="{{ path_for('contact') }}">Contact</a></li>
+          <li style="position: relative; margin-left: 2em;">
+            <div class="switch-wrapper">
+              <div id="dark-light-switch"></div>
+            </div>
+          </li>
+        </ul>
       </div>
-      <ul class="nav float-right" id="navigation-list">
-        <li {% if is_current_path('home') %}class="active"{% endif %}><a href="{{ path_for('home') }}">Home</a></li>
-        <li><a href="{{ path_for('home') }}#about">About</a></li>
-        <li {% if is_current_path('links') %}class="active"{% endif %}><a href="{{ path_for('links') }}">Links</a></li>
-        <li {% if is_current_path('contact') %}class="active"{% endif %}><a href="{{ path_for('contact') }}">Contact</a></li>
-        <li class="desktop-only surpress-numbering">
-          <ul class="social">
-            <li>
-              <a href="https://instagram.com/chrisonntag" target="_blank">
-                <img src="{{ base_url() }}/images/instagram.svg" width="18rem" class="icon" alt="Instagram" />
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/chrisonntag" target="_blank">
-                <img src="{{ base_url() }}/images/github.svg" width="18rem" class="icon" alt="GitHub" />
-              </a>
-            </li>
-            <li>
-              <a href="https://open.spotify.com/playlist/4PbqKGbteDh1Mnr0xtuZoV?si=uDYSZRU8TGqzmym9z7icMQ" target="_blank" class="spotify">
-                <img src="{{ base_url() }}/images/spotify.svg" width="18.0rem" class="icon" alt="Spotify">
-              </a>
-            </li>
-            <li>
-              <div class="scroller">
-                <h6>
-                inbox - follow and add songs to the playlist
-                </h6>
-              </div>
-            </li>
-          </ul>
-        </li>
-      </ul>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<main class="main container-b">
-  {% block content %}
-  <div class="row breadcrumbs">
-    <div class="col-12">
-      <span class="breadcrumb text-inline"></span>
-      <h5 class="text-inline">
-        {{ breadcrumb }}
-      </h5>
-    </div>
-  </div>
-  {% endblock %}
+  <main class="main">
+    {% block content %}
+      <div class="container">
+        <div class="row breadcrumbs">
+          <div class="col-12">
+            <span class="breadcrumb text-inline"></span>
+            <h5 class="text-inline">
+              {{ breadcrumb }}
+            </h5>
+          </div>
+        </div>
+      </div>
+    {% endblock %}
 
-</main>
+  </main>
 
-<footer>
-  <div class="row text-center">
+  <br/>
+  <br/>
+  <br/>
+
+  <div class="row text-center desktop-only">
     <div class="col-12">
       <h3>Join the Newsletter</h3>
       <p>
-        For irregularly published notes on current world events, memes and Wikipedia articles.<br />
+        For irregularly published notes on current world events, memes and Wikipedia articles.<br/>
         <a href="{{ path_for('newsletter') }}">Register here</a>
       </p>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-12">
-      {% block footer %}
-        <a href="mailto:forename at snn.tg" target="_blank">Contact</a>
-        or stand a <a href="https://paypal.me/chrisonntag/2.50" target="_blank">Coffee</a>.
-        <a href="{{ path_for('imprint') }}" style="float: right;">Imprint</a>
-      {% endblock %}
+  <footer>
+    <div class="main">
+      <div class="container">
+        <div class="row">
+          <div class="col-2">
+            <p>
+              <a class="logo" href="{{ path_for('home') }}"><img src="{{ base_url() }}/images/pagelogo.svg"></a>
+            </p>
+          </div>
+          <div class="col-3">
+            <ul>
+              <li><a href="{{ path_for('home') }}#about">About</a></li>
+              <li {% if is_current_path('links') %}class="active"{% endif %}><a href="{{ path_for('links') }}">Links</a>
+              </li>
+              <li {% if is_current_path('contact') %}class="active"{% endif %}><a
+                        href="{{ path_for('contact') }}">Contact</a></li>
+              <li><a href="{{ path_for('imprint') }}">Imprint</a></li>
+              <li><a href="https://paypal.me/chrisonntag/2.50" target="_blank">Buy me a Coffee</a></li>
+            </ul>
+          </div>
+          <div class="col-3">
+            {% block footer %}
+              <ul>
+                <li>
+                  <ul class="social">
+                    <li>
+                      <a href="https://instagram.com/chrisonntag" target="_blank">
+                        <img src="{{ base_url() }}/images/instagram.svg" width="18rem" class="icon" alt="Instagram"/>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://github.com/chrisonntag" target="_blank">
+                        <img src="{{ base_url() }}/images/github.svg" width="18rem" class="icon" alt="GitHub"/>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://open.spotify.com/playlist/4PbqKGbteDh1Mnr0xtuZoV?si=uDYSZRU8TGqzmym9z7icMQ"
+                         target="_blank" class="spotify">
+                        <img src="{{ base_url() }}/images/spotify.svg" width="18.0rem" class="icon" alt="Spotify">
+                      </a>
+                    </li>
+                    <li>
+                      <div class="scroller">
+                        <h6>
+                          inbox - follow and add songs to the playlist
+                        </h6>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            {% endblock %}
+          </div>
+          <div class="col-4">
+            <p>
+              Feel free to contact me everytime over mail or using the
+              <a href="{{ path_for('contact') }}">contact</a> form.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
 {% endblock %}
+
+<script src="{{ base_url() }}/js/main.js"></script>
+{% block scripts %}{% endblock %}
 </body>
 </html>

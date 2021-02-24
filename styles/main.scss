@@ -20,11 +20,18 @@ html {
 }
 
 body {
-	color: var(--text-color);
+  color: var(--text-color);
   background-color: var(--bg-color);
-	font-size: 1rem;
+  font-size: 1rem;
   font-family: 'Cerebri Sans', 'Helvetica Neue', 'Roboto', sans-serif;
   line-height: 1.6;
+  /*
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  */
 }
 
 * {
@@ -36,8 +43,8 @@ body {
 
 
 .container {
-  padding: 2em 0 0 2em;
-  float: left;
+  padding: 2em 2em 0 2em;
+  float: none;
 }
 
 .container-b {
@@ -45,7 +52,7 @@ body {
   float: none;
 }
 
-p, a, li {
+p, li {
   font-weight: 300;
   font-size: 1.25rem;
   line-height: 1.58;
@@ -128,9 +135,9 @@ li.active > a {
   float: right;
   margin-top: 1.5em;
 }
-ul.nav a { font-size: 1.2rem; }
+ul.nav a { font-size: 1.2rem; font-weight: 600; }
 ul.nav li {
-  margin: 0 3em 0 0;
+  margin: 0 2em 0 0;
   float: left;
 }
 
@@ -201,7 +208,7 @@ footer {
 }
 
 .intro > p {
-	font-size: 2em;
+	font-size: 1.7em;
 	font-weight: 100;
 	line-height: 1.3;
 }
@@ -370,13 +377,17 @@ html[data-theme="dark"] #dark-light-switch:after {
   .container {
     width: 100%;
     max-width: 100%;
-    padding: 0;
     margin: 0;
+    padding: 2em 0 0 0;
   }
-  .container.main {
+  .main {
     margin: 0 auto;
     padding: 0;
     width: 90%;
+  }
+
+  footer > .main {
+    text-align: center;
   }
 
   .intro > p { font-size: 1.7em; }

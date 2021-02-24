@@ -10,50 +10,52 @@
 {% block content %}
   {% set breadcrumb = "Contact / Form" %}
   {{ parent() }}
-  <div class="row">
-    <div class="col-6">
-      <img src="images/cs_contact.jpeg" class="image" title="contact christoph sonntag" alt="contact christoph sonntag">
-    </div>
-    <div class="col-6">
-      <p>
-        {% if not success or not error %}
-          I hope you're fine.
-        {% endif %}
-        <span class="success response">{{ success }}</span>
-        <span class="error response">{{ error }}</span>
-      </p>
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <img src="images/cs_contact.jpeg" class="image" title="contact christoph sonntag" alt="contact christoph sonntag">
+      </div>
+      <div class="col-6">
+        <p>
+          {% if not success or not error %}
+            I hope you're fine.
+          {% endif %}
+          <span class="success response">{{ success }}</span>
+          <span class="error response">{{ error }}</span>
+        </p>
 
-      <form action="{{ path_for('contact-post') }}" method="POST">
-        <fieldset class="form-item fields name">
-          <legend class="title">Name *</legend>
-          <div class="field first-name">
-            <label class="caption">
-              <input class="field-element" name="first_name" type="text" required aria-required="true">
-              <span class="caption-text">First Name</span>
-            </label>
+        <form action="{{ path_for('contact-post') }}" method="POST">
+          <fieldset class="form-item fields name">
+            <legend class="title">Name *</legend>
+            <div class="field first-name">
+              <label class="caption">
+                <input class="field-element" name="first_name" type="text" required aria-required="true">
+                <span class="caption-text">First Name</span>
+              </label>
+            </div>
+            <div class="field last-name">
+              <label class="caption">
+                <input class="field-element" name="last_name" type="text" required aria-required="true">
+                <span class="caption-text">Last Name</span>
+              </label>
+            </div>
+          </fieldset>
+          <div class="form-item field">
+            <label class="title" for="email">E-mail *</label>
+            <input class="field-element" type="email" id="email" name="email" autocomplete="email" required aria-required="true">
           </div>
-          <div class="field last-name">
-            <label class="caption">
-              <input class="field-element" name="last_name" type="text" required aria-required="true">
-              <span class="caption-text">Last Name</span>
-            </label>
+          <div class="form-item field">
+            <label class="title" for="message">Message *</label>
+            <textarea class="field-element" id="message" name="message" required aria-required="true"></textarea>
           </div>
-        </fieldset>
-        <div class="form-item field">
-          <label class="title" for="email">E-mail *</label>
-          <input class="field-element" type="email" id="email" name="email" autocomplete="email" required aria-required="true">
-        </div>
-        <div class="form-item field">
-          <label class="title" for="message">Message *</label>
-          <textarea class="field-element" id="message" name="message" required aria-required="true"></textarea>
-        </div>
-        <div class="form-item field">
-          <div class="g-recaptcha" data-sitekey="6LebUOsUAAAAAJO5BxxGEjV--ftcVKau8W32TUXG"></div>
-        </div>
-        <div class="form-item field">
-          <input class="button" type="submit" value="Send...">
-        </div>
-      </form>
+          <div class="form-item field">
+            <div class="g-recaptcha" data-sitekey="6LebUOsUAAAAAJO5BxxGEjV--ftcVKau8W32TUXG"></div>
+          </div>
+          <div class="form-item field">
+            <input class="button" type="submit" value="Send...">
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 {% endblock %}

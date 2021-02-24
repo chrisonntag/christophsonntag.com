@@ -19,60 +19,62 @@
 {% block content %}
   {% set breadcrumb = "Home / Newsletter" %}
   {{ parent() }}
-  <div class="row">
-    <div class="col-7">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
 
-      <h1>Newsletter</h1>
+        <h1>Newsletter</h1>
 
-      <p>
-        Hier k&ouml;nnt ihr euch f&uuml;r meinen w&ouml;chentlich erscheinenden Newsletter anmelden,
-        welcher in
-        <em><strong>unregelm&auml;&szlig;igen</strong></em> Abst&auml;nden (meistens sonntags) erscheint.
-      </p>
+        <p>
+          Hier k&ouml;nnt ihr euch f&uuml;r meinen w&ouml;chentlich erscheinenden Newsletter anmelden,
+          welcher in
+          <em><strong>unregelm&auml;&szlig;igen</strong></em> Abst&auml;nden (meistens sonntags) erscheint.
+        </p>
 
-      <br/>
+        <br/>
 
 
-      <!-- Begin Mailchimp Signup Form -->
+        <!-- Begin Mailchimp Signup Form -->
 
-      <div id="mc_embed_signup">
-        <form action="https://snn.us4.list-manage.com/subscribe/post?u=88a6559107d0329a0a63b777f&amp;id=0417465557"
-              method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
-              class="validate" target="_blank" novalidate>
-          <div id="mc_embed_signup_scroll">
+        <div id="mc_embed_signup">
+          <form action="https://snn.us4.list-manage.com/subscribe/post?u=88a6559107d0329a0a63b777f&amp;id=0417465557"
+                method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                class="validate" target="_blank" novalidate>
+            <div id="mc_embed_signup_scroll">
 
-            <div class="mc-field-group">
-              <label for="mce-EMAIL"><strong>Email-Addresse</strong> </label>
-              <input type="email" value="" name="EMAIL" placeholder="meinemail@web.de"
-                     class="required email" id="mce-EMAIL">
+              <div class="mc-field-group">
+                <label for="mce-EMAIL"><strong>Email-Addresse</strong> </label>
+                <input type="email" value="" name="EMAIL" placeholder="meinemail@web.de"
+                       class="required email" id="mce-EMAIL">
+              </div>
+              <div class="mc-field-group input-group">
+                <strong>Format </strong>
+                <ol>
+                  <li><input type="radio" value="html" name="EMAILTYPE" id="mce-EMAILTYPE-0"><label
+                            for="mce-EMAILTYPE-0"> HTML (sieht bisschen besser aus)</label></li>
+                  <li><input type="radio" value="text" name="EMAILTYPE" id="mce-EMAILTYPE-1"><label
+                            for="mce-EMAILTYPE-1"> reiner Text</label></li>
+                </ol>
+              </div>
+              <div id="mce-responses" class="clear">
+                <div class="response" id="mce-error-response" style="display:none"></div>
+                <div class="response" id="mce-success-response" style="display:none"></div>
+              </div>
+              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+              <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                                                                                        name="b_88a6559107d0329a0a63b777f_0417465557"
+                                                                                        tabindex="-1"
+                                                                                        value="">
+              </div>
+              <div class="clear"><input type="submit" value="Anmelden" name="subscribe"
+                                        id="mc-embedded-subscribe" class="button"></div>
             </div>
-            <div class="mc-field-group input-group">
-              <strong>Format </strong>
-              <ol>
-                <li><input type="radio" value="html" name="EMAILTYPE" id="mce-EMAILTYPE-0"><label
-                          for="mce-EMAILTYPE-0"> HTML (sieht bisschen besser aus)</label></li>
-                <li><input type="radio" value="text" name="EMAILTYPE" id="mce-EMAILTYPE-1"><label
-                          for="mce-EMAILTYPE-1"> reiner Text</label></li>
-              </ol>
-            </div>
-            <div id="mce-responses" class="clear">
-              <div class="response" id="mce-error-response" style="display:none"></div>
-              <div class="response" id="mce-success-response" style="display:none"></div>
-            </div>
-            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
-                                                                                      name="b_88a6559107d0329a0a63b777f_0417465557"
-                                                                                      tabindex="-1"
-                                                                                      value="">
-            </div>
-            <div class="clear"><input type="submit" value="Anmelden" name="subscribe"
-                                      id="mc-embedded-subscribe" class="button"></div>
-          </div>
-        </form>
+          </form>
+        </div>
+
+        <!--End mc_embed_signup-->
       </div>
 
-      <!--End mc_embed_signup-->
     </div>
-
   </div>
 {% endblock %}

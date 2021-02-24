@@ -1,67 +1,29 @@
 {% extends "base.twig" %}
 
 {% block title %}Home{% endblock %}
+{% block head %}
+{{ parent() }}
+  <link rel="stylesheet" type="text/css" href="{{ base_url() }}/css/grid.css">
+{% endblock %}
 
 {% block content %}
-  {% set breadcrumb = "Home" %}
-  {{ parent() }}
-
-  <div class="row">
-    <div class="col-9 intro">
-      <h1>Christoph Sonntag.</h1>
-      <p>
-        Software Engineer interested in using computer science methods and technologies for
-        helping to solve up-coming challenges for humanity.
-      </p>
-    </div>
-  </div>
-
-
-
-  <div class="row">
-    <div class="col-8" id="about">
-      <h2>About Me</h2>
-      <p>
-        I'm a passionate programmer, mostly using Python and started diving into Deep Learning
-        during the work on my bachelor thesis about a multi-labeling problem involving the
-        idea of Residual Networks. What makes me happy is to work with a skillful team on
-        something that makes a difference in the world.
-
-      </p>
-      <p>Here are a few technologies I've been working with recently:</p>
-      <ul>
-        <li>Python, PHP, Java, Javascript, C</li>
-        <li>Django, Laravel, Classical Web Stack (HTML, CSS, MySQL, ...)</li>
-        <li>Unix Systems, Vim, LaTeX, Git, JetBrains IDEs</li>
-      </ul>
-    </div>
-
-    <div class="col-4 box" draggable="true">
-      <ul>
-        <li><a href="https://github.com/chrisonntag">github.com/chrisonntag</a></li>
-        <li><a href="https://linkedin.com/in/chrisonntag">linkedin.com/chrisonntag</a></li>
-        <li><a href="http://lnk.snn.tg/spotify">spotify.com/chrisonntag</a></li>
-        <li><a href="https://twitter.com/chrisonntag">twitter.com/chrisonntag</a></li>
-        <li><a href="https://soundcloud.com/chrisonntag">soundcloud.com/chrisonntag</a></li>
-        <li><a href="mailto:forename at snn.tg">mail/christoph</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <br />
-  <br />
-
-  <div class="row desktop-only">
-    <div class="col-12">
-      <div class="row hero">
-        <div class="col-4 feature-image">
-          <img class="image" src="{{ base_url() }}/images/cs.jpg" />
-        </div>
-        <div class="col-8">
-          <a class="inverted" href="https://github.com/chrisonntag/cv/raw/master/dist/cv.pdf">Download my CV</a> or
-        send a secure message via <a class="inverted" href="{{ path_for('pgp') }}">PGP</a>. I'm German, speak English
-        and just started to learn French. I also love playing guitar and drums.
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 intro">
+        <h1>Christoph Sonntag.</h1>
+        <p>
+          Software Engineer interested in using computer science methods and technologies for
+          helping to solve up-coming challenges for humanity.
+        </p>
+        <p>
+          I'm a passionate programmer based in
+          <a href="https://www.openstreetmap.org/relation/109166">Vienna, Austria</a>,
+          mostly using Python. I started diving into Deep Learning recently
+          during the work on my bachelor's thesis.
+          <a href="https://github.com/chrisonntag/cv/raw/master/dist/cv.pdf">Download my CV</a> or
+          send a secure message via <a href="{{ path_for('pgp') }}">PGP</a>. I'm German, speak English
+          and just started to learn French. I also love playing the guitar and drums.
+        </p>
       </div>
     </div>
   </div>
@@ -69,47 +31,79 @@
   <br />
   <br />
 
-  <div class="row center">
-
-    <div class="col-6">
-      <h2>Projects &amp; Interests</h2>
-      <ol>
-        <li>
-          <a href="http://mmetering.chrisonntag.com"
-             title="MMetering is an administration software for recording and evaluating electricity meter data in both private and community houses.">MMetering</a>:
-          Smart Metering for private and community houses.
-        </li>
-        <li>
-          <a href="https://github.com/chrisonntag/grundkurs-programmieren">Programming Basic
-            Course</a>: Beginners course for non-computer science students at the University of
-          Passau (Universit&auml;t Passau).
-        </li>
-        <li>
-          Participate in events like <a href="https://hackzurich.com">HackZurich</a>.
-        </li>
-        <li>
-          Various professional contract work for customers in Germany <em>(since 2013)</em>.
-        </li>
-      </ol>
-    </div>
-    <div class="col-6">
-      <h2>Education</h2>
-      <ul class="spaced">
-        <li>
-          <strong><em>B.Sc. Internet Computing</em></strong>, University of Passau, Germany
-          <br />
-          <a href="http://www.fim.uni-passau.de/">Faculty of
-            Computer Science and Mathematics</a>
-          <br />
-          <a href="https://fsinfo.fim.uni-passau.de">Student Committee Member</a>,
-          University of Passau
-        </li>
-        <li><strong><em>German Abitur (resp. A-Levels).</em></strong>, Gymnasium Neutraubling, Germany</li>
-      </ul>
+  <!--
+  <div class="grid-content">
+    <div class="grid">
+      <div class="grid__item pos-1">
+        <div class="grid__item-img" style="background-image:url(images/projects/1.jpg);"></div>
+        <h3 class="grid--item-title">MMetering</h3>
+      </div>
+      <div class="grid__item pos-2"><div class="grid__item-img" style="background-image:url(images/projects/2.jpg);"></div></div>
+      <div class="grid__item pos-3"><div class="grid__item-img" style="background-image:url(images/projects/3.jpg);"></div></div>
+      <div class="grid__item pos-4"><div class="grid__item-img" style="background-image:url(images/projects/4.jpg);"></div></div>
+      <div class="grid__item pos-5"><div class="grid__item-img" style="background-image:url(images/projects/5.jpg);"></div></div>
+      <div class="grid__item pos-6">
+        <div class="grid__item-img" style="background-image:url(images/projects/6.jpg);"></div>
+        <h3 class="grid--item-title">MMetering</h3>
+      </div>
+      <div class="grid__item pos-7"><div class="grid__item-img" style="background-image:url(images/projects/7.jpg);"></div></div>
+      <div class="grid__item pos-8">
+        <div class="grid__item-img" style="background-image:url(images/projects/8.jpg);"></div>
+        <h3 class="grid--item-title">MMetering</h3>
+      </div>
+      <div class="grid__item pos-9"><div class="grid__item-img" style="background-image:url(images/projects/9.jpg);"></div></div>
+      <div class="grid__item pos-10"><div class="grid__item-img" style="background-image:url(images/projects/10.jpg);"></div></div>
     </div>
   </div>
 
+  <br />
+  <br />
+  <br />
+  <br />
+  -->
 
+  <div class="container">
+    <div class="row center">
+      <div class="col-6">
+        <h2>Projects &amp; Interests</h2>
+        <ol>
+          <li>
+            <a href="http://mmetering.chrisonntag.com"
+               title="MMetering is an administration software for recording and evaluating electricity meter data in both private and community houses.">MMetering</a>:
+            Smart Metering for private and community houses.
+          </li>
+          <li>
+            <a href="https://github.com/chrisonntag/grundkurs-programmieren">Programming Basic
+              Course</a>: Beginners course for non-computer science students at the University of
+            Passau (Universit&auml;t Passau).
+          </li>
+          <li>
+            Participate in events like <a href="https://hackzurich.com">HackZurich</a>.
+          </li>
+          <li>
+            Various professional contract work for customers in Germany <em>(since 2013)</em>.
+          </li>
+        </ol>
+      </div>
+      <div class="col-6">
+        <h2>Education</h2>
+        <ul class="spaced">
+          <li>
+            <strong><em>B.Sc. Internet Computing</em></strong>, University of Passau, Germany
+            <br />
+            <a href="http://www.fim.uni-passau.de/">Faculty of
+              Computer Science and Mathematics</a>
+            <br />
+            <a href="https://fsinfo.fim.uni-passau.de">Student Committee Member</a>,
+            University of Passau
+          </li>
+          <li><strong><em>German Abitur (resp. A-Levels).</em></strong>, Gymnasium Neutraubling, Germany</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-
+{% endblock %}
+{% block scripts %}
+  <script src="{{ base_url() }}/js/app.bundle.js"></script>
 {% endblock %}

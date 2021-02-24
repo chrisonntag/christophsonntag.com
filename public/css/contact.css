@@ -2,14 +2,14 @@
 Base file setting up font and colors for later use.
  */
 @import url("https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500&display=swap");
-:root[data-theme="light"] {
+:root[data-theme=light] {
   --depth-contrast: #1e1f26;
   --depth-0: #e9e9e9;
   --depth-1: #b1b1b1;
   --depth-2: #c1c1c1;
   --depth-3: #e9e9e9;
   --depth-4: #f2f2f2;
-  --bg-color: #f5f8f8;
+  --bg-color: #f8f8f8;
   --contrast-color: #C8262D;
   --contrast-color-bright: #f72a37;
   --navigation-color: var(--bg-color);
@@ -26,11 +26,12 @@ Base file setting up font and colors for later use.
   --field-color-border: var(--depth-1);
   --selection-color: #fff;
   --selection-bg-color: #0e0e0e;
-  --footer-bg-color: var(--depth-0); }
+  --footer-bg-color: var(--depth-0);
+}
 
 /*Dark Theme:
 */
-:root[data-theme="dark"] {
+:root[data-theme=dark] {
   --depth-contrast: #cccccc;
   --depth-0: #131313;
   --depth-1: #212121;
@@ -54,70 +55,86 @@ Base file setting up font and colors for later use.
   --field-color-border: var(--depth-4);
   --selection-color: #0e0e0e;
   --selection-bg-color: #fdfdfd;
-  --footer-bg-color: var(--navigation-color); }
+  --footer-bg-color: var(--navigation-color);
+}
 
 @font-face {
   font-family: "Cerebri Sans";
   src: url(../fonts/Cerebri-Sans/CerebriSans-Light.eot);
   src: url(../fonts/Cerebri-Sans/CerebriSans-Light.ttf);
   font-weight: 300;
-  font-style: normal; }
+  font-style: normal;
+}
 @font-face {
   font-family: "Cerebri Sans";
   src: url(../fonts/Cerebri-Sans/CerebriSans-Regular.eot);
   src: url(../fonts/Cerebri-Sans/CerebriSans-Regular.ttf);
   font-weight: 500;
-  font-style: normal; }
+  font-style: normal;
+}
 @font-face {
   font-family: "Cerebri Sans";
   src: url(../fonts/Cerebri-Sans/CerebriSans-Bold.eot);
   src: url(../fonts/Cerebri-Sans/CerebriSans-Bold.ttf);
   font-weight: 700;
-  font-style: normal; }
+  font-style: normal;
+}
 fieldset {
   border: 0;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 form fieldset, form legend {
   margin: 0;
   padding: 0;
-  border: 0; }
+  border: 0;
+}
 
 form .fields {
-  margin: 0 0 0 -2%; }
+  margin: 0 0 0 -2%;
+}
 
 form .form-item .title {
   font-size: 1em;
   font-weight: normal;
-  color: var(--text-color); }
+  color: var(--text-color);
+}
 
 form .field {
-  margin-bottom: 2em; }
+  margin-bottom: 2em;
+}
 
 form .fields.name .field {
-  width: 48%; }
+  width: 48%;
+}
 
 form .fields .field {
-  float: left; }
+  float: left;
+}
 
 form .fields .title, .fields .description, .fields .field, .fields .field-error {
-  margin-left: 2%; }
+  margin-left: 2%;
+}
 
 form .caption {
-  font-size: .8em; }
+  font-size: 0.8em;
+}
 
 label {
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 form .field {
   position: relative;
-  margin: 0 0 24px; }
+  margin: 0 0 24px;
+}
 
 form .field-element {
   -moz-border-radius: 2px;
   border-radius: 2px;
-  box-shadow: none; }
+  box-shadow: none;
+}
 
 form .field .field-element {
   width: 100%;
@@ -131,29 +148,35 @@ form .field .field-element {
   line-height: normal;
   box-sizing: border-box;
   -moz-border-radius: 2px;
-  border-radius: 2px; }
+  border-radius: 2px;
+}
 
 button, input, select, textarea {
   font-size: 100%;
   margin: 0;
   vertical-align: baseline;
-  *vertical-align: middle; }
+  *vertical-align: middle;
+}
 
 textarea {
   min-height: 100px;
   resize: vertical;
   overflow: auto;
-  vertical-align: top; }
+  vertical-align: top;
+}
 
 .response {
   padding: 1em;
-  width: 100%; }
+  width: 100%;
+}
 
 .response.error {
-  color: var(--contrast-color); }
+  color: var(--contrast-color);
+}
 
 .response.success {
   color: var(--depth-0);
-  font-weight: 500; }
+  font-weight: 500;
+}
 
 /*# sourceMappingURL=contact.css.map */
