@@ -2,6 +2,8 @@
 Base file setting up font and colors for later use.
  */
 @import url("https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,500;1,100;1,400&display=swap");
 :root[data-theme=light] {
   --depth-contrast: #1e1f26;
   --depth-0: #e9e9e9;
@@ -9,14 +11,22 @@ Base file setting up font and colors for later use.
   --depth-2: #c1c1c1;
   --depth-3: #e9e9e9;
   --depth-4: #f2f2f2;
-  --bg-color: #f8f8f8;
-  --contrast-color: #C8262D;
-  --contrast-color-bright: #f72a37;
+  --blue: #00008C;
+  --light-blue: #00468c;
+  --purple: #46008c;
+  --green: #008c46;
+  --black: #000;
+  --orig-red: #C8262D;
+  --white: var(--depth-0);
+  --bg-color: #F3F4F6;
+  --contrast-color: var(--purple);
+  --contrast-color-bright: scale-color(var(--contrast-color), lightness, 50%);
   --navigation-color: var(--bg-color);
   --navigation-border-color: var(--bg-color);
-  --heading-color: #000;
-  --heading-light-color: #414141;
-  --text-color: #0e0d0d;
+  --heading-color: var(--blue);
+  --heading-inverted-color: var(--white);
+  --heading-light-color: scale-color(var(--heading-color), lightness, 50%);
+  --text-color: var(--black);
   --link-color: #a2a2a2;
   --link-hover-color: var(--contrast-color);
   --link-visited-color: var(--link-color);
@@ -26,7 +36,7 @@ Base file setting up font and colors for later use.
   --field-color-border: var(--depth-1);
   --selection-color: #fff;
   --selection-bg-color: #0e0e0e;
-  --footer-bg-color: var(--depth-0);
+  --footer-bg-color: var(--blue);
 }
 
 /*Dark Theme:
@@ -79,6 +89,14 @@ Base file setting up font and colors for later use.
   font-weight: 700;
   font-style: normal;
 }
+.hidden {
+  position: absolute;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
 .linktree-element {
   background-color: var(--depth-contrast);
   border: 3px solid var(--depth-contrast);

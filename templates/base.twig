@@ -34,7 +34,7 @@
 <body class="loading">
 {% block body %}
 
-  <nav class="navigation container-b">
+  <nav class="navigation">
     <div class="row">
       <div class="col-2">
         <div class="header">
@@ -86,13 +86,20 @@
   <br/>
   <br/>
 
-  <div class="row text-center desktop-only">
-    <div class="col-12">
-      <h3>Join the Newsletter</h3>
-      <p>
-        For irregularly published notes on current world events, memes and Wikipedia articles.<br/>
-        <a href="{{ path_for('newsletter') }}">Register here</a>
-      </p>
+  <div class="container">
+    <div class="row desktop-only">
+      <div class="col-6">
+          <a href="{{ path_for('newsletter') }}" class="outline-hover">
+            <h1 class="serif">Join my Newsletter</h1>
+          </a>
+      </div>
+      <div class="col-6">
+        <p>
+          You can expect irregularly published notes on current world events, memes, short stories,
+          articles and essays from various renowned guest writers and astonishing Wikipedia articles.<br/>
+        </p>
+        <p>Make sure not to <a href="{{ path_for('newsletter') }}">miss it</a>!</p>
+      </div>
     </div>
   </div>
 
@@ -102,7 +109,7 @@
         <div class="row">
           <div class="col-2">
             <p>
-              <a class="logo" href="{{ path_for('home') }}"><img src="{{ base_url() }}/images/pagelogo.svg"></a>
+              <a class="logo" href="{{ path_for('home') }}"><img src="{{ base_url() }}/images/pagelogo_white.svg"></a>
             </p>
           </div>
           <div class="col-3">

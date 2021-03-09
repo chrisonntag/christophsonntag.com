@@ -1,39 +1,72 @@
-const imagesLoaded = require('imagesloaded');
+/**
+ * A collection of commonly used utility functions.
+ */
+class Util {
+    /**
+     * Throttles a function.
+     * @param callback
+     * @param wait
+     * @param context
+     * @returns {Function}
+     */
+    static throttle(callback, wait = 200, context = this) {
+        let last;
+        let deferTimer;
 
-// Map number x from range [a, b] to [c, d]
-const map = (x, a, b, c, d) => (x - a) * (d - c) / (b - a) + c;
+        return function() {
+            let now = +new Date();
+            let args = arguments;
 
-// Linear interpolation
-const lerp = (a, b, n) => (1 - n) * a + n * b;
-
-const calcWinsize = () => {
-    return {width: window.innerWidth, height: window.innerHeight};
-};
-
-const getRandomNumber = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
-
-// Gets the mouse position
-const getMousePos = (e) => {
-    let posx = 0;
-    let posy = 0;
-    if (!e) e = window.event;
-    if (e.pageX || e.pageY) {
-        posx = e.pageX;
-        posy = e.pageY;
+            if (last && now < last + wait) {
+                // preserve by debouncing the last call
+                clearTimeout(deferTimer);
+                deferTimer = setTimeout(function() {
+                    last = now;
+                    callback.apply(context, args);
+                }, wait);
+            } else {
+                last = now;
+                callback.apply(context, args);
+            }
+        };
     }
-    else if (e.clientX || e.clientY)    {
-        posx = e.clientX + body.scrollLeft + document.documentElement.scrollLeft;
-        posy = e.clientY + body.scrollTop + document.documentElement.scrollTop;
+
+    /**
+     * Debounces a function.
+     * @param callback
+     * @param wait
+     * @param context
+     * @returns {Function}
+     */
+    static debounce(callback, wait = 200, context = this) {
+        let timeout = null;
+        let callbackArgs = null;
+
+        const later = () => callback.apply(context, callbackArgs);
+
+        return function() {
+            callbackArgs = arguments;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
     }
 
-    return { x : posx, y : posy }
-};
+    static addEventListenerBySelector(className, event, fn) {
+        var list = document.querySelectorAll(className);
+        for (var i = 0, len = list.length; i < len; i++) {
+            list[i].addEventListener(event, fn, false);
+        }
+    }
 
-// Preload images
-const preloadImages = (selector) => {
-    return new Promise((resolve, reject) => {
-        imagesLoaded(document.querySelectorAll(selector), resolve);
-    });
-};
+    static lerp(a, b, n) {
+        return (1 - n) * a + n * b;
+    }
 
-export { map, lerp, calcWinsize, getRandomNumber, getMousePos, preloadImages };
+    static map(value, in_min, in_max, out_min, out_max) {
+        return (
+            ((value - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
+        );
+    }
+}
+
+export default Util;
