@@ -24,6 +24,7 @@
     <div class="col-12">
       <div class="headline">
         <a href="{{ path_for('article', {'slug': article.meta.slug}) }}">
+          <img src="{{ path_for('article', {'slug': article.meta.slug}) }}/{{ article.meta.image }}" />
           <h2 class="p6">{{ article.meta.title }}</h2>
         </a>
         <span class="subtitle">

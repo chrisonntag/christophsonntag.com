@@ -5,6 +5,7 @@
   "scripts": {
     "clean": "rm -rf tmp/*",
     "build:sass": "sass styles:public/css",
+    "watch:sass": "sass --watch styles:public/css",
     "build:parcel": "parcel build public/js/app.js --no-content-hash --no-minify --no-source-maps --out-dir public/js --out-file app.bundle.js --public-url ./",
     "build": "npm run clean && npm run build:parcel && npm run build:sass"
   },

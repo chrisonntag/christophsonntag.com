@@ -128,7 +128,7 @@ function extract_article($path) {
     $content = $Parsedown->text($content);
 
     return array(
-        'meta' => $meta ,
+        'meta' => $meta,
         'content' => $content
     );
 }

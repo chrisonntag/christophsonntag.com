@@ -27,6 +27,10 @@
     <link rel="canonical" href="https://christoph.snn.tg">
 
     <link rel="shortcut icon" href="{{ base_url() }}/images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+          rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ base_url() }}/css/simple-grid.min.css">
     <link rel="stylesheet" type="text/css" href="{{ base_url() }}/css/main.css">
   {% endblock %}
@@ -34,12 +38,20 @@
 <body class="loading">
 {% block body %}
 
-  <nav class="navigation">
-    <div class="row">
-      <div class="col-2">
-        <div class="header">
-          <a class="logo" href="{{ path_for('home') }}"><img src="{{ base_url() }}/images/pagelogo.svg"></a>
-          <div class="mobile mobile-nav-button">
+  <header id="header">
+
+    <div class="header-main">
+        <div class="box-left">
+          <div class="item">
+            <a class="logo" href="{{ path_for('home') }}"><img alt="Christoph Sonntag" src="{{ base_url() }}/images/pagelogo.svg"></a>
+          </div>
+        </div>
+
+      <div class="box-middle"></div>
+
+      <div class="box-right">
+        <div>
+          <div class="mobile item mobile-nav-button">
             <input id="burger" onclick="slideToggle('navigation-list')" type="checkbox" value="0"/>
             <label for="burger">
               <span></span>
@@ -48,23 +60,51 @@
             </label>
           </div>
         </div>
-      </div>
-      <div class="col-10">
-        <ul class="nav float-right" id="navigation-list">
-          <li {% if is_current_path('home') %}class="active"{% endif %}><a href="{{ path_for('home') }}">Home</a></li>
-          <li {% if is_current_path('links') %}class="active"{% endif %}><a href="{{ path_for('links') }}">Links</a>
+        <ul class="nav">
+          <li {% if is_current_path('home') %}class="active item"{% else %}class="item"{% endif %}>
+            <a href="{{ path_for('home') }}">
+              <span class="material-icons-round">home</span>
+            </a>
           </li>
-          <li {% if is_current_path('contact') %}class="active"{% endif %}><a
-                    href="{{ path_for('contact') }}">Contact</a></li>
-          <li style="position: relative; margin-left: 2em;">
-            <div class="switch-wrapper">
-              <div id="dark-light-switch"></div>
+          <li {% if is_current_path('links') %}class="active item"{% else %}class="item"{% endif %}>
+            <a href="{{ path_for('links') }}">
+              Links
+            </a>
+          </li>
+          <li {% if is_current_path('contact') %}class="active item"{% else %}class="item"{% endif %}>
+            <a href="{{ path_for('contact') }}">
+              Contact
+            </a>
+          </li>
+          <li class="item">
+            <div class="scroller">
+              <a target="_blank" href="https://open.spotify.com/playlist/4PbqKGbteDh1Mnr0xtuZoV?si=uDYSZRU8TGqzmym9z7icMQ">
+                  inbox playlist - follow and add songs to it
+              </a>
             </div>
           </li>
         </ul>
       </div>
     </div>
-  </nav>
+  </header>
+
+  <ul id="navigation-list" class="nav mobile">
+    <li {% if is_current_path('home') %}class="active item"{% else %}class="item"{% endif %}>
+      <a href="{{ path_for('home') }}">
+        <span class="material-icons-round">home</span>
+      </a>
+    </li>
+    <li {% if is_current_path('links') %}class="active item"{% else %}class="item"{% endif %}>
+      <a href="{{ path_for('links') }}">
+        Links
+      </a>
+    </li>
+    <li {% if is_current_path('contact') %}class="active item"{% else %}class="item"{% endif %}>
+      <a href="{{ path_for('contact') }}">
+        Contact
+      </a>
+    </li>
+  </ul>
 
   <main class="main">
     {% block content %}
@@ -79,7 +119,6 @@
         </div>
       </div>
     {% endblock %}
-
   </main>
 
   <br/>
@@ -96,14 +135,15 @@
       <div class="col-6">
         <p>
           You can expect irregularly published notes on current world events, memes, short stories,
-          articles and essays from various renowned guest writers and astonishing Wikipedia articles.<br/>
+          Wikipedia articles and essays from various renowned guest writers.<br/>
         </p>
         <p>Make sure not to <a href="{{ path_for('newsletter') }}">miss it</a>!</p>
       </div>
     </div>
   </div>
 
-  <footer>
+  {% block footer %}
+    <footer>
     <div class="main">
       <div class="container">
         <div class="row">
@@ -112,60 +152,75 @@
               <a class="logo" href="{{ path_for('home') }}"><img src="{{ base_url() }}/images/pagelogo_white.svg"></a>
             </p>
           </div>
-          <div class="col-3">
-            <ul>
-              <li><a href="{{ path_for('home') }}#about">About</a></li>
-              <li {% if is_current_path('links') %}class="active"{% endif %}><a href="{{ path_for('links') }}">Links</a>
-              </li>
-              <li {% if is_current_path('contact') %}class="active"{% endif %}><a
-                        href="{{ path_for('contact') }}">Contact</a></li>
-              <li><a href="{{ path_for('imprint') }}">Imprint</a></li>
-              <li><a href="https://paypal.me/chrisonntag/2.50" target="_blank">Buy me a Coffee</a></li>
-            </ul>
-          </div>
-          <div class="col-3">
-            {% block footer %}
-              <ul>
-                <li>
-                  <ul class="social">
-                    <li>
-                      <a href="https://instagram.com/chrisonntag" target="_blank">
-                        <img src="{{ base_url() }}/images/instagram.svg" width="18rem" class="icon" alt="Instagram"/>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://github.com/chrisonntag" target="_blank">
-                        <img src="{{ base_url() }}/images/github.svg" width="18rem" class="icon" alt="GitHub"/>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="https://open.spotify.com/playlist/4PbqKGbteDh1Mnr0xtuZoV?si=uDYSZRU8TGqzmym9z7icMQ"
-                         target="_blank" class="spotify">
-                        <img src="{{ base_url() }}/images/spotify.svg" width="18.0rem" class="icon" alt="Spotify">
-                      </a>
-                    </li>
-                    <li>
-                      <div class="scroller">
-                        <h6>
-                          inbox - follow and add songs to the playlist
-                        </h6>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            {% endblock %}
-          </div>
+        </div>
+        <div class="row">
           <div class="col-4">
             <p>
               Feel free to contact me everytime over mail or using the
               <a href="{{ path_for('contact') }}">contact</a> form.
             </p>
           </div>
+          <div class="col-3">
+            <h4>Content</h4>
+            <ul>
+              <li><a href="{{ path_for('home') }}#about">About</a></li>
+              <li><a href="{{ path_for('links') }}">Links</a>
+              </li>
+              <li>
+                <a href="{{ path_for('contact') }}">Contact</a></li>
+              <li><a href="https://paypal.me/chrisonntag/2.50" target="_blank">Buy me a coffee</a></li>
+            </ul>
+          </div>
+          <div class="col-3">
+              <h4>Social</h4>
+              <ul>
+                <li>
+                  <ul class="social">
+                    <li>
+                      <a href="https://instagram.com/chrisonntag" target="_blank">
+                        Instagram
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://github.com/chrisonntag" target="_blank">
+                        GitHub
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://open.spotify.com/playlist/4PbqKGbteDh1Mnr0xtuZoV?si=uDYSZRU8TGqzmym9z7icMQ"
+                         target="_blank" class="spotify">
+                        Spotify
+                      </a>
+                    </li>
+                    <li>
+                      <div class="scroller">
+                        <h6>
+                          inbox playlist - follow and add songs to it
+                        </h6>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+          </div>
+          <div class="col-2">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="{{ path_for('imprint') }}">Imprint</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <p class="small">
+              &copy; Christoph Sonntag 2021. All rights reserved.
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </footer>
+  {% endblock %}
 
 {% endblock %}
 

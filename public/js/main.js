@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     }
 
     let today;
+    /*
     today = new Date(); //outputs date in 24hrs format
     if (today.getHours() > 7 && today.getHours() < 19) {
         // its day, use preferred setting
@@ -91,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
         //its night, enforce dark mode.
         switchTheme('dark')
     }
+     */
 
     /**
      * Toggles the current state of the dark/night mode.

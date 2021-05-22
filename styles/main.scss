@@ -55,7 +55,7 @@ main {
 
 .container-b {
   padding: 1.5em 0 0 0 !important;
-  max-width: 1300px;
+  max-width: 90rem;
   margin: 0 auto;
   float: none;
 }
@@ -65,7 +65,15 @@ p, li {
   font-weight: 400;
   line-height: 1.625 !important;
 }
-h1,h2,h3 { color: var(--heading-color); font-weight: 600; font-family: 'Montserrat', 'Helvetica Neue', 'Roboto', 'Lato', sans-serif; }
+h1,h2,h3 {
+  color: var(--heading-color);
+  font-weight: 600;
+  font-family: 'Montserrat', 'Helvetica Neue', 'Roboto', 'Lato', sans-serif;
+  line-height: 1.5
+}
+h1.base-heading, h2.base-heading, h3.base-heading {
+  color: var(--text-color) !important;
+}
 h1 { font-size: 4em; }
 h1:first-child {margin-top: 0}
 h3 { font-size: 1.5rem; }
@@ -124,10 +132,40 @@ ul.spaced-m > li {
   margin-bottom: 0.5em;
 }
 li.active > a {
-  color: var(--heading-color);
+  color: var(--heading-color) !important;
   font-weight: 400;
 }
 
+#header {
+  background-color: var(--bg-color);
+  height: 70px;
+  transition: background 0.3s;
+}
+
+#header .header-top, #header .header-main, #header {
+  border-color: #E6EAEA;
+}
+
+#header .header-main {
+  display: flex;
+  height: 70px;
+  border-bottom: 1px solid #E6EAEA;
+  border-bottom-color: rgb(230, 234, 234);
+}
+
+#header .header-main > .box-right {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+#header .item {
+  padding: 0 23px;
+  height: 70px;
+  border-right: 1px solid #E6EAEA;
+  cursor: pointer;
+  overflow: hidden;
+}
 
 .navigation {
   background-color: var(--navigation-color);
@@ -141,11 +179,9 @@ li.active > a {
   max-width: 1300px;
 }
 
-.header {
-  margin-bottom: 1em;
-}
 .logo > img {
-  width: 60px;
+  height: 40px;
+  margin-top: 15px;
   -webkit-transition: 550ms;
   transition: 550ms;
   opacity: 100%;
@@ -154,19 +190,21 @@ li.active > a {
   opacity: 60%;
 }
 
-.navigation ul.nav {
-  float: right;
-  margin-top: 1.5em;
-}
-ul.nav a { font-size: 1.2rem; font-weight: 600; }
-ul.nav li {
-  margin: 0 2em 0 0;
-  float: left;
-}
-
-ul.social li {
-  float: left;
+ul.nav {
+  border-left: 1px solid #E6EAEA;
   margin: 0;
+  overflow: hidden;
+}
+ul.nav a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-color);
+}
+ul.nav li.item {
+  padding: 23px !important;
+}
+ul.nav li {
+  float: left;
 }
 
 .float-right {
@@ -220,8 +258,21 @@ footer {
   padding-bottom: 3em !important;
   padding-top: 3em !important;
   margin: 3em 0 0 0;
-  color: var(--heading-inverted-color);
+  color: var(--white) !important;
   background-color: var(--footer-bg-color);
+}
+footer h4 {
+  color: var(--depth-1);
+}
+footer a {
+  color: var(--white) !important;
+}
+footer a:hover {
+  color: var(--white) !important;
+}
+footer .small {
+  font-size: 12px;
+  color: var(--depth-1);
 }
 .text-center { text-align: center; }
 .center {
@@ -287,13 +338,32 @@ footer {
   display: inline-block;
 }
 
-.box {
-  background-color: var(--depth-contrast);
+.card {
+  background-color: var(--greyish);
   box-sizing: border-box;
-  border-radius: 9px;
+  padding: 1em 2.5em;
 }
-.box > ul {
-  padding: 0 0 0 1.5em;
+.card > p {
+  font-size: 0.9rem !important;
+}
+
+.article-preview {
+  position: relative;
+}
+.article-preview .preview-image {
+  width: 100%;
+  height: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.tag {
+  padding: 6px 12px;
+  color: var(--contrast-color);
+  background-color: var(--contrast-color-bright);
+  font-size: 0.7rem;
+  font-weight: 500;
 }
 
 .hero.row {
@@ -309,6 +379,11 @@ footer {
 .hero > .feature-image {
   margin: 0;
   line-height: 0;
+}
+
+.light-box {
+  background-color: var(--crema);
+  padding: 1em;
 }
 
 /* Used on the links page */
@@ -420,10 +495,6 @@ html[data-theme="dark"] #dark-light-switch:after {
     width: 90%;
   }
 
-  footer > .main {
-    text-align: center;
-  }
-
   .intro > p { font-size: 1.7em; }
 
   .desktop-only {
@@ -449,6 +520,7 @@ html[data-theme="dark"] #dark-light-switch:after {
     height: 20px;
     width: 20px;
     z-index: 5;
+    margin: 23px;
   }
 
   .mobile-nav-button input + label span {
@@ -488,11 +560,6 @@ html[data-theme="dark"] #dark-light-switch:after {
     margin: 5em 3em 0 0;
   }
 
-  .header {
-    padding: 2em 0 2em 1.5em;
-    margin-bottom: 0em;
-  }
-
   .row [class^="col"] {
     margin: 0;
     width: 100%;
@@ -501,7 +568,6 @@ html[data-theme="dark"] #dark-light-switch:after {
   ul.nav {
     display: block;
     width: 100%;
-    background-color: var(--depth-contrast);
     text-align: center;
 
     max-height: 0;
@@ -593,11 +659,11 @@ pre code {
 /* Animations */
 .scroller {
   height: 1.5em;
-  width: 80px;
+  width: 150px;
   overflow: hidden;
   position: relative;
 }
-.scroller h6 {
+.scroller h6, .scroller a {
   font-size: 0.8em;
   line-height: 1.9;
   white-space: nowrap;

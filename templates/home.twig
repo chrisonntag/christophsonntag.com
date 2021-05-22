@@ -34,13 +34,10 @@
 {% endblock %}
 
 {% block content %}
-  <div class="container-b">
+  <div class="container">
     <div class="row">
-      <div class="col-6 intro">
+      <div class="col-7" id="about">
         <h1 class="serif">software developer. <br/>art history.</h1>
-
-      </div>
-      <div class="col-6">
         <p>
           Software Engineer interested in using computer science methods and technologies for
           helping to solve up-coming challenges for humanity.
@@ -54,96 +51,69 @@
           send a secure message via <a href="{{ path_for('pgp') }}">PGP</a>. I'm German, speak English
           and just started to learn French. I also love playing the guitar and drums.
         </p>
+        <div class="card">
+          <p>
+              <strong><em>M.Sc. Computer Science</em></strong> (ongoing)
+              <br />
+              University of Vienna,
+              <a href="https://informatik.univie.ac.at/">Faculty of Computer Science</a>
+          </p>
+          <p>
+              <strong><em>B.Sc. Internet Computing</em></strong><br />
+              University of Passau,
+              <a href="http://www.fim.uni-passau.de/">Faculty of
+                Computer Science and Mathematics</a>
+              <br />
+              <a href="https://fsinfo.fim.uni-passau.de">Student Committee Member</a>
+          </p>
+        </div>
+      </div>
+      <div class="col-5">
+        <img class="image" src="{{ base_url() }}/images/cs_contact.jpeg" />
       </div>
     </div>
   </div>
 
-  <br />
+  <!--
   <br />
   <br />
   <br />
 
-<!--
-  <div class="content">
-    <div class="arrow-cursor">
-      <svg class="arrow-cursor__icon" viewBox="0 0 117.25 86.75">
-        <path class="arrow-cursor__path" d="M111.45,42.5,74.65,5.7l-9.9,9.9,20.6,20.6H6.45v14h78.9L64.75,70.8l9.9,9.9,36.8-36.8A1,1,0,0,0,111.45,42.5Z"/>
-      </svg>
+  <div class="container">
+    <div class="row">
+      <div class="col-8">
+        <h3 class="base-heading">Top Picks</h3>
+        <p>
+          Here are some of the projects I have worked on. A few of them are contract work, the rest are private projects that I have been interested in.
+        </p>
+      </div>
     </div>
-    <div class="grid">
-      <div class="swiper-container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide swiper-slide--wide">
-            <img class="swiper-slide__img lazyload" data-src="images/02/n2.jpg" alt="">
-          </div>
-          <div class="swiper-slide swiper-slide--portrait">
-            <img class="swiper-slide__img lazyload" data-src="images/02/n1.jpg" alt="">
-          </div>
-          <div class="swiper-slide swiper-slide--wide">
-            <img class="swiper-slide__img lazyload" data-src="images/02/n4.jpg" alt="">
-          </div>
-          <div class="swiper-slide swiper-slide--portrait">
-            <img class="swiper-slide__img lazyload" data-src="images/02/02.jpg" alt="">
-          </div>
-          <div class="swiper-slide swiper-slide--square">
-            <img class="swiper-slide__img lazyload" data-src="images/02/n5.jpg" alt="">
-          </div>
-          <div class="swiper-slide swiper-slide--portrait">
-            <img class="swiper-slide__img lazyload" data-src="images/02/01.jpg" alt="">
-          </div>
+    <div class="row">
+      <div class="col-6">
+        <div class="article-preview">
+          <img class="preview-image" src="https://via.placeholder.com/400x200" />
+          <a href="#"><h3 class="base-heading serif">Smart metering solution for community houses</h3></a>
+          <a href="#" class="tag">Project</a>
         </div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+      </div>
+      <div class="col-3">
+        <div class="article-preview">
+          <img class="preview-image" src="https://via.placeholder.com/400x200" />
+          <a href="#"><h3 class="base-heading serif">Python introductory course for non-computer science students</h3></a>
+          <a href="#" class="tag">Project</a>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="article-preview">
+          <img class="preview-image" src="https://via.placeholder.com/400x200" />
+          <a href="#"><h3 class="base-heading serif">Smart metering solution for community houses</h3></a>
+          <a href="#" class="tag">Project</a>
+          <a href="#" class="tag">Commercial</a>
+        </div>
       </div>
     </div>
   </div>
   -->
-
-  <div class="container">
-    <div class="row center">
-      <div class="col-6">
-        <h2>Projects &amp; Interests</h2>
-        <ol>
-          <li>
-            <a href="http://mmetering.chrisonntag.com"
-               title="MMetering is an administration software for recording and evaluating electricity meter data in both private and community houses.">MMetering</a>:
-            Smart Metering for private and community houses.
-          </li>
-          <li>
-            <a href="https://github.com/chrisonntag/grundkurs-programmieren">Programming Basic
-              Course</a>: Beginners course for non-computer science students at the University of
-            Passau (Universit&auml;t Passau).
-          </li>
-          <li>
-            Participate in events like <a href="https://hackzurich.com">HackZurich</a>.
-          </li>
-          <li>
-            Various professional contract work for customers in Germany <em>(since 2013)</em>.
-          </li>
-        </ol>
-      </div>
-      <div class="col-6">
-        <h2>Education</h2>
-        <ul class="spaced">
-          <li>
-            <strong><em>M.Sc. Computer Science</em></strong> (ongoing)
-            <br />
-            University of Vienna,
-            <a href="https://informatik.univie.ac.at/">Faculty of Computer Science</a>
-          </li>
-          <li>
-            <strong><em>B.Sc. Internet Computing</em></strong><br />
-            University of Passau,
-            <a href="http://www.fim.uni-passau.de/">Faculty of
-              Computer Science and Mathematics</a>
-            <br />
-            <a href="https://fsinfo.fim.uni-passau.de">Student Committee Member</a>
-          </li>
-          <li><strong><em>German Abitur (resp. A-Levels).</em></strong>, Gymnasium Neutraubling, Germany</li>
-        </ul>
-      </div>
-    </div>
-  </div>
 
 {% endblock %}
 {% block scripts %}

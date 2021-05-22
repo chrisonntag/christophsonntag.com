@@ -14,16 +14,17 @@ Base file setting up font and colors for later use.
   --light-blue: #00468c;
   --purple: #46008c;
   --green: #008c46;
-  --black: #000;
+  --black: #2b2b2b;
   --orig-red: #C8262D;
-  --white: var(--depth-0);
+  --white: #ffffff;
 
-  --bg-color: #F3F4F6;
+  --bg-color: #ffffff;
+  --greyish: rgb(251, 250, 251);
   --contrast-color: var(--purple);
-  --contrast-color-bright: scale-color(var(--contrast-color), lightness, 50%);
+  --contrast-color-bright: #dad6ee;
   --navigation-color: var(--bg-color);
   --navigation-border-color: var(--bg-color);
-  --heading-color: var(--blue);
+  --heading-color: var(--contrast-color);
   --heading-inverted-color: var(--white);
   --heading-light-color: scale-color(var(--heading-color), lightness, 50%);
   --text-color: var(--black);
@@ -36,7 +37,7 @@ Base file setting up font and colors for later use.
   --field-color-border: var(--depth-1);
   --selection-color: #fff;
   --selection-bg-color: #0e0e0e;
-  --footer-bg-color: var(--blue);
+  --footer-bg-color: var(--black);
 }
 
 /*Dark Theme:
