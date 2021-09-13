@@ -154,6 +154,7 @@ main {
 
 .container-b {
   padding: 1.5em 0 0 0 !important;
+  width: 90%;
   max-width: 90rem;
   margin: 0 auto;
   float: none;
@@ -320,7 +321,6 @@ li.active > a {
 #header .item {
   padding: 0 23px;
   height: 70px;
-  border-right: 1px solid #E6EAEA;
   cursor: pointer;
   overflow: hidden;
 }
@@ -350,7 +350,6 @@ li.active > a {
 }
 
 ul.nav {
-  border-left: 1px solid #E6EAEA;
   margin: 0;
   overflow: hidden;
 }
