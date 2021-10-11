@@ -9,7 +9,7 @@ class PocketController {
     private static $BASE_URL = 'https://getpocket.com/v3/get';
     private $api_url;
     private static $STARRED = '&state=all&favorite=1';
-    private static $SORT = '&sort=oldest';
+    private static $SORT = '&sort=newest';
 
     public function __construct($application_key) {
         $this->application_key = $application_key;
