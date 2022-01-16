@@ -4,7 +4,7 @@
 {% block head %}
 {{ parent() }}
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.2/css/swiper.min.css">
-  <link rel="stylesheet" type="text/css" href="{{ base_url() }}/css/grid.css">
+  <link rel="stylesheet" type="text/css" href="{{ base_path() }}/css/grid.css">
 {% endblock %}
 
 {% block body %}
@@ -48,7 +48,7 @@
           mostly using Python. I started diving into computer vision and neural networks in 2020
           during the work on my bachelor's thesis.
           <a href="https://github.com/chrisonntag/cv/raw/master/dist/cv.pdf">Download my CV</a> or
-          send a secure message via <a href="{{ path_for('pgp') }}">PGP</a>. I'm German, speak English
+          send a secure message via <a href="{{ url_for('pgp') }}">PGP</a>. I'm German, speak English
           and just started to learn French. I also love making music with my guitar.
         </p>
         <div class="card">
@@ -69,12 +69,11 @@
         </div>
       </div>
       <div class="col-5">
-        <img class="image" src="{{ base_url() }}/images/cs_2021.jpg" />
+        <img class="image" src="{{ base_path() }}/images/cs_2021.jpg" />
       </div>
     </div>
   </div>
 
-  <!--
   <br />
   <br />
   <br />
@@ -113,9 +112,8 @@
       </div>
     </div>
   </div>
-  -->
 
 {% endblock %}
 {% block scripts %}
-  <script src="{{ base_url() }}/js/app.bundle.js"></script>
+  <script src="{{ base_path() }}/js/app.bundle.js"></script>
 {% endblock %}

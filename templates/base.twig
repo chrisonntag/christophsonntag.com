@@ -26,13 +26,13 @@
 
     <link rel="canonical" href="https://christoph.snn.tg">
 
-    <link rel="shortcut icon" href="{{ base_url() }}/images/favicon.ico">
+    <link rel="shortcut icon" href="{{ base_path() }}/images/favicon.ico">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
           rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ base_url() }}/css/simple-grid.min.css">
-    <link rel="stylesheet" type="text/css" href="{{ base_url() }}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{{ base_path() }}/css/simple-grid.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ base_path() }}/css/main.css">
   {% endblock %}
 </head>
 <body class="loading">
@@ -43,7 +43,7 @@
     <div class="header-main">
         <div class="box-left">
           <div class="item">
-            <a class="logo" href="{{ path_for('home') }}"><img alt="Christoph Sonntag" src="{{ base_url() }}/images/pagelogo.svg"></a>
+            <a class="logo" href="{{ url_for('home') }}"><img alt="Christoph Sonntag" src="{{ base_path() }}/images/pagelogo.svg"></a>
           </div>
         </div>
 
@@ -61,18 +61,18 @@
           </div>
         </div>
         <ul class="nav">
-          <li {% if is_current_path('home') %}class="active item"{% else %}class="item"{% endif %}>
-            <a href="{{ path_for('home') }}">
+          <li {% if is_current_url('home') %}class="active item"{% else %}class="item"{% endif %}>
+            <a href="{{ url_for('home') }}">
               <span class="material-icons-round">home</span>
             </a>
           </li>
-          <li {% if is_current_path('links') %}class="active item"{% else %}class="item"{% endif %}>
-            <a href="{{ path_for('links') }}">
+          <li {% if is_current_url('links') %}class="active item"{% else %}class="item"{% endif %}>
+            <a href="{{ url_for('links') }}">
               Links
             </a>
           </li>
-          <li {% if is_current_path('contact') %}class="active item"{% else %}class="item"{% endif %}>
-            <a href="{{ path_for('contact') }}">
+          <li {% if is_current_url('contact') %}class="active item"{% else %}class="item"{% endif %}>
+            <a href="{{ url_for('contact') }}">
               Contact
             </a>
           </li>
@@ -89,18 +89,18 @@
   </header>
 
   <ul id="navigation-list" class="nav mobile">
-    <li {% if is_current_path('home') %}class="active item"{% else %}class="item"{% endif %}>
-      <a href="{{ path_for('home') }}">
+    <li {% if is_current_url('home') %}class="active item"{% else %}class="item"{% endif %}>
+      <a href="{{ url_for('home') }}">
         <span class="material-icons-round">home</span>
       </a>
     </li>
-    <li {% if is_current_path('links') %}class="active item"{% else %}class="item"{% endif %}>
-      <a href="{{ path_for('links') }}">
+    <li {% if is_current_url('links') %}class="active item"{% else %}class="item"{% endif %}>
+      <a href="{{ url_for('links') }}">
         Links
       </a>
     </li>
-    <li {% if is_current_path('contact') %}class="active item"{% else %}class="item"{% endif %}>
-      <a href="{{ path_for('contact') }}">
+    <li {% if is_current_url('contact') %}class="active item"{% else %}class="item"{% endif %}>
+      <a href="{{ url_for('contact') }}">
         Contact
       </a>
     </li>
@@ -128,7 +128,7 @@
   <div class="container">
     <div class="row desktop-only">
       <div class="col-6">
-          <a href="{{ path_for('newsletter') }}" class="outline-hover">
+          <a href="{{ url_for('newsletter') }}" class="outline-hover">
             <h1 class="serif">Join my Newsletter</h1>
           </a>
       </div>
@@ -137,7 +137,7 @@
           You can expect irregularly published notes on current world events, memes, short stories,
           Wikipedia articles and essays from various renowned guest writers.<br/>
         </p>
-        <p>Make sure not to <a href="{{ path_for('newsletter') }}">miss it</a>!</p>
+        <p>Make sure not to <a href="{{ url_for('newsletter') }}">miss it</a>!</p>
       </div>
     </div>
   </div>
@@ -149,7 +149,7 @@
         <div class="row">
           <div class="col-2">
             <p>
-              <a class="logo" href="{{ path_for('home') }}"><img src="{{ base_url() }}/images/pagelogo_white.svg"></a>
+              <a class="logo" href="{{ url_for('home') }}"><img src="{{ base_path() }}/images/pagelogo_white.svg"></a>
             </p>
           </div>
         </div>
@@ -157,17 +157,17 @@
           <div class="col-4">
             <p>
               Feel free to contact me anytime over mail or using the
-              <a href="{{ path_for('contact') }}">contact</a> form.
+              <a href="{{ url_for('contact') }}">contact</a> form.
             </p>
           </div>
           <div class="col-3">
             <h4>Content</h4>
             <ul>
-              <li><a href="{{ path_for('home') }}#about">About</a></li>
-              <li><a href="{{ path_for('links') }}">Links</a>
+              <li><a href="{{ url_for('home') }}#about">About</a></li>
+              <li><a href="{{ url_for('links') }}">Links</a>
               </li>
               <li>
-                <a href="{{ path_for('contact') }}">Contact</a></li>
+                <a href="{{ url_for('contact') }}">Contact</a></li>
               <li><a href="https://paypal.me/chrisonntag/2.50" target="_blank">Buy me a coffee</a></li>
             </ul>
           </div>
@@ -211,14 +211,14 @@
           <div class="col-2">
             <h4>Legal</h4>
             <ul>
-              <li><a href="{{ path_for('imprint') }}">Imprint</a></li>
+              <li><a href="{{ url_for('imprint') }}">Imprint</a></li>
             </ul>
           </div>
         </div>
         <div class="row">
           <div class="col-3">
             <p class="small">
-              &copy; Christoph Sonntag 2021. All rights reserved.
+              &copy; Christoph Sonntag 2022. All rights reserved.
             </p>
           </div>
         </div>
@@ -229,7 +229,7 @@
 
 {% endblock %}
 
-<script src="{{ base_url() }}/js/main.js"></script>
+<script src="{{ base_path() }}/js/main.js"></script>
 {% block scripts %}{% endblock %}
 </body>
 </html>

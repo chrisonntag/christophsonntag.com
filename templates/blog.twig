@@ -19,24 +19,35 @@
 {% block content %}
   {% set breadcrumb = "Blog" %}
   {{ parent() }}
-  {% for article in articles %}
-  <div class="row">
-    <div class="col-12">
-      <div class="headline">
-        <a href="{{ path_for('article', {'slug': article.meta.slug}) }}">
-          <img src="{{ path_for('article', {'slug': article.meta.slug}) }}/{{ article.meta.image }}" />
-          <h2 class="p6">{{ article.meta.title }}</h2>
-        </a>
-        <span class="subtitle">
-          {{ article.meta.author }} | {{ article.meta.date|date("d.m.Y") }}
-        </span>
+  <div class="container">
+
+    {% set cols = 3 %}
+    {% for article in articles %}
+      {% if loop.index0 % cols == 0 %}
+        <div class="row">
+      {% endif %}
+      <div class="col-{{ 12/cols }}">
+        <div class="masonry-inner">
+          <div class="headline">
+            <a href="{{ url_for('article', {'slug': article.meta.slug}) }}">
+              <img src="{{ url_for('article', {'slug': article.meta.slug}) }}/{{ article.meta.image }}" />
+              <h2 class="p6">{{ article.meta.title }}</h2>
+            </a>
+            <span class="subtitle">
+            {{ article.meta.author }} | {{ article.meta.date|date("d.m.Y") }}
+          </span>
+          </div>
+          <p>
+            {{ article.content|raw }}
+          </p>
+          <br />
+        </div>
       </div>
-      <p>
-        {{ article.content|raw }}
-      </p>
-      <br />
-    </div>
+      {% if (loop.index0 % cols == cols - 1 or loop.last) %}
+        </div>
+      {% endif %}
+    {% endfor %}
+
   </div>
-  {% endfor %}
 
 {% endblock %}

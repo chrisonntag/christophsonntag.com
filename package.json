@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "clean": "rm -rf tmp/*",
+    "clean": "rm -rf .cache/*",
     "build:sass": "sass styles:public/css",
     "watch:sass": "sass --watch styles:public/css",
     "build:parcel": "parcel build public/js/app.js --no-content-hash --no-minify --no-source-maps --out-dir public/js --out-file app.bundle.js --public-url ./",

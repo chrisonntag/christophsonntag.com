@@ -24,7 +24,7 @@
           <span class="error response">{{ error }}</span>
         </p>
 
-        <form action="{{ path_for('contact-post') }}" method="POST">
+        <form action="{{ url_for('contact-post') }}" method="POST">
           <fieldset class="form-item fields name">
             <legend class="title">Name *</legend>
             <div class="field first-name">

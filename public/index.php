@@ -8,10 +8,20 @@ include __DIR__.'/../model/WebsiteModel.php';
 
 use Psr\Http\Message\RequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
+use Slim\Factory\AppFactory;
+use Slim\Views\Twig;
+use Slim\Views\TwigMiddleware;
 
-$app = new Slim\App;
 define("BLOG_DIR", __DIR__ . '/../blog/');
 
+
+$app = AppFactory::create();
+$twig = Twig::create('../templates', ['cache' => '../.cache']);
+
+// Add Twig-View Middleware
+$app->add(TwigMiddleware::create($app, $twig));
+
+/*
 $app->add(function (Request $request, Response $response, callable $next) {
     $uri = $request->getUri();
     $path = $uri->getPath();
@@ -35,54 +45,42 @@ $app->add(function (Request $request, Response $response, callable $next) {
 
     return $next($request, $response);
 });
-
-
-$container = $app->getContainer();
-$container['view'] = function ($container) {
-    $templates = __DIR__ . '/../templates/';
-    $cache = __DIR__ . '/../tmp/views/';
-
-    $view = new Slim\Views\Twig($templates, compact('cache'));
-
-    $router = $container->get('router');
-    $uri = \Slim\Http\Uri::createFromEnvironment(new \Slim\Http\Environment($_SERVER));
-    $view->addExtension(new \Slim\Views\TwigExtension($router, $uri));
-
-    $filter = new Twig_SimpleFilter('base_url', function ($string) {
-        return preg_replace('/https?:\/\/|(\/.*){1}/', '', $string);
-    });
-    $view->getEnvironment()->addFilter($filter);
-
-    return $view;
-};
-
+*/
 $app->get('/', function ($request, $response) {
-    return $this->view->render($response, 'home.twig');
+    $view = Twig::fromRequest($request);
+    return $view->render($response, 'home.twig');
 })->setName('home');
 
 $app->get('/pgp', function ($request, $response) {
-    return $this->view->render($response, 'pgp.twig');
+    $view = Twig::fromRequest($request);
+    return $view->render($response, 'pgp.twig');
 })->setName('pgp');
 
 $app->get('/linktree', function ($request, $response) {
     // Whacky in this place
     $linklist = WebsiteModel::getLinkTreeList();
-    return $this->view->render($response, 'linktree.twig', ['links' => $linklist]);
+    $view = Twig::fromRequest($request);
+    return $view->render($response, 'linktree.twig', ['links' => $linklist]);
 })->setName('linktree');
 
 $app->get('/newsletter', function ($request, $response) {
-    return $this->view->render($response, 'newsletter.twig');
+    $view = Twig::fromRequest($request);
+    return $view->render($response, 'newsletter.twig');
 })->setName('newsletter');
 
 $app->get('/imprint', function ($request, $response) {
-    return $this->view->render($response, 'imprint.twig');
+    $view = Twig::fromRequest($request);
+    return $view->render($response, 'imprint.twig');
 })->setName('imprint');
 
 $app->get('/contact', function ($request, $response) {
-    return $this->view->render($response, 'contact.twig');
+    $view = Twig::fromRequest($request);
+    return $view->render($response, 'contact.twig');
 })->setName('contact');
 
 $app->post('/contact', function ($request, $response) {
+    $view = Twig::fromRequest($request);
+
     $first_name = $request->getParam('first_name');
     $last_name = $request->getParam('last_name');
     $email = $request->getParam('email');
@@ -97,20 +95,22 @@ $app->post('/contact', function ($request, $response) {
     if ($resp->isSuccess()) {
         $mailer = new MailController();
         if(!$mailer->sendContactMail($first_name, $last_name, $email, $subject, $message)) {
-            return $this->view->render($response, 'contact.twig', ['error' => 'Sorry, an mailing error occured.']);
+            return $view->render($response, 'contact.twig', ['error' => 'Sorry, an mailing error occured.']);
         } else {
-            return $this->view->render($response, 'contact.twig', ['success' => 'Message has been sent.']);
+            return $view->render($response, 'contact.twig', ['success' => 'Message has been sent.']);
         }
     } else {
-        return $this->view->render($response, 'contact.twig', ['error' => 'Captcha failed.']);
+        return $view->render($response, 'contact.twig', ['error' => 'Captcha failed.']);
     }
 })->setName('contact-post');
 
 $app->get('/links', function ($request, $response) {
+    $view = Twig::fromRequest($request);
+
     $pocket = new PocketController(POCKET_AKEY);
     $links = $pocket->retrieveStarred(30);
     //print_r($links, false);
-    return $this->view->render($response, 'links.twig', ['links' => $links]);
+    return $view->render($response, 'links.twig', ['links' => $links]);
 })->setName('links');
 
 function extract_article($path) {
@@ -133,12 +133,19 @@ function extract_article($path) {
     );
 }
 
+function fileExtension($s) {
+    $n = strrpos($s,".");
+    return ($n===false) ? "" : substr($s,$n+1);
+}
+
 $app->get('/blog', function ($request, $response) {
+    $view = Twig::fromRequest($request);
+
     $path = BLOG_DIR;
     $dir = new DirectoryIterator($path);
     $articles = array();
     foreach($dir as $file){
-        if($file->isFile()){
+        if($file->isFile() && fileExtension($file->getFilename()) == "md"){
             $handle = $path . '/' . $file->getFilename();
             $article = extract_article($handle);
 
@@ -155,16 +162,19 @@ $app->get('/blog', function ($request, $response) {
         return $item2['meta']['date'] <=> $item1['meta']['date'];
     });
 
-    return $this->view->render($response, 'blog.twig', array('articles' => $articles));
+    return $view->render($response, 'blog.twig', array('articles' => $articles));
 })->setName('blog');
 
 $app->get('/blog/{slug}', function ($request, $response, $args) {
+    $view = Twig::fromRequest($request);
+
     $path = BLOG_DIR;
     //open text file and read it
     $handle = $path . '/' . $args['slug'] . '.md';
     $article = extract_article($handle);
 
-    return $this->view->render($response, 'article.twig', $article);
+    return $view->render($response, 'article.twig', $article);
 })->setName('article');
+
 
 $app->run();
