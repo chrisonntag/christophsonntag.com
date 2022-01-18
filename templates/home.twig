@@ -87,30 +87,30 @@
         </p>
       </div>
     </div>
-    <div class="row">
-      <div class="col-6">
-        <div class="article-preview">
-          <img class="preview-image" src="https://via.placeholder.com/400x200" />
-          <a href="#"><h3 class="base-heading serif">Smart metering solution for community houses</h3></a>
-          <a href="#" class="tag">Project</a>
+    {% set cols = 3 %}
+    {% for article in articles %}
+      {% if loop.index0 % cols == 0 %}
+        <div class="row">
+      {% endif %}
+      <div class="col-{{ 12/cols }}">
+        <div class="masonry-inner">
+          <div class="article-preview">
+            <a href="{{ url_for('article', {'slug': article.meta.slug}) }}" title="{{ article.content|striptags }}">
+              <img class="preview-image" src="{{ url_for('article_static', {'slug': article.meta.slug}) }}/{{ article.meta.image }}" alt="{{ article.content|striptags }}" />
+              <h4 class="base-heading article-preview-title">{{ article.meta.title }}</h4>
+            </a>
+            <!--
+            {% for tag in article.meta.tags %}
+              <a href="#" class="tag">{{ tag }}</a>
+            {% endfor %}
+            -->
+          </div>
         </div>
       </div>
-      <div class="col-3">
-        <div class="article-preview">
-          <img class="preview-image" src="https://via.placeholder.com/400x200" />
-          <a href="#"><h3 class="base-heading serif">Python introductory course for non-computer science students</h3></a>
-          <a href="#" class="tag">Project</a>
+      {% if (loop.index0 % cols == cols - 1 or loop.last) %}
         </div>
-      </div>
-      <div class="col-3">
-        <div class="article-preview">
-          <img class="preview-image" src="https://via.placeholder.com/400x200" />
-          <a href="#"><h3 class="base-heading serif">Smart metering solution for community houses</h3></a>
-          <a href="#" class="tag">Project</a>
-          <a href="#" class="tag">Commercial</a>
-        </div>
-      </div>
-    </div>
+      {% endif %}
+    {% endfor %}
   </div>
 
 {% endblock %}

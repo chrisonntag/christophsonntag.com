@@ -28,19 +28,17 @@
       {% endif %}
       <div class="col-{{ 12/cols }}">
         <div class="masonry-inner">
-          <div class="headline">
-            <a href="{{ url_for('article', {'slug': article.meta.slug}) }}">
-              <img src="{{ url_for('article', {'slug': article.meta.slug}) }}/{{ article.meta.image }}" />
-              <h2 class="p6">{{ article.meta.title }}</h2>
+          <div class="article-preview">
+            <a href="{{ url_for('article', {'slug': article.meta.slug}) }}" title="{{ article.content|striptags }}">
+              <img class="preview-image" src="{{ url_for('article_static', {'slug': article.meta.slug}) }}/{{ article.meta.image }}" alt="{{ article.content|striptags }}" />
+              <h4 class="base-heading article-preview-title">{{ article.meta.title }}</h4>
             </a>
-            <span class="subtitle">
-            {{ article.meta.author }} | {{ article.meta.date|date("d.m.Y") }}
-          </span>
+            <!--
+            {% for tag in article.meta.tags %}
+              <a href="#" class="tag">{{ tag }}</a>
+            {% endfor %}
+            -->
           </div>
-          <p>
-            {{ article.content|raw }}
-          </p>
-          <br />
         </div>
       </div>
       {% if (loop.index0 % cols == cols - 1 or loop.last) %}

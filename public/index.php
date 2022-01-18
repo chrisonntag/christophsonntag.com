@@ -12,7 +12,7 @@ use Slim\Factory\AppFactory;
 use Slim\Views\Twig;
 use Slim\Views\TwigMiddleware;
 
-define("BLOG_DIR", __DIR__ . '/../blog/');
+define("BLOG_DIR", __DIR__ . '/articles/');
 
 
 $app = AppFactory::create();
@@ -48,7 +48,8 @@ $app->add(function (Request $request, Response $response, callable $next) {
 */
 $app->get('/', function ($request, $response) {
     $view = Twig::fromRequest($request);
-    return $view->render($response, 'home.twig');
+    $articles = generateArticles();
+    return $view->render($response, 'home.twig', array('articles' => $articles));
 })->setName('home');
 
 $app->get('/pgp', function ($request, $response) {
@@ -138,9 +139,7 @@ function fileExtension($s) {
     return ($n===false) ? "" : substr($s,$n+1);
 }
 
-$app->get('/blog', function ($request, $response) {
-    $view = Twig::fromRequest($request);
-
+function generateArticles() {
     $path = BLOG_DIR;
     $dir = new DirectoryIterator($path);
     $articles = array();
@@ -162,6 +161,12 @@ $app->get('/blog', function ($request, $response) {
         return $item2['meta']['date'] <=> $item1['meta']['date'];
     });
 
+    return $articles;
+}
+
+$app->get('/blog', function ($request, $response) {
+    $view = Twig::fromRequest($request);
+    $articles = generateArticles();
     return $view->render($response, 'blog.twig', array('articles' => $articles));
 })->setName('blog');
 
@@ -175,6 +180,17 @@ $app->get('/blog/{slug}', function ($request, $response, $args) {
 
     return $view->render($response, 'article.twig', $article);
 })->setName('article');
+
+$app->get('/articles/{slug}', function ($request, $response, $args) {
+    $view = Twig::fromRequest($request);
+
+    $path = BLOG_DIR;
+    //open text file and read it
+    $handle = $path . '/' . $args['slug'] . '.md';
+    $article = extract_article($handle);
+
+    return $view->render($response, 'article.twig', $article);
+})->setName('article_static');
 
 
 $app->run();

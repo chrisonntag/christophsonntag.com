@@ -73,7 +73,7 @@ h1,h2,h3 {
   font-family: 'Montserrat', 'Helvetica Neue', 'Roboto', 'Lato', sans-serif;
   line-height: 1.5
 }
-h1.base-heading, h2.base-heading, h3.base-heading {
+h1.base-heading, h2.base-heading, h3.base-heading, h4.base-heading {
   color: var(--text-color) !important;
 }
 h1 { font-size: 4em; }
@@ -101,6 +101,9 @@ h1.serif, h2.serif, h3.serif, h4.serif, h5.serif, h6.serif {
 }
 .sans-serif {
   font-family: 'Montserrat', 'Roboto', sans-serif;
+}
+.monospace {
+  font-family: Monospaced, monospace;
 }
 a { color: var(--link-color); text-decoration: none; }
 a:hover { color: var(--link-hover-color) !important; }
@@ -347,6 +350,14 @@ footer .small {
   font-size: 0.9rem !important;
 }
 
+
+.article-preview-title {
+  font-size: .8em !important;
+  font-family: Monospaced, monospace;
+  text-align: center;
+  font-weight: 300;
+}
+
 .article-preview {
   position: relative;
 }
@@ -356,6 +367,14 @@ footer .small {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  transition: 0.1s linear;
+  -webkit-transition: 0.1s linear;
+  -moz-transition: 0.1s linear;
+  -o-transition: 0.1s linear;
+}
+
+.article-preview:hover .preview-image, .article-preview-title {
+  opacity: 0.7;
 }
 
 .tag {
