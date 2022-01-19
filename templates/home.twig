@@ -78,17 +78,17 @@
   <br />
   <br />
 
-  <div itemscope itemtype="https://schema.org/ItemList" class="container">
-    <meta itemprop="numberOfItems" content="{{ articles|length}}" />
-    <div class="row">
-      <div class="col-8">
-        <h3 class="base-heading">Top Picks</h3>
-        <p>
-          Here are some of the projects I have worked on. A few of them are contract work, the rest are private projects that I have been interested in.
-        </p>
+  {% if articles|length > 0 %}
+    <div itemscope itemtype="https://schema.org/ItemList" class="container">
+      <meta itemprop="numberOfItems" content="{{ articles|length}}" />
+      <div class="row">
+        <div class="col-8">
+          <h3 class="base-heading">Top Picks</h3>
+          <p>
+            Here are some of the projects I have worked on. A few of them are contract work, the rest are private projects that I have been interested in.
+          </p>
+        </div>
       </div>
-    </div>
-    {% if articles|length > 0 %}
       {% set cols = 3 %}
       {% for article in articles %}
         {% if loop.index0 % cols == 0 %}
@@ -109,8 +109,8 @@
           </div>
         {% endif %}
       {% endfor %}
-    {% endif %}
-  </div>
+    </div>
+  {% endif %}
 
 {% endblock %}
 {% block scripts %}
