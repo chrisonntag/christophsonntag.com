@@ -10,10 +10,12 @@ Articles can be Markdown files (in ```/blog``` by default) with an additional me
 
 ```
 {
-      "title" : "Convolutional Neural Networks",
-      "date"  : "18-05-2020",
-      "slug"  : "convolutional-neural-networks",
-      "author": "Max Mustermannm"
+      "title" : "Title of the article",
+      "date"  : "dd-mm-yyyy",
+      "slug"  : "find-a-good-slug-for-it",
+      "author": "Christoph Sonntag",
+      "tags": ["comma", "separated", "tags", "list"],
+      "image": "the_name_of_the_header_image.jpg"
 }
 
 This is the content.

@@ -17,7 +17,9 @@
 {% endblock %}
 
 {% block content %}
-  {% set breadcrumb = "Blog" %}
+  {% set breadcrumb %}
+    <a href="{{ url_for('home') }}" class="unstyled">Home</a> / <a href="{{ url_for('blog') }}" class="unstyled">Blog</a>
+  {% endset %}
   {{ parent() }}
   <div itemscope itemtype="https://schema.org/ItemList" class="container">
     <meta itemprop="numberOfItems" content="{{ articles|length}}" />

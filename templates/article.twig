@@ -18,7 +18,7 @@
 
 {% block content %}
   {% set breadcrumb %}
-    <a href="{{ url_for('blog') }}" class="unstyled">Blog</a> / {{ meta.slug }}
+    <a href="{{ url_for('home') }}" class="unstyled">Home</a> / <a href="{{ url_for('blog') }}" class="unstyled">Blog</a> / {{ meta.slug }}
   {% endset %}
   {{ parent() }}
   <div itemscope itemtype="https://schema.org/BlogPosting" class="container">
