@@ -588,6 +588,10 @@ footer .small {
   -o-transition: 0.1s linear;
 }
 
+.headline > h1 {
+  line-height: 1.2;
+}
+
 .article-preview:hover .preview-image, .article-preview-title {
   opacity: 0.7;
 }
