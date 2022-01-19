@@ -21,19 +21,51 @@
     <a href="{{ url_for('blog') }}" class="unstyled">Blog</a> / {{ meta.slug }}
   {% endset %}
   {{ parent() }}
-  <div class="container">
+  <div itemscope itemtype="https://schema.org/BlogPosting" class="container">
+    <div class="row">
+      <div class="col-8">
+        <div class="headline">
+          <h1 itemprop="headline">{{ meta.title }}</h1>
+          <p class="subtitle">
+            <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+              <a href="{{ url_for('home') }}" itemprop="url">
+                <span itemprop="name">{{ meta.author }}</span>
+              </a>
+            </span> |
+            <span>
+              {{ meta.date|date("d.m.Y") }}
+            </span>
+            <meta itemprop="datePublished" content="{{ meta.date|date("c") }}" />
+          </p>
+          <p itemprop="abstract">
+            {{ meta.preview_text }}
+          </p>
+          {% if meta.tags|length > 0 %}
+            <p>
+              {% for tag in meta.tags %}
+                <a href="#" class="tag">
+                  {{ tag }}
+                </a>
+              {% endfor %}
+              <meta itemprop="keywords" content="{{ meta.tags|join(', ') }}" />
+            </p>
+          {% endif %}
+        </div>
+      </div>
+      <div class="col-4 article-preview">
+        <figure class="preview-figure">
+          <img itemprop="image" class="preview-image" src="{{ url_for('article_static', {'slug': meta.slug}) }}/{{ meta.image }}" />
+        </figure>
+      </div>
+    </div>
+
+    <br />
+
     <div class="row">
       <div class="col-12">
-        <div class="headline">
-          <h1>{{ meta.title }}</h1>
-          <span class="subtitle">
-          {{ meta.author }} | {{ meta.date|date("d.m.Y") }}
-        </span>
+        <div itemprop="articleBody">
+          {{ content|raw }}
         </div>
-
-        <br />
-
-        {{ content|raw }}
       </div>
     </div>
   </div>

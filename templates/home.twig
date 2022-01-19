@@ -78,7 +78,8 @@
   <br />
   <br />
 
-  <div class="container">
+  <div itemscope itemtype="https://schema.org/ItemList" class="container">
+    <meta itemprop="numberOfItems" content="{{ articles|length}}" />
     <div class="row">
       <div class="col-8">
         <h3 class="base-heading">Top Picks</h3>
@@ -93,18 +94,14 @@
         <div class="row">
       {% endif %}
       <div class="col-{{ 12/cols }}">
-        <div class="masonry-inner">
-          <div class="article-preview">
-            <a href="{{ url_for('article', {'slug': article.meta.slug}) }}" title="{{ article.content|striptags }}">
-              <img class="preview-image" src="{{ url_for('article_static', {'slug': article.meta.slug}) }}/{{ article.meta.image }}" alt="{{ article.content|striptags }}" />
-              <h4 class="base-heading article-preview-title">{{ article.meta.title }}</h4>
-            </a>
-            <!--
-            {% for tag in article.meta.tags %}
-              <a href="#" class="tag">{{ tag }}</a>
-            {% endfor %}
-            -->
-          </div>
+        <div itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="article-preview">
+          <meta itemprop="position" content="{{ loop.index }}" />
+          <a itemprop="url" href="{{ url_for('article', {'slug': article.meta.slug}) }}" title="{{ article.preview_text|striptags }}">
+            <figure class="preview-figure">
+              <img class="preview-image" src="{{ url_for('article_static', {'slug': article.meta.slug}) }}/{{ article.meta.image }}" alt="{{ article.preview_text|striptags }}" />
+            </figure>
+            <h4 class="base-heading article-preview-title">{{ article.meta.title }}</h4>
+          </a>
         </div>
       </div>
       {% if (loop.index0 % cols == cols - 1 or loop.last) %}

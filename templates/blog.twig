@@ -29,8 +29,8 @@
       <div class="col-{{ 12/cols }}">
         <div class="masonry-inner">
           <div class="article-preview">
-            <a href="{{ url_for('article', {'slug': article.meta.slug}) }}" title="{{ article.content|striptags }}">
-              <img class="preview-image" src="{{ url_for('article_static', {'slug': article.meta.slug}) }}/{{ article.meta.image }}" alt="{{ article.content|striptags }}" />
+            <a href="{{ url_for('article', {'slug': article.meta.slug}) }}" title="{{ article.preview_text|striptags }}">
+              <img class="preview-image" src="{{ url_for('article_static', {'slug': article.meta.slug}) }}/{{ article.meta.image }}" alt="{{ article.preview_text|striptags }}" />
               <h4 class="base-heading article-preview-title">{{ article.meta.title }}</h4>
             </a>
             <!--

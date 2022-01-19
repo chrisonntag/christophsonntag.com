@@ -566,12 +566,22 @@ footer .small {
   position: relative;
 }
 
-.article-preview .preview-image {
+.article-preview .preview-figure {
   width: 100%;
-  height: auto;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+}
+
+.article-preview .preview-image {
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  object-fit: cover;
   transition: 0.1s linear;
   -webkit-transition: 0.1s linear;
   -moz-transition: 0.1s linear;
