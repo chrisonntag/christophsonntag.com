@@ -19,33 +19,38 @@
 {% block content %}
   {% set breadcrumb = "Blog" %}
   {{ parent() }}
-  <div class="container">
-
-    {% set cols = 3 %}
-    {% for article in articles %}
-      {% if loop.index0 % cols == 0 %}
-        <div class="row">
-      {% endif %}
-      <div class="col-{{ 12/cols }}">
-        <div class="masonry-inner">
-          <div class="article-preview">
-            <a href="{{ url_for('article', {'slug': article.meta.slug}) }}" title="{{ article.preview_text|striptags }}">
-              <img class="preview-image" src="{{ url_for('article_static', {'slug': article.meta.slug}) }}/{{ article.meta.image }}" alt="{{ article.preview_text|striptags }}" />
+  <div itemscope itemtype="https://schema.org/ItemList" class="container">
+    <meta itemprop="numberOfItems" content="{{ articles|length}}" />
+    <div class="row">
+      <div class="col-8">
+        <h3 class="base-heading">Top Picks</h3>
+        <p>
+          Here are some of the projects I have worked on. A few of them are contract work, the rest are private projects that I have been interested in.
+        </p>
+      </div>
+    </div>
+    {% if articles|length > 0 %}
+      {% set cols = 3 %}
+      {% for article in articles %}
+        {% if loop.index0 % cols == 0 %}
+          <div class="row">
+        {% endif %}
+        <div class="col-{{ 12/cols }}">
+          <div itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="article-preview">
+            <meta itemprop="position" content="{{ loop.index }}" />
+            <a itemprop="url" href="{{ url_for('article', {'slug': article.meta.slug}) }}" title="{{ article.preview_text|striptags }}">
+              <figure class="preview-figure">
+                <img class="preview-image" src="{{ url_for('article_static', {'slug': article.meta.slug}) }}/{{ article.meta.image }}" alt="{{ article.preview_text|striptags }}" />
+              </figure>
               <h4 class="base-heading article-preview-title">{{ article.meta.title }}</h4>
             </a>
-            <!--
-            {% for tag in article.meta.tags %}
-              <a href="#" class="tag">{{ tag }}</a>
-            {% endfor %}
-            -->
           </div>
         </div>
-      </div>
-      {% if (loop.index0 % cols == cols - 1 or loop.last) %}
-        </div>
-      {% endif %}
-    {% endfor %}
-
+        {% if (loop.index0 % cols == cols - 1 or loop.last) %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
   </div>
 
 {% endblock %}

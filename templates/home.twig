@@ -69,7 +69,7 @@
         </div>
       </div>
       <div class="col-5">
-        <img class="image" src="{{ base_path() }}/images/cs_2021.jpg" />
+        <img class="image desktop-only" src="{{ base_path() }}/images/cs_2021.jpg" />
       </div>
     </div>
   </div>
@@ -88,26 +88,28 @@
         </p>
       </div>
     </div>
-    {% set cols = 3 %}
-    {% for article in articles %}
-      {% if loop.index0 % cols == 0 %}
-        <div class="row">
-      {% endif %}
-      <div class="col-{{ 12/cols }}">
-        <div itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="article-preview">
-          <meta itemprop="position" content="{{ loop.index }}" />
-          <a itemprop="url" href="{{ url_for('article', {'slug': article.meta.slug}) }}" title="{{ article.preview_text|striptags }}">
-            <figure class="preview-figure">
-              <img class="preview-image" src="{{ url_for('article_static', {'slug': article.meta.slug}) }}/{{ article.meta.image }}" alt="{{ article.preview_text|striptags }}" />
-            </figure>
-            <h4 class="base-heading article-preview-title">{{ article.meta.title }}</h4>
-          </a>
+    {% if articles|length > 0 %}
+      {% set cols = 3 %}
+      {% for article in articles %}
+        {% if loop.index0 % cols == 0 %}
+          <div class="row">
+        {% endif %}
+        <div class="col-{{ 12/cols }}">
+          <div itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="article-preview">
+            <meta itemprop="position" content="{{ loop.index }}" />
+            <a itemprop="url" href="{{ url_for('article', {'slug': article.meta.slug}) }}" title="{{ article.preview_text|striptags }}">
+              <figure class="preview-figure">
+                <img class="preview-image" src="{{ url_for('article_static', {'slug': article.meta.slug}) }}/{{ article.meta.image }}" alt="{{ article.preview_text|striptags }}" />
+              </figure>
+              <h4 class="base-heading article-preview-title">{{ article.meta.title }}</h4>
+            </a>
+          </div>
         </div>
-      </div>
-      {% if (loop.index0 % cols == cols - 1 or loop.last) %}
-        </div>
-      {% endif %}
-    {% endfor %}
+        {% if (loop.index0 % cols == cols - 1 or loop.last) %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
   </div>
 
 {% endblock %}
