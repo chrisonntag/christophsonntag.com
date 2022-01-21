@@ -1,0 +1,41 @@
+{% extends "base.twig" %}
+
+{% block title %}Say it with SoundCloud{% endblock %}
+{% block head %}
+  {{ parent() }}
+
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+  {% set breadcrumb %}
+    <a href="{{ url_for('home') }}" class="unstyled">Home</a> / Hello SoundCloud
+  {% endset %}
+  {{ parent() }}
+  <div class="container-b">
+    <div class="row">
+      <div class="col-12">
+        <p class="article-abstract center">
+          Hello SoundCloud, this is an App I built using Scala and ReactJs.
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-6">
+        <div id="say-it-with-songs-app"></div>
+      </div>
+      <div class="col-3"></div>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block newsletter %}
+{% endblock %}
+
+{% block scripts %}
+  <script src="{{ base_path() }}/js/say-it-with-songs.bundle.js"></script>
+{% endblock %}

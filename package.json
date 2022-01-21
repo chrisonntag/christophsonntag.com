@@ -7,7 +7,8 @@
     "build:sass": "sass styles:public/css",
     "watch:sass": "sass --watch styles:public/css",
     "build:parcel": "parcel build public/js/app.js --no-content-hash --no-minify --no-source-maps --out-dir public/js --out-file app.bundle.js --public-url ./",
-    "build": "npm run clean && npm run build:parcel && npm run build:sass"
+    "build:songs": "parcel build say-it-with-songs/index.js --no-minify --out-dir public/js --out-file say-it-with-songs.bundle.js --public-url ./",
+    "build": "npm run clean && npm run build:parcel && npm run build:sass && npm run build:songs"
   },
   "dependencies": {
     "gsap": "^3.6.0",
@@ -15,6 +16,8 @@
     "lazysizes": "^5.3.0",
     "parcel-bundler": "^1.12.4",
     "photoswipe": "^4.1.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "sass": "^1.34.0",
     "swiper": "^6.5.0"
   }

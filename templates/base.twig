@@ -38,6 +38,7 @@
 <body class="loading">
 {% block body %}
 
+  {% block header %}
   <header id="header">
 
     <div class="header-main">
@@ -87,6 +88,7 @@
       </div>
     </div>
   </header>
+  {% endblock %}
 
   <ul id="navigation-list" class="nav mobile">
     <li {% if is_current_url('home') %}class="active item"{% else %}class="item"{% endif %}>
@@ -125,6 +127,7 @@
   <br/>
   <br/>
 
+  {% block newsletter %}
   <div class="container">
     <div class="row desktop-only">
       <div class="col-6">
@@ -141,6 +144,7 @@
       </div>
     </div>
   </div>
+  {% endblock %}
 
   {% block footer %}
     <footer>
