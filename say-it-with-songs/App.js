@@ -15,7 +15,6 @@ export class App extends React.Component {
 
   handleResponse = (word, embedUrl, title) => {
     let element = React.createElement("span", {className: "song-word"}, word);
-    console.log(title)
 
     if (embedUrl.length > 0) {
       const regexp = "(.+tracks[%2F\\/]+[0-9]+)(?:(?:\\&[^\\&\\s]+\\=[^\\&\\s]+)+)"

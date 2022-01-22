@@ -7,7 +7,7 @@
     "clean": "rm -rf .cache/*",
     "build:sass": "sass styles:public/css",
     "watch:sass": "sass --watch styles:public/css",
-    "build:songs": "parcel build say-it-with-songs/index.js --no-minify --out-dir public/js --out-file say-it-with-songs.bundle.js --public-url ./",
+    "build:songs": "parcel build say-it-with-songs/index.js --out-dir public/js --out-file say-it-with-songs.bundle.js --public-url ./",
     "build": "npm run clean && npm run build:sass && npm run build:songs"
   },
   "dependencies": {

@@ -1,1 +1,1 @@
-{"version":3,"sources":["styles/style.css"],"names":[],"mappings":"AAAA;AACA;AACA;AACA;AACA","file":"say-it-with-songs.bundle.css","sourceRoot":"../../say-it-with-songs","sourcesContent":["\n.song-word {\n    margin-right: 6px;\n    font-size: 2rem;\n}"]}
+{"version":3,"sources":["style.css"],"names":[],"mappings":"AACA,WACI,gBAAiB,CACjB,cACJ","file":"say-it-with-songs.bundle.css","sourceRoot":"../../say-it-with-songs","sourcesContent":["\n.song-word {\n    margin-right: 6px;\n    font-size: 2rem;\n}"]}

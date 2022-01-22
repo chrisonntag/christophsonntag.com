@@ -30,7 +30,7 @@ export class SearchComponent extends React.Component {
   render() {
     return (
           <div className={"word-text"}>
-            <textarea onChange={this.handleChange} />
+            <textarea onChange={this.handleChange} unselectable={"on"}></textarea>
           </div>
     );
   }
