@@ -10,7 +10,7 @@ export class App extends React.Component {
       text: "",
       tokens: []
     };
-    this.apiUrl = "http://localhost:8081/api";
+    this.apiUrl = "https://sonntagc.uber.space/soundcloud/api";
   }
 
   handleResponse = (word, embedUrl, title) => {
@@ -25,7 +25,7 @@ export class App extends React.Component {
       element = React.createElement(
           "iframe",
           {
-            width: title.length*18 + 110,
+            width: title.length*9 + 110,
             height: "70",
             style: {marginRight: 6},
             scrolling: "no",
