@@ -20,7 +20,7 @@ export class App extends React.Component {
       const regexp = "(.+tracks[%2F\\/]+[0-9]+)(?:(?:\\&[^\\&\\s]+\\=[^\\&\\s]+)+)"
       let base_url = embedUrl.match(regexp)
       if (base_url != null && base_url.length > 1) {
-        base_url = base_url[1] + "&color=%23ff5500&auto_play=false&hide_related=yes&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"
+        base_url = base_url[1] + "&color=%23ff5500&auto_play=false&hide_related=yes&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false&show_artwork=false"
       }
       element = React.createElement(
           "iframe",
