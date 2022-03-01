@@ -12,14 +12,14 @@ export class SearchComponent extends React.Component {
 
   handleChange = (e) => {
     let content = e.target.value;
-    if (content.slice(-1) === " ") {
-      // only submit changes after an empty space has been typed
-
+    if ((content.slice(-1) === " ") || e.nativeEvent.inputType === "deleteContentBackward") {
+      // only submit changes after an empty space has been typed or something has been deleted.
       let splitted = content.split(" ")
-      let suppl = splitted[splitted.length - 2]
-      this.state.tokens.push(suppl)
 
-      this.setState({text: content}, this.handleSubmit)
+      this.setState({
+        text: content,
+        tokens: splitted
+      }, this.handleSubmit)
     }
   }
 
@@ -30,7 +30,7 @@ export class SearchComponent extends React.Component {
   render() {
     return (
           <div className={"word-text"}>
-            <textarea onChange={this.handleChange} unselectable={"on"}></textarea>
+            <textarea onChange={this.handleChange}></textarea>
           </div>
     );
   }

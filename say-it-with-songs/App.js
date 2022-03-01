@@ -8,15 +8,16 @@ export class App extends React.Component {
     super(props);
     this.state = {
       text: "",
-      tokens: []
+      tokens: [],
     };
     this.apiUrl = "https://sonntagc.uber.space/soundcloud/api";
   }
 
-  handleResponse = (word, embedUrl, title) => {
+  createEmbedding = (word, embedUrl, title) => {
     let element = React.createElement("span", {className: "song-word"}, word);
 
     if (embedUrl.length > 0) {
+      // If embedUrl exists, overwrite word with SoundCloud iframe.
       const regexp = "(.+tracks[%2F\\/]+[0-9]+)(?:(?:\\&[^\\&\\s]+\\=[^\\&\\s]+)+)"
       let base_url = embedUrl.match(regexp)
       if (base_url != null && base_url.length > 1) {
@@ -34,32 +35,33 @@ export class App extends React.Component {
           }, "")
     }
 
-    this.state.tokens.push(element)
+    return element;
   }
 
-  translateWord = (word) => {
+  translateWords = (text) => {
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ text: word })
+      body: JSON.stringify({ text: text })
     };
     fetch(this.apiUrl, requestOptions)
         .then(response => response.json())
         .then(data => {
           let words = data.words;
+          let embeddings = [];
           for (let i = 0; i < words.length; i++) {
-            this.handleResponse(words[i].word, words[i].embedUrl, words[i].title)
+            embeddings.push(this.createEmbedding(words[i].word, words[i].embedUrl, words[i].title))
           }
-        }).catch(e => console.log(e))
 
+          this.setState({tokens: embeddings})
+        }).catch(e => console.log(e))
   }
 
   translateText = (state) => {
-    const word = state.tokens[state.tokens.length - 1]
-    this.translateWord(word)
+    let words = state.tokens; //: array(str)
+    let text = state.text; //: str
 
-    console.log(this.state.tokens)
-
+    this.translateWords(text)
     this.setState({text: state.text})
   }
 
