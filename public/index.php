@@ -11,6 +11,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Slim\Factory\AppFactory;
 use Slim\Views\Twig;
 use Slim\Views\TwigMiddleware;
+use Middlewares\TrailingSlash;
 
 define("BLOG_DIR", __DIR__ . '/articles/');
 
@@ -20,32 +21,9 @@ $twig = Twig::create('../templates', ['cache' => '../.cache']);
 
 // Add Twig-View Middleware
 $app->add(TwigMiddleware::create($app, $twig));
+$app->add(new TrailingSlash(true)); // true adds the trailing slash (false removes it)
 
-/*
-$app->add(function (Request $request, Response $response, callable $next) {
-    $uri = $request->getUri();
-    $path = $uri->getPath();
-    if ($path != '/' && substr($path, -1) == '/') {
-        // recursively remove slashes when its more than 1 slash
-        while(substr($path, -1) == '/') {
-            $path = substr($path, 0, -1);
-        }
 
-        // permanently redirect paths with a trailing slash
-        // to their non-trailing counterpart
-        $uri = $uri->withPath($path);
-        
-        if($request->getMethod() == 'GET') {
-            return $response->withRedirect((string)$uri, 301);
-        }
-        else {
-            return $next($request->withUri($uri), $response);
-        }
-    }
-
-    return $next($request, $response);
-});
-*/
 $app->get('/', function ($request, $response) {
     $view = Twig::fromRequest($request);
     $articles = generateArticles();
