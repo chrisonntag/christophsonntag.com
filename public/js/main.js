@@ -51,12 +51,11 @@ function slideToggle (id) {
     }
 }
 
-
 document.addEventListener('DOMContentLoaded', function(event) {
-    const htmlTag = document.querySelector('html');
+    //const htmlTag = document.querySelector('html');
 
     // Checks the OS settings for preferred color scheme.
-    const matchMediaPrefDark = window.matchMedia('(prefers-color-scheme: dark)');
+    //const matchMediaPrefDark = window.matchMedia('(prefers-color-scheme: dark)');
     function startListeningToOSTheme() {
         matchMediaPrefDark.addEventListener('change', onSystemThemeChange);
     }
@@ -73,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
         const isDark = e.matches;
         htmlTag.dataset.theme = `${isDark ? 'dark' : 'light'}`;
     }
-    startListeningToOSTheme();
+    //startListeningToOSTheme();
 
     /**
      * Switches the data-theme attribute on the html tag.
@@ -97,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     /**
      * Toggles the current state of the dark/night mode.
      */
+    /*
     document.getElementById('dark-light-switch').addEventListener('click', function () {
         stopListeningToOSTheme();
         var theme = htmlTag.dataset.theme;
@@ -106,5 +106,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
             switchTheme("light");
         }
     });
+     */
 
 });
