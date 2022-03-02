@@ -21,7 +21,7 @@ $twig = Twig::create('../templates', ['cache' => '../.cache']);
 
 // Add Twig-View Middleware
 $app->add(TwigMiddleware::create($app, $twig));
-$app->add(new TrailingSlash(true)); // true adds the trailing slash (false removes it)
+$app->add(new TrailingSlash(false)); // true adds the trailing slash (false removes it)
 
 
 $app->get('/', function ($request, $response) {
