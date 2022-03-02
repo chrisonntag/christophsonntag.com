@@ -757,6 +757,10 @@ Say it with words styles
   word-wrap: break-word;
 }
 
+.song-text svg {
+  margin: 0 auto;
+}
+
 .mobile {
   display: none;
 }
