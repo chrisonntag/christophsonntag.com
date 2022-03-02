@@ -9,11 +9,20 @@ export class TranslationComponent extends React.Component {
 
   render() {
     const elements = this.props.tokens.map((el) => el)
-    return (
-        <div className={"song-text"}>
-          <p>{elements}</p>
-        </div>
-    );
+    if (this.props.loading) {
+      return (
+          <div className={"song-text"}>
+            <p>Loading ...</p>
+          </div>
+      );
+    } else {
+      return (
+          <div className={"song-text"}>
+            <p>{elements}</p>
+          </div>
+      );
+    }
+
   }
 }
 

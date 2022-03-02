@@ -9,6 +9,7 @@ export class App extends React.Component {
     this.state = {
       text: "",
       tokens: [],
+      loading: true,
     };
     this.apiUrl = "https://sonntagc.uber.space/soundcloud/api";
   }
@@ -53,12 +54,11 @@ export class App extends React.Component {
             embeddings.push(this.createEmbedding(words[i].word, words[i].embedUrl, words[i].title))
           }
 
-          this.setState({tokens: embeddings})
+          this.setState({tokens: embeddings, loading: false})
         }).catch(e => console.log(e))
   }
 
   translateText = (state) => {
-    let words = state.tokens; //: array(str)
     let text = state.text; //: str
 
     this.translateWords(text)
@@ -69,7 +69,7 @@ export class App extends React.Component {
     return(
       <div>
         <SearchComponent onChange={this.translateText}></SearchComponent>
-        <TranslationComponent text={this.state.text} tokens={this.state.tokens}></TranslationComponent>
+        <TranslationComponent text={this.state.text} tokens={this.state.tokens} loading={this.state.loading}></TranslationComponent>
       </div>
     )
   }

@@ -739,7 +739,7 @@ Say it with words styles
 .word-text textarea {
   border: none;
   color: #3c4043;
-  overflow: auto hidden;
+  overflow: scroll;
   padding: 0;
   resize: none;
   white-space: pre-wrap;
