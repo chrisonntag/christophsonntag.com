@@ -19,6 +19,18 @@ html {
   -ms-animation: fadeIn ease 1000ms;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.top-0 {
+  top: 0;
+}
+
+.right-0 {
+  right: 0;
+}
+
 body {
   color: var(--text-color);
   background-color: var(--bg-color);
@@ -69,7 +81,7 @@ p, li {
 }
 h1,h2,h3 {
   color: var(--heading-color);
-  font-weight: 600;
+  font-weight: 500;
   font-family: 'Montserrat', 'Helvetica Neue', 'Roboto', 'Lato', sans-serif;
   line-height: 1.5
 }
@@ -154,7 +166,7 @@ li.active > a {
 #header .header-main {
   display: flex;
   height: 70px;
-  border-bottom: 1px solid #E6EAEA;
+  border-bottom: none; //1px solid #E6EAEA;
   border-bottom-color: rgb(230, 234, 234);
 }
 
