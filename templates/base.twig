@@ -27,10 +27,6 @@
     <link rel="canonical" href="https://christoph.snn.tg">
 
     <link rel="shortcut icon" href="{{ base_path() }}/images/favicon.ico">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
-          rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ base_path() }}/css/simple-grid.min.css">
     <link rel="stylesheet" type="text/css" href="{{ base_path() }}/css/main.css">
   {% endblock %}
@@ -64,7 +60,7 @@
         <ul class="nav">
           <li {% if is_current_url('home') %}class="active item"{% else %}class="item"{% endif %}>
             <a href="{{ url_for('home') }}">
-              <span class="material-icons-round">home</span>
+              Home
             </a>
           </li>
           <li {% if is_current_url('links') %}class="active item"{% else %}class="item"{% endif %}>

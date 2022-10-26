@@ -10,8 +10,6 @@ html {
   scroll-behavior: smooth;
   width: 100%;
   max-width: 100%;
-  font-weight:400;
-  line-height: 1.5;
   animation: fadeIn ease 20s;
   -webkit-animation: fadeIn ease 1000ms;
   -moz-animation: fadeIn ease 1000ms;
@@ -35,23 +33,15 @@ body {
   color: var(--text-color);
   background-color: var(--bg-color);
   font-size: 1rem;
-  font-family: 'Montserrat', 'Helvetica Neue', 'Roboto', sans-serif;
+  font-family: var(--text-font);
   font-weight: 400;
-  line-height: 1.6;
-  /*
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 100%;
-  height: 100%;
-  */
+  line-height: 1.3;
 }
 
 * {
-  -webkit-text-size-adjust:100%;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  text-rendering:optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 main {
@@ -74,15 +64,25 @@ main {
   float: none;
 }
 
+/*
+h1{font-size:2.5rem}
+h2{font-size:2rem}
+h3{font-size:1.375rem}
+h4{font-size:1.125rem}
+h5{font-size:1rem}
+h6{font-size:.875rem}
+p{font-size:1.125rem;font-weight:200;line-height:1.8}
+*/
+
 p, li {
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.625 !important;
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.5 !important;
 }
 h1,h2,h3 {
   color: var(--heading-color);
   font-weight: 500;
-  font-family: 'Montserrat', 'Helvetica Neue', 'Roboto', 'Lato', sans-serif;
+  font-family: var(--text-font);
   line-height: 1.5
 }
 h1.base-heading, h2.base-heading, h3.base-heading, h4.base-heading {
@@ -108,11 +108,11 @@ h6 {
   letter-spacing: .03rem;
 }
 h1.serif, h2.serif, h3.serif, h4.serif, h5.serif, h6.serif {
-  font-family: 'Playfair Display', 'Cormorant', serif;
+  font-family: var(--head-font);
   line-height: 1.2;
 }
 .sans-serif {
-  font-family: 'Montserrat', 'Roboto', sans-serif;
+  font-family: var(--text-font);
 }
 .monospace {
   font-family: Monospaced, monospace;
@@ -179,7 +179,6 @@ li.active > a {
 #header .item {
   padding: 0 23px;
   height: 70px;
-  cursor: pointer;
   overflow: hidden;
 }
 
@@ -211,8 +210,8 @@ ul.nav {
   overflow: hidden;
 }
 ul.nav a {
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 300;
   color: var(--text-color);
 }
 ul.nav li.item {
@@ -358,14 +357,11 @@ footer .small {
   box-sizing: border-box;
   padding: 1em 2.5em;
 }
-.card > p {
-  font-size: 0.9rem !important;
-}
 
 
 .article-preview-title {
   font-size: .8em !important;
-  font-family: Monospaced, monospace;
+  font-family: var(--sub-font);
   text-align: center;
   font-weight: 300;
 }

@@ -8,9 +8,48 @@
 /**
 Base file setting up font and colors for later use.
  */
-@import url("https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,500;1,100;1,400&display=swap");
+@font-face {
+  font-family: "Karla";
+  src: url(../fonts/sans/Karla/Karla-Regular.ttf);
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Karla";
+  src: url(../fonts/sans/Karla/Karla-Italic.ttf);
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Karla";
+  src: url(../fonts/sans/Karla/Karla-Bold.ttf);
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Karla";
+  src: url(../fonts/sans/Karla/Karla-BoldItalic.ttf);
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Cormorant";
+  src: url(../fonts/serif/Cormorant/Cormorant-Regular.ttf);
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Cormorant";
+  src: url(../fonts/serif/Cormorant/Cormorant-Medium.ttf);
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Butler";
+  src: url(../fonts/serif/Butler/Butler-Regular.otf);
+  font-weight: 300;
+  font-style: normal;
+}
 :root[data-theme=light] {
   --depth-contrast: #1e1f26;
   --depth-0: #e9e9e9;
@@ -45,6 +84,9 @@ Base file setting up font and colors for later use.
   --selection-color: #fff;
   --selection-bg-color: #0e0e0e;
   --footer-bg-color: var(--black);
+  --head-font: "Butler", "Cormorant", serif;
+  --text-font: "Karla", "Helvetica Neue", "Roboto", sans-serif;
+  --sub-font: Monospaced, monospace;
 }
 
 /*Dark Theme:
@@ -76,27 +118,6 @@ Base file setting up font and colors for later use.
   --footer-bg-color: var(--navigation-color);
 }
 
-@font-face {
-  font-family: "Cerebri Sans";
-  src: url(../fonts/Cerebri-Sans/CerebriSans-Light.eot);
-  src: url(../fonts/Cerebri-Sans/CerebriSans-Light.ttf);
-  font-weight: 300;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Cerebri Sans";
-  src: url(../fonts/Cerebri-Sans/CerebriSans-Regular.eot);
-  src: url(../fonts/Cerebri-Sans/CerebriSans-Regular.ttf);
-  font-weight: 500;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Cerebri Sans";
-  src: url(../fonts/Cerebri-Sans/CerebriSans-Bold.eot);
-  src: url(../fonts/Cerebri-Sans/CerebriSans-Bold.ttf);
-  font-weight: 700;
-  font-style: normal;
-}
 .hidden {
   position: absolute;
   overflow: hidden;
@@ -109,8 +130,6 @@ html {
   scroll-behavior: smooth;
   width: 100%;
   max-width: 100%;
-  font-weight: 400;
-  line-height: 1.5;
   animation: fadeIn ease 20s;
   -webkit-animation: fadeIn ease 1000ms;
   -moz-animation: fadeIn ease 1000ms;
@@ -134,21 +153,13 @@ body {
   color: var(--text-color);
   background-color: var(--bg-color);
   font-size: 1rem;
-  font-family: "Montserrat", "Helvetica Neue", "Roboto", sans-serif;
+  font-family: var(--text-font);
   font-weight: 400;
-  line-height: 1.6;
-  /*
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  width: 100%;
-  height: 100%;
-  */
+  line-height: 1.3;
 }
 
 * {
   -webkit-text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
@@ -173,16 +184,25 @@ main {
   float: none;
 }
 
+/*
+h1{font-size:2.5rem}
+h2{font-size:2rem}
+h3{font-size:1.375rem}
+h4{font-size:1.125rem}
+h5{font-size:1rem}
+h6{font-size:.875rem}
+p{font-size:1.125rem;font-weight:200;line-height:1.8}
+*/
 p, li {
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.625 !important;
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.5 !important;
 }
 
 h1, h2, h3 {
   color: var(--heading-color);
   font-weight: 500;
-  font-family: "Montserrat", "Helvetica Neue", "Roboto", "Lato", sans-serif;
+  font-family: var(--text-font);
   line-height: 1.5;
 }
 
@@ -226,12 +246,12 @@ h6 {
 }
 
 h1.serif, h2.serif, h3.serif, h4.serif, h5.serif, h6.serif {
-  font-family: "Playfair Display", "Cormorant", serif;
+  font-family: var(--head-font);
   line-height: 1.2;
 }
 
 .sans-serif {
-  font-family: "Montserrat", "Roboto", sans-serif;
+  font-family: var(--text-font);
 }
 
 .monospace {
@@ -338,7 +358,6 @@ li.active > a {
 #header .item {
   padding: 0 23px;
   height: 70px;
-  cursor: pointer;
   overflow: hidden;
 }
 
@@ -372,8 +391,8 @@ ul.nav {
 }
 
 ul.nav a {
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 300;
   color: var(--text-color);
 }
 
@@ -563,13 +582,9 @@ footer .small {
   padding: 1em 2.5em;
 }
 
-.card > p {
-  font-size: 0.9rem !important;
-}
-
 .article-preview-title {
   font-size: 0.8em !important;
-  font-family: Monospaced, monospace;
+  font-family: var(--sub-font);
   text-align: center;
   font-weight: 300;
 }
