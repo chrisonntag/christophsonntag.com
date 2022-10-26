@@ -398,18 +398,25 @@ footer .small {
 }
 
 .article-abstract {
-  font-size: 1.3rem;
+  font-size: 2rem;
   font-weight: 300;
 }
 
 .tag {
   padding: 6px 12px;
-  color: var(--contrast-color);
+  color: var(--contrast-color) !important;
   background-color: var(--contrast-color-bright);
   font-size: 0.7rem;
   font-weight: 500;
   margin: 6px;
 }
+.tag:hover {
+  color: var(--contrast-color) !important;
+}
+.tag:visited {
+  color: var(--contrast-color) !important;
+}
+
 
 .hero.row {
   background-color: var(--contrast-color);
