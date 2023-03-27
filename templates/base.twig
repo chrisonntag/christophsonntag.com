@@ -37,26 +37,19 @@
   {% block header %}
   <header id="header">
 
-    <div class="header-main">
-        <div class="box-left">
+    <div class="header-main row">
+        <div class="box-left col-6">
           <div class="item">
-            <a class="logo" href="{{ url_for('home') }}"><img alt="Christoph Sonntag" src="{{ base_path() }}/images/pagelogo.svg"></a>
+            <a class="logo" href="{{ url_for('home') }}"><img alt="Christoph Sonntag" src="{{ base_path() }}/images/pagelogo_white.svg"></a>
           </div>
+
+
         </div>
 
-      <div class="box-middle"></div>
+      <!-- <div class="box-middle"></div> -->
 
-      <div class="box-right">
-        <div>
-          <div class="mobile item mobile-nav-button">
-            <input id="burger" onclick="slideToggle('navigation-list')" type="checkbox" value="0"/>
-            <label for="burger">
-              <span></span>
-              <span></span>
-              <span></span>
-            </label>
-          </div>
-        </div>
+      <div class="box-right col-6">
+
         <ul class="nav">
           <li {% if is_current_url('home') %}class="active item"{% else %}class="item"{% endif %}>
             <a href="{{ url_for('home') }}">
@@ -73,15 +66,22 @@
               Contact
             </a>
           </li>
-          <li class="item">
-            <div class="scroller">
+          <li class="item scroller desktop-only">
               <a target="_blank" href="https://open.spotify.com/playlist/4PbqKGbteDh1Mnr0xtuZoV?si=uDYSZRU8TGqzmym9z7icMQ">
                   inbox playlist - follow and add songs to it
               </a>
-            </div>
           </li>
         </ul>
+        <div class="item mobile-nav-button mobile">
+          <input id="burger" onclick="slideToggle('navigation-list')" type="checkbox" value="0"/>
+          <label for="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
       </div>
+
     </div>
   </header>
   {% endblock %}
@@ -89,7 +89,7 @@
   <ul id="navigation-list" class="nav mobile">
     <li {% if is_current_url('home') %}class="active item"{% else %}class="item"{% endif %}>
       <a href="{{ url_for('home') }}">
-        <span class="material-icons-round">home</span>
+        <span class="material-icons-round">Home</span>
       </a>
     </li>
     <li {% if is_current_url('links') %}class="active item"{% else %}class="item"{% endif %}>

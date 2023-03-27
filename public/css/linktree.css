@@ -50,8 +50,8 @@ Base file setting up font and colors for later use.
   --depth-2: #c1c1c1;
   --depth-3: #e9e9e9;
   --depth-4: #f2f2f2;
-  --blue: #00008C;
-  --light-blue: #00468c;
+  --blue: #0000FF;
+  --light-blue: #0060FF;
   --purple: #46008c;
   --green: #008c46;
   --black: #2b2b2b;
@@ -59,8 +59,8 @@ Base file setting up font and colors for later use.
   --white: #ffffff;
   --bg-color: #ffffff;
   --greyish: rgb(251, 250, 251);
-  --contrast-color: var(--purple);
-  --contrast-color-bright: #dad6ee;
+  --contrast-color: var(--blue);
+  --contrast-color-bright: var(--light-blue);
   --navigation-color: var(--bg-color);
   --navigation-border-color: var(--bg-color);
   --heading-color: var(--contrast-color);
@@ -71,7 +71,7 @@ Base file setting up font and colors for later use.
   --link-hover-color: var(--contrast-color);
   --link-visited-color: var(--link-color);
   --btn-color: #fff;
-  --btn-bg-color: #0e0e0e;
+  --btn-bg-color: var(--contrast-color);
   --field-color: #f1f1f1;
   --field-color-border: var(--depth-1);
   --selection-color: #fff;

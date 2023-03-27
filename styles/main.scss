@@ -148,6 +148,7 @@ ul.spaced > li {
 ul.spaced-m > li {
   margin-bottom: 0.5em;
 }
+li.active { border-bottom: 1px solid var(--contrast-color); }
 li.active > a {
   color: var(--heading-color) !important;
   font-weight: 400;
@@ -156,6 +157,7 @@ li.active > a {
 #header {
   background-color: var(--bg-color);
   height: 70px;
+  width: 100%;
   transition: background 0.3s;
 }
 
@@ -170,16 +172,80 @@ li.active > a {
   border-bottom-color: rgb(230, 234, 234);
 }
 
+#header .header-main > .box-left {
+  background-color: var(--contrast-color);
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+}
+
 #header .header-main > .box-right {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   flex: 1;
 }
 
 #header .item {
   padding: 0 23px;
-  height: 70px;
+  //height: 70px;
   overflow: hidden;
+}
+
+.mobile-nav-button {
+  float: right;
+  margin-right: 3em;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+  margin-right: 1em !important;
+}
+
+.mobile-nav-button input {
+  opacity: 0;
+}
+
+.mobile-nav-button input + label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 20px;
+  width: 20px;
+  z-index: 5;
+  margin: 23px;
+}
+
+.mobile-nav-button input + label span {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  top: 50%;
+  margin-top: -1px;
+  left: 0;
+  display: block;
+  background: var(--text-color);
+  transition: .5s;
+}
+.mobile-nav-button input + label span:first-child {
+  top: 3px;
+}
+.mobile-nav-button input + label span:last-child {
+  top: 17px;
+}
+.mobile-nav-button label:hover {
+  cursor: pointer;
+}
+.mobile-nav-button input:checked + label span {
+  opacity: 0;
+  top: 50%;
+}
+.mobile-nav-button input:checked + label span:first-child {
+  opacity: 1;
+  transform: rotate(405deg);
+}
+.mobile-nav-button input:checked + label span:last-child {
+  opacity: 1;
+  transform: rotate(-405deg);
 }
 
 .navigation {
@@ -208,6 +274,8 @@ li.active > a {
 ul.nav {
   margin: 0;
   overflow: hidden;
+  display: flex;
+  width: 100%;
 }
 ul.nav a {
   font-size: 1rem;
@@ -318,8 +386,8 @@ footer .small {
 .button {
   background-color: var(--btn-bg-color);
   color: var(--btn-color);
-  padding: .8em 1.5em;
-  border-radius: 4px;
+  padding: .5em 1.5em;
+  border-radius: 50px;
   border: 0;
   transition: 0.3s;
 }
@@ -332,7 +400,7 @@ footer .small {
 
 .breadcrumbs span.breadcrumb {
   background: rgb(170, 170, 160);
-  background: linear-gradient(90deg, #EB2C37, blue);
+  background: linear-gradient(90deg, pink, var(--contrast-color));
   height: 1.25rem;
   width: 1.25rem;
   border-radius: 50%;
@@ -562,7 +630,7 @@ Say it with words styles
 
 .song-text svg { margin: 0 auto;}
 
-.mobile { display: none; }
+.mobile { display: none !important; }
 @media (max-width: 1024px) {
 
   body {
@@ -602,60 +670,7 @@ Say it with words styles
     display: none;
   }
 
-  .mobile { display: block; }
-
-  .mobile-nav-button {
-    float: right;
-    margin-right: 3em;
-    position: relative;
-  }
-
-  .mobile-nav-button input {
-    opacity: 0;
-  }
-
-  .mobile-nav-button input + label {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 20px;
-    width: 20px;
-    z-index: 5;
-    margin: 23px;
-  }
-
-  .mobile-nav-button input + label span {
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    top: 50%;
-    margin-top: -1px;
-    left: 0;
-    display: block;
-    background: var(--text-color);
-    transition: .5s;
-  }
-  .mobile-nav-button input + label span:first-child {
-    top: 3px;
-  }
-  .mobile-nav-button input + label span:last-child {
-    top: 17px;
-  }
-  .mobile-nav-button label:hover {
-    cursor: pointer;
-  }
-  .mobile-nav-button input:checked + label span {
-    opacity: 0;
-    top: 50%;
-  }
-  .mobile-nav-button input:checked + label span:first-child {
-    opacity: 1;
-    transform: rotate(405deg);
-  }
-  .mobile-nav-button input:checked + label span:last-child {
-    opacity: 1;
-    transform: rotate(-405deg);
-  }
+  .mobile { display: block !important; }
 
   .switch-wrapper {
     margin: 5em 3em 0 0;
@@ -667,7 +682,7 @@ Say it with words styles
   }
 
   ul.nav {
-    display: block;
+    display: flex !important;
     width: 100%;
     text-align: center;
 
@@ -763,6 +778,9 @@ pre code {
   width: 150px;
   overflow: hidden;
   position: relative;
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
 }
 .scroller h6, .scroller a {
   font-size: 0.8em;
@@ -778,18 +796,18 @@ pre code {
   -webkit-transform:translateX(100%);
   transform:translateX(100%);
   /* Apply animation to this element */
-  -moz-animation: scroller 12s linear infinite;
-  -webkit-animation: scroller 12s linear infinite;
-  animation: scroller 12s linear infinite;
+  -moz-animation: scroller 9s linear infinite;
+  -webkit-animation: scroller 9s linear infinite;
+  animation: scroller 9s linear infinite;
 }
 /* Move it (define the animation) */
 @-moz-keyframes scroller {
   0%   { -moz-transform: translateX(100%); }
-  100% { -moz-transform: translateX(-150%); }
+  100% { -moz-transform: translateX(-70%); }
 }
 @-webkit-keyframes scroller {
   0%   { -webkit-transform: translateX(100%); }
-  100% { -webkit-transform: translateX(-150%); }
+  100% { -webkit-transform: translateX(-70%); }
 }
 @keyframes scroller {
   0%   {
@@ -798,9 +816,9 @@ pre code {
     transform: translateX(100%);
   }
   100% {
-    -moz-transform: translateX(-150%); /* Firefox bug fix */
-    -webkit-transform: translateX(-150%); /* Firefox bug fix */
-    transform: translateX(-150%);
+    -moz-transform: translateX(-70%); /* Firefox bug fix */
+    -webkit-transform: translateX(-70%); /* Firefox bug fix */
+    transform: translateX(-70%);
   }
 }
 
