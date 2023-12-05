@@ -12,6 +12,7 @@ use Slim\Factory\AppFactory;
 use Slim\Views\Twig;
 use Slim\Views\TwigMiddleware;
 use Middlewares\TrailingSlash;
+use Slim\Routing\RouteContext;
 
 define("BLOG_DIR", __DIR__ . '/articles/');
 
@@ -93,6 +94,10 @@ $app->get('/links', function ($request, $response) {
 })->setName('links');
 
 function extract_article($path) {
+    if(!file_exists($path)) {
+        return array();
+    }
+
     $handle = fopen($path, 'r');
     $content = stream_get_contents($handle);
     // split the content to get metadata
@@ -148,13 +153,45 @@ $app->get('/blog', function ($request, $response) {
     return $view->render($response, 'blog.twig', array('articles' => $articles));
 })->setName('blog');
 
-$app->get('/blog/{slug}', function ($request, $response, $args) {
+
+$app->get('/blog/{slug}', function (\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, $args) {
+    $path = BLOG_DIR;
+    //open text file and read it
+    $handle = $path . '/' . $args['slug'] . '.md';
+    $article = extract_article($handle);
+    if (!$article) {
+        return $response->withStatus(404);
+    }
+
+    $slug = $article['meta']['slug'];
+    $year = date("Y", $article['meta']['date']);
+    $month = date("m", $article['meta']['date']);
+    $day = date("d", $article['meta']['date']);
+
+    $routeParser = RouteContext::fromRequest($request)->getRouteParser();
+    $location = $routeParser->urlFor('article',
+        [
+            'slug' => $slug,
+            'year' => $year,
+            'month' => $month,
+            'day' => $day
+        ]
+    );
+
+    return $response->withHeader("Location", $location)->withStatus(301);
+})->setName('article_deprecated');
+
+$app->get('/blog/{year}/{month}/{day}/{slug}', function ($request, $response, $args) {
     $view = Twig::fromRequest($request);
 
     $path = BLOG_DIR;
     //open text file and read it
     $handle = $path . '/' . $args['slug'] . '.md';
     $article = extract_article($handle);
+
+    if (!$article) {
+        return $response->withStatus(404);
+    }
 
     return $view->render($response, 'article.twig', $article);
 })->setName('article');
