@@ -8,23 +8,27 @@
 
     <title>{% block title %}{% endblock %} – Christoph Sonntag</title>
 
+    {% block semantic %}
     <!-- Semantic -->
+    <meta name="keywords" content="software engineer, data science, deep learning, music, python, scala, django" />
+    <meta name="description" content="I'm a Masters student in Computer Science at the University of Vienna,
+    specializing in security of deep learning and responsible AI. At the same time, I'm also interested in a broader
+    view on AI, taking into account the ethical, legal, and social aspects in its development and usage." />
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@chrisonntag">
     <meta name="twitter:title" content="Christoph Sonntag">
     <meta name="twitter:description"
-          content="software engineer, music, python, java, go, django, ...">
-    <meta name="twitter:image" content="https://christoph.snn.tg/images/cs.jpg">
+          content="CS Master's student @UniVienna | Backdoor Attacks on federated NLP models | Full-Stack developer | Ethical tech advocate | Musician | Film buff">
+    <meta name="twitter:image" content="https://christoph.snn.tg/images/cs_quad.JPG">
     <!-- Facebook -->
     <meta property="og:url" content="https://christoph.snn.tg">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Christoph Sonntag">
-    <meta property="og:description"
-          content="software engineer, music, python, java, go, django, ...">
-    <meta property="og:image" content="https://christoph.snn.tg/images/cs.jpg">
+    <meta property="og:description" content="CS Master's student @UniVienna | Backdoor Attacks on federated NLP models | Full-Stack developer | Ethical tech advocate | Musician | Film buff">
+    <meta property="og:image" content="https://christoph.snn.tg/images/cs_quad.JPG">
+    {% endblock %}
 
-    <link rel="canonical" href="https://christoph.snn.tg">
 
     <link rel="shortcut icon" href="{{ base_path() }}/images/favicon.ico">
     <link rel="stylesheet" type="text/css" href="{{ base_path() }}/css/simple-grid.min.css">

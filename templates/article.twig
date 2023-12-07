@@ -1,6 +1,34 @@
 {% extends "base.twig" %}
 
 {% block title %}{{ meta.title }}{% endblock %}
+{% block semantic %}
+
+  <meta name="keywords" content="{{ meta.tags|join(', ') }}" />
+  <meta name="description" content="{{ meta.preview_text }}" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@chrisonntag">
+  <meta name="twitter:title" content="{{ meta.title }}">
+  <meta name="twitter:description" content="{{ meta.preview_text }}">
+  <meta name="twitter:image" content="https://christophsonntag.com{{ url_for('article_static', {'slug': meta.slug}) }}/{{ meta.image }}">
+  <!-- Open Graph Protocol -->
+  <meta property="og:title" content="{{ meta.title }}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://christophsonntag.com{{ url_for('article', {
+    'slug': meta.slug,
+    'year': meta.date|date('Y'),
+    'month': meta.date|date('m'),
+    'day': meta.date|date('d')
+  }) }}">
+  <meta property="og:image" content="https://christophsonntag.com{{ url_for('article_static', {'slug': meta.slug}) }}/{{ meta.image }}">
+  <meta property="og:description" content="{{ meta.preview_text }}">
+
+  <meta property="og:site_name" content="Christoph Sonntag - Blog">
+  <meta property="article:published_time" content="{{ meta.date|date('Y-m-d') }}">
+  <meta property="article:author" content="https://christophsonntag.com">
+  <meta property="article:tag" content="{{ meta.tags|join(', ') }}">
+
+{% endblock %}
 {% block head %}
   {{ parent() }}
   <script type="text/x-mathjax-config">

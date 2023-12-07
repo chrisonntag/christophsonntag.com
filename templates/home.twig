@@ -34,49 +34,54 @@
 {% endblock %}
 
 {% block content %}
-  <div class="col-5 absolute top-0 right-0">
-    <div style="position: relative;overflow: hidden;height: 0;width: 100%;padding-bottom: 120%;">
-      <div class="absolute top-0 right-0">
-        <img class="image desktop-only" src="{{ base_path() }}/images/cs_2023.jpeg" />
+  <div itemscope itemtype="https://schema.org/Person">
+    <div class="col-5 absolute top-0 right-0">
+      <div style="position: relative;overflow: hidden;height: 0;width: 100%;padding-bottom: 120%;">
+        <div class="absolute top-0 right-0">
+          <img itemprop="image" class="image desktop-only" src="{{ base_path() }}/images/cs_2023.jpeg" alt="Photo of Christoph Sonntag" />
+        </div>
       </div>
     </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-7" id="about">
-        <h1 class="serif">data science. deep learning. analog. music.</h1>
-        <p>
-          I'm a Masters student in Computer Science at the <a href="https://informatik.univie.ac.at/">University of Vienna</a>,
-          currently interested in backdoor attacks on language models in federated learning.
-          At the same time, I'm also interested in a broader view on AI, taking into account the ethical, legal,
-          and social implications from its development and usage.
-        </p>
-        <p>
-          With a Bachelor's degree in Internet Computing from the
-          <a href="https://www.fim.uni-passau.de/">University of Passau</a>, Germany, I've also worked
-          as a web developer and as a lecturer, imparting programming skills to non-computer science students.
-          For the last few years, I've also consulted, implemented and integrated customized software projects
-          for a variety of different clients.
-        </p>
-        <p>
-          I find joy in creating music, capturing moments through film, and reading and
-          contributing to Wikipedia (<a href="https://en.wikipedia.org/wiki/Special:Contributions/Chrisonntag">en</a>, <a href="https://de.wikipedia.org/wiki/Spezial:Beitr%C3%A4ge/Chrisonntag">de</a>).
-          I'm also a French language <a href="https://de.duolingo.com/profile/christophsonntag">learner</a>, hobby chef and an avid explorer who enjoys discovering new things about the world.
-        </p>
-        <p style="height: 15px;"> </p>
-        <div class="card">
+    <div class="container">
+      <div class="row">
+        <div class="col-7" id="about" itemprop="description">
+          <h1 class="serif">data science. deep learning. analog. music.</h1>
+          <span itemprop="name" class="hidden">Christoph Sonntag</span>
+          <meta itemprop="employmentType" content="Open to work">
           <p>
-            Feel free to reach out if you are interested in collaborations or have exciting topics to discuss.
-            I'm currently based in <a href="https://www.openstreetmap.org/relation/109166">Vienna, Austria</a>.
+            I'm a Masters student in Computer Science at the <a href="https://informatik.univie.ac.at/"><span itemprop="alumniOf">University of Vienna</span></a>,
+            currently interested in backdoor attacks on language models in federated learning.
+            At the same time, I'm also interested in a broader view on AI, taking into account the ethical, legal,
+            and social implications from its development and usage.
           </p>
           <p>
-            <a href="https://github.com/chrisonntag/cv/raw/master/dist/cv.pdf">Download my CV</a> or
-            send a message with my <a href="{{ url_for('pgp') }}">public key</a>.
+            With a Bachelor's degree in Internet Computing from the
+            <a href="https://www.fim.uni-passau.de/"><span itemprop="alumniOf">University of Passau</span></a>, Germany, I've also worked
+            as a web developer, <span itemprop="jobTitle">software engineer</span> and as a lecturer, imparting programming skills to non-computer science students.
+            For the last few years, I've also consulted, implemented and integrated customized software projects
+            for a variety of different clients.
           </p>
+          <p>
+            I find joy in creating music, capturing moments through film, and reading and
+            contributing to Wikipedia (<a href="https://en.wikipedia.org/wiki/Special:Contributions/Chrisonntag">en</a>, <a href="https://de.wikipedia.org/wiki/Spezial:Beitr%C3%A4ge/Chrisonntag">de</a>).
+            I'm also a French language <a href="https://de.duolingo.com/profile/christophsonntag">learner</a>, hobby chef and an avid explorer who enjoys discovering new things about the world.
+          </p>
+          <p style="height: 15px;"> </p>
+          <div class="card">
+            <p>
+              Feel free to reach out if you are interested in collaborations or have exciting topics to discuss.
+              I'm currently based in <a href="https://www.openstreetmap.org/relation/109166">Vienna, Austria</a>.
+            </p>
+            <p>
+              <a href="https://github.com/chrisonntag/cv/raw/master/dist/cv.pdf">Download my CV</a> or
+              send a message with my <a href="{{ url_for('pgp') }}">public key</a>.
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
 
   <br />
   <br />
