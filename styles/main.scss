@@ -75,9 +75,9 @@ p{font-size:1.125rem;font-weight:200;line-height:1.8}
 */
 
 p, li {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 300;
-  line-height: 1.5 !important;
+  line-height: 1.77777778 !important;
 }
 h1,h2,h3 {
   color: var(--heading-color);
@@ -363,6 +363,10 @@ footer .small {
   flex-wrap: wrap;
   width: 100%;
 }
+footer ul {
+  list-style: none;
+  padding: 0;
+}
 
 
 ::selection {
@@ -446,6 +450,7 @@ footer .small {
   position: relative;
   margin: 0px;
   padding: 0px;
+  cursor: pointer;
 }
 .article-preview .preview-image {
   height: 100%;
@@ -468,21 +473,22 @@ footer .small {
 .article-abstract {
   font-size: 2rem;
   font-weight: 300;
+  line-height: 1.4 !important;
 }
 
 .tag {
   padding: 6px 12px;
-  color: var(--contrast-color) !important;
+  color: var(--white) !important;
   background-color: var(--contrast-color-bright);
   font-size: 0.7rem;
   font-weight: 500;
   margin: 6px;
 }
 .tag:hover {
-  color: var(--contrast-color) !important;
+  color: var(--white) !important;
 }
 .tag:visited {
-  color: var(--contrast-color) !important;
+  color: var(--white) !important;
 }
 
 
@@ -640,6 +646,11 @@ Say it with words styles
     width: 100%;
   }
 
+  h1 {font-size: 3em;}
+
+  .row [class^="col"] > .article-preview {padding: 3em;}
+  .article-abstract {font-size: 1.4rem;}
+
   .navigation {
     max-width: 100%;
     width: 100%;
@@ -656,7 +667,7 @@ Say it with words styles
     padding: 2em 0 0 0;
   }
   .container-b {
-    padding: 1.5em 2em 0 2em !important;
+    padding: 1.5em 2em 0 0em !important;
   }
   .main {
     margin: 0 auto;
@@ -671,6 +682,8 @@ Say it with words styles
   }
 
   .mobile { display: block !important; }
+  #header .header-main { justify-content: flex-end; }
+  #header .header-main > .box-left { margin: 0 -70.4px 0 0; }
 
   .switch-wrapper {
     margin: 5em 3em 0 0;

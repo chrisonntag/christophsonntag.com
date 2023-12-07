@@ -194,9 +194,9 @@ h6{font-size:.875rem}
 p{font-size:1.125rem;font-weight:200;line-height:1.8}
 */
 p, li {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 300;
-  line-height: 1.5 !important;
+  line-height: 1.77777778 !important;
 }
 
 h1, h2, h3 {
@@ -583,6 +583,11 @@ footer .small {
   width: 100%;
 }
 
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
 ::selection {
   background: var(--selection-bg-color);
   color: var(--selection-color);
@@ -677,6 +682,7 @@ footer .small {
   position: relative;
   margin: 0px;
   padding: 0px;
+  cursor: pointer;
 }
 
 .article-preview .preview-image {
@@ -702,11 +708,12 @@ footer .small {
 .article-abstract {
   font-size: 2rem;
   font-weight: 300;
+  line-height: 1.4 !important;
 }
 
 .tag {
   padding: 6px 12px;
-  color: var(--contrast-color) !important;
+  color: var(--white) !important;
   background-color: var(--contrast-color-bright);
   font-size: 0.7rem;
   font-weight: 500;
@@ -714,11 +721,11 @@ footer .small {
 }
 
 .tag:hover {
-  color: var(--contrast-color) !important;
+  color: var(--white) !important;
 }
 
 .tag:visited {
-  color: var(--contrast-color) !important;
+  color: var(--white) !important;
 }
 
 .hero.row {
@@ -884,6 +891,18 @@ Say it with words styles
     width: 100%;
   }
 
+  h1 {
+    font-size: 3em;
+  }
+
+  .row [class^=col] > .article-preview {
+    padding: 3em;
+  }
+
+  .article-abstract {
+    font-size: 1.4rem;
+  }
+
   .navigation {
     max-width: 100%;
     width: 100%;
@@ -902,7 +921,7 @@ Say it with words styles
   }
 
   .container-b {
-    padding: 1.5em 2em 0 2em !important;
+    padding: 1.5em 2em 0 0em !important;
   }
 
   .main {
@@ -921,6 +940,14 @@ Say it with words styles
 
   .mobile {
     display: block !important;
+  }
+
+  #header .header-main {
+    justify-content: flex-end;
+  }
+
+  #header .header-main > .box-left {
+    margin: 0 -70.4px 0 0;
   }
 
   .switch-wrapper {
