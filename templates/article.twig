@@ -62,9 +62,12 @@
           <h1 itemprop="headline" class="serif">{{ meta.title }}</h1>
           <p class="subtitle">
             <span itemprop="author" itemscope itemtype="https://schema.org/Person">
-              <a href="{{ full_url_for('home') }}" itemprop="url">
-                <span itemprop="name">{{ meta.author }}</span>
-              </a>
+              <span itemprop="name">
+                <a href="{{ full_url_for('home') }}">
+                  {{ meta.author }}
+                </a>
+                <meta itemprop="url" content="{{ full_url_for('home') }}">
+              </span>
             </span> |
             <span>
               {{ meta.date|date("d.m.Y") }}
@@ -88,7 +91,10 @@
       </div>
       <div class="col-4 article-preview">
         <figure class="preview-figure">
-          <img itemprop="image" class="preview-image" src="{{ full_url_for('article_static', {'slug': meta.slug}) }}/{{ meta.image }}" />
+          <span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+            <img itemprop="contentUrl" class="preview-image" src="{{ full_url_for('article_static', {'slug': meta.slug}) }}/{{ meta.image }}" />
+            <meta itemprop="url" content="{{ full_url_for('article_static', {'slug': meta.slug}) }}/{{ meta.image }}">
+          </span>
         </figure>
       </div>
     </div>
