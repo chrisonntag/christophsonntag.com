@@ -40,16 +40,18 @@
         <div class="col-{{ 12/cols }}">
           <div itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="article-preview">
             <meta itemprop="position" content="{{ loop.index }}" />
-            <a itemprop="url" href="{{ url_for('article', {
+            <a itemprop="url" href="{{ full_url_for('article', {
               'slug': article.meta.slug,
               'year': article.meta.date|date('Y'),
               'month': article.meta.date|date('m'),
               'day': article.meta.date|date('d')
             }) }}" title="{{ article.preview_text|striptags }}">
-              <figure class="preview-figure">
-                <img class="preview-image" src="{{ url_for('article_static', {'slug': article.meta.slug}) }}/{{ article.meta.image }}" alt="{{ article.preview_text|striptags }}" />
-              </figure>
-              <h4 class="base-heading article-preview-title">{{ article.meta.title }}</h4>
+              <span itemprop="item" itemscope itemtype="http://schema.org/BlogPosting">
+                <figure class="preview-figure">
+                  <img itemprop="image" class="preview-image" src="{{ full_url_for('article_static', {'slug': article.meta.slug}) }}/{{ article.meta.image }}" alt="{{ article.preview_text|striptags }}" />
+                </figure>
+                <h4 itemprop="headline" class="base-heading article-preview-title">{{ article.meta.title }}</h4>
+              </span>
             </a>
           </div>
         </div>
