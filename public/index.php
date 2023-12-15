@@ -207,7 +207,7 @@ $app->get('/articles/{slug}', function ($request, $response, $args) {
     return $view->render($response, 'article.twig', $article);
 })->setName('article_static');
 
-$app->get('/application/soundcloud', function ($request, $response, $args) {
+$app->get('/project/say-it-with-songs', function ($request, $response, $args) {
     $view = Twig::fromRequest($request);
     return $view->render($response, 'soundcloud.twig');
 })->setName('soundcloud');

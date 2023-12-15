@@ -5,7 +5,7 @@ export class SearchComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: "I would really enjoy doing an internship at SoundCloud this summer. Feel free to contact me if you want to meet.",
+      text: "And medicine, law, business, engineering, these are noble pursuits and necessary to sustain life. But poetry, beauty, romance, love, these are what we stay alive for.",
     };
   }
 

@@ -5,34 +5,29 @@
   {{ parent() }}
   <style>
     h1,h2,h3 a:hover { color: #ff5500 !important;}
+    #header .header-main > .box-left {background-color: #ff5500 !important;}
   </style>
 {% endblock %}
 
-{% block header %}
-{% endblock %}
+
 
 {% block content %}
   {% set breadcrumb %}
-    <a href="{{ url_for('home') }}" class="unstyled">Home</a> / Hello SoundCloud
+    <a href="{{ url_for('home') }}" class="unstyled">Home</a> / Say it with songs
   {% endset %}
   {{ parent() }}
   <div class="container">
     <div class="row">
       <div class="col-5">
         <h1 class="serif">
-          <span style="font-size: 2em;">Hey</span>
-          SoundCloud, ...
+          Say it with Songs
         </h1>
-        <p class="article-abstract">
-          i've heard that you're mostly using Scala and react.js at SoundCloud – neither of which I have any experience
-          in –, so I thought it would be fun to dive into something new.
-        </p>
         <p>The app on the right translates text into songs from SoundCloud.
           The frontend is just a simple react application, embedded into my PHP-based website, that
           usually runs on Twig templates. The backend, however, is a Scala app that provides an API using cask and
-          queries the SoundCloud page using JSoup since you're sadly not offering keys for your own API anymore ...
+          queries the SoundCloud page using JSoup since SoundCloud sadly is not offering keys for their own API anymore ...
         <p>
-          In order to not overload your servers, I use redis for caching search terms.
+          In order to not overload the SoundCloud servers, I use redis for caching search terms.
         </p>
         <p>
           Since the introductory computer science course of my first semester in which we learned Haskell was quite
@@ -41,8 +36,7 @@
           You can find both the
           <a href="https://github.com/chrisonntag/say-it-with-songs">Scala</a> backend (using cask and Jsoup) and
           the small <a href="https://github.com/chrisonntag/christophsonntag.com/tree/master/say-it-with-songs">react.js</a>
-          app on my GitHub profile. Download my <a href="https://christophsonntag.com/data/application/soundcloud/cv_christophsonntag.pdf">CV</a>
-          and my <a href="https://christophsonntag.com/data/application/soundcloud/coverletter_cs.pdf">Cover Letter</a>.
+          app on my GitHub profile.
         </p>
       </div>
       <div class="col-7">
