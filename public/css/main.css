@@ -74,8 +74,8 @@ Base file setting up font and colors for later use.
   --heading-inverted-color: var(--white);
   --heading-light-color: scale-color(var(--heading-color), lightness, 50%);
   --text-color: var(--black);
-  --link-color: #a2a2a2;
-  --link-hover-color: var(--contrast-color);
+  --link-color: var(--blue);
+  --link-hover-color: var(--contrast-color-bright);
   --link-visited-color: var(--link-color);
   --btn-color: #fff;
   --btn-bg-color: var(--contrast-color);
