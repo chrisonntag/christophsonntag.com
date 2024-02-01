@@ -1,0 +1,1 @@
+{"mappings":"ACCA","sources":["say-it-with-songs/say-it-with-songs.css","say-it-with-songs/styles/style.css"],"sourcesContent":[".song-word {\n  margin-right: 6px;\n  font-size: 2rem;\n}\n\n/*# sourceMappingURL=say-it-with-songs.css.map */\n","\n.song-word {\n    margin-right: 6px;\n    font-size: 2rem;\n}"],"names":[],"version":3,"file":"say-it-with-songs.css.map"}

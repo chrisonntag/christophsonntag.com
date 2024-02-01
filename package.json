@@ -2,19 +2,21 @@
   "name": "repo",
   "version": "1.0.0",
   "private": "true",
-  "main": "app.js",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
     "clean": "rm -rf .cache/*",
     "build:sass": "sass styles:public/css",
     "watch:sass": "sass --watch styles:public/css",
-    "build:songs": "parcel build say-it-with-songs/index.js --out-dir public/js --out-file say-it-with-songs.bundle.js --public-url ./",
-    "build": "npm run clean && npm run build:sass && npm run build:songs"
+    "build:songs": "parcel build say-it-with-songs/say-it-with-songs.js --dist-dir public/js --public-url ./",
+    "build:mainapp": "parcel build scripts/main.js --dist-dir public/js",
+    "build": "npm run clean && npm run build:sass && npm run build:songs && npm run build:mainapp"
   },
   "dependencies": {
-    "parcel-bundler": "^1.12.4",
+    "parcel": "^2.11.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-loader-spinner": "^6.0.0-0",
-    "sass": "^1.34.0"
+    "react-loader-spinner": "^6.1.6",
+    "sass": "^1.34.0",
+    "wikipedia-preview": "^1.9.0"
   }
 }

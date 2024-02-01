@@ -351,7 +351,7 @@ li.active > a {
   display: flex;
   height: 70px;
   border-bottom: none;
-  border-bottom-color: #e6eaea;
+  border-bottom-color: rgb(230, 234, 234);
 }
 
 #header .header-main > .box-left {
@@ -625,7 +625,7 @@ footer ul {
 }
 
 .breadcrumbs span.breadcrumb {
-  background: #aaaaa0;
+  background: rgb(170, 170, 160);
   background: linear-gradient(90deg, pink, var(--contrast-color));
   height: 1.25rem;
   width: 1.25rem;
@@ -837,9 +837,9 @@ Say it with words styles
   height: 68px;
   display: inline-block;
   padding: 0 24px 0 24px;
-  background-color: whitesmoke;
+  background-color: rgb(245, 245, 245);
   vertical-align: top;
-  border: 1px solid #e5e5e5;
+  border: 1px solid rgb(229, 229, 229);
   border-radius: 3px;
 }
 
@@ -890,19 +890,15 @@ Say it with words styles
     flex-wrap: wrap;
     width: 100%;
   }
-
   h1 {
     font-size: 3em;
   }
-
   .row [class^=col] > .article-preview {
     padding: 3em;
   }
-
   .article-abstract {
     font-size: 1.4rem;
   }
-
   .navigation {
     max-width: 100%;
     width: 100%;
@@ -912,53 +908,42 @@ Say it with words styles
     position: relative;
     border: none;
   }
-
   .container {
     width: 100%;
     max-width: 100%;
     margin: 0;
     padding: 2em 0 0 0;
   }
-
   .container-b {
     padding: 1.5em 2em 0 0em !important;
   }
-
   .main {
     margin: 0 auto;
     padding: 0;
     width: 90%;
   }
-
   .intro > p {
     font-size: 1.7em;
   }
-
   .desktop-only {
     display: none;
   }
-
   .mobile {
     display: block !important;
   }
-
   #header .header-main {
     justify-content: flex-end;
   }
-
   #header .header-main > .box-left {
     margin: 0 -70.4px 0 0;
   }
-
   .switch-wrapper {
     margin: 5em 3em 0 0;
   }
-
   .row [class^=col] {
     margin: 0;
     width: 100%;
   }
-
   ul.nav {
     display: flex !important;
     width: 100%;
@@ -968,31 +953,25 @@ Say it with words styles
     overflow: hidden;
     transition: max-height 0.9s ease 0s;
   }
-
   .navigation ul.nav li {
     padding: 1em 0em;
     float: left;
     text-align: center;
     width: 100%;
   }
-
   .navigation ul.nav li a {
     color: var(--link-color);
     font-weight: 400;
   }
-
   .p6 {
     width: unset;
   }
-
   .p7 {
     width: unset;
   }
-
   .p8 {
     width: unset;
   }
-
   .p9 {
     width: unset;
   }
@@ -1108,17 +1087,13 @@ pre code {
 }
 @keyframes scroller {
   0% {
-    -moz-transform: translateX(100%);
-    /* Firefox bug fix */
-    -webkit-transform: translateX(100%);
-    /* Firefox bug fix */
+    -moz-transform: translateX(100%); /* Firefox bug fix */
+    -webkit-transform: translateX(100%); /* Firefox bug fix */
     transform: translateX(100%);
   }
   100% {
-    -moz-transform: translateX(-70%);
-    /* Firefox bug fix */
-    -webkit-transform: translateX(-70%);
-    /* Firefox bug fix */
+    -moz-transform: translateX(-70%); /* Firefox bug fix */
+    -webkit-transform: translateX(-70%); /* Firefox bug fix */
     transform: translateX(-70%);
   }
 }
