@@ -1,5 +1,5 @@
 {
-      "title" : "Say it with songs",
+      "title" : "Say It With Songs",
       "date"  : "02-03-2022",
       "slug"  : "say-it-with-songs",
       "author": "Christoph Sonntag",
@@ -10,4 +10,7 @@
       "type_url": ""
 }
 
-Check it out [here](https://christophsonntag.com/project/say-it-with-songs).
+You can find both the [Scala backend](https://github.com/chrisonntag/say-it-with-songs) (using cask and Jsoup) and 
+the small [react.js app](https://github.com/chrisonntag/christophsonntag.com/tree/master/say-it-with-songs) on my 
+[GitHub profile](https://github.com/chrisonntag). 
+Check out the deployed project [here](https://christophsonntag.com/project/say-it-with-songs). 

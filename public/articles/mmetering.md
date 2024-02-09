@@ -1,5 +1,5 @@
 {
-      "title" : "Smart metering for community houses",
+      "title" : "Smart Metering For Community Houses",
       "date"  : "10-04-2018",
       "slug"  : "mmetering",
       "author": "Christoph Sonntag",
