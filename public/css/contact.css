@@ -1,54 +1,6 @@
 /**
 Base file setting up font and colors for later use.
  */
-@font-face {
-  font-family: "Karla";
-  src: url(../public/fonts/sans/Karla/Karla-Regular.ttf);
-  font-weight: 300;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Karla";
-  src: url(../public/fonts/sans/Karla/Karla-Italic.ttf);
-  font-weight: 300;
-  font-style: italic;
-}
-@font-face {
-  font-family: "Karla";
-  src: url(../public/fonts/sans/Karla/Karla-Bold.ttf);
-  font-weight: 500;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Karla";
-  src: url(../public/fonts/sans/Karla/Karla-BoldItalic.ttf);
-  font-weight: 500;
-  font-style: italic;
-}
-@font-face {
-  font-family: "Cormorant";
-  src: url(../public/fonts/serif/Cormorant/Cormorant-Regular.ttf);
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Cormorant";
-  src: url(../public/fonts/serif/Cormorant/Cormorant-Medium.ttf);
-  font-weight: 500;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Butler";
-  src: url(../public/fonts/serif/Butler/Butler-Regular.otf);
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Butler";
-  src: url(../public/fonts/serif/Butler/Butler-Bold.otf);
-  font-weight: 500;
-  font-style: normal;
-}
 :root[data-theme=light] {
   --depth-contrast: #1e1f26;
   --depth-0: #e9e9e9;
@@ -83,8 +35,8 @@ Base file setting up font and colors for later use.
   --selection-color: #fff;
   --selection-bg-color: #0e0e0e;
   --footer-bg-color: var(--black);
-  --head-font: "Butler", "Cormorant", serif;
-  --text-font: "Roboto", "Karla", "Helvetica Neue", sans-serif;
+  --head-font: "Butler", "Cormorant", "Times New Roman", serif;
+  --text-font: "Roboto", "Helvetica Neue", sans-serif;
   --sub-font: Monospaced, monospace;
 }
 
