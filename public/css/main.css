@@ -10,44 +10,50 @@ Base file setting up font and colors for later use.
  */
 @font-face {
   font-family: "Karla";
-  src: url(../fonts/sans/Karla/Karla-Regular.ttf);
+  src: url(../public/fonts/sans/Karla/Karla-Regular.ttf);
   font-weight: 300;
   font-style: normal;
 }
 @font-face {
   font-family: "Karla";
-  src: url(../fonts/sans/Karla/Karla-Italic.ttf);
+  src: url(../public/fonts/sans/Karla/Karla-Italic.ttf);
   font-weight: 300;
   font-style: italic;
 }
 @font-face {
   font-family: "Karla";
-  src: url(../fonts/sans/Karla/Karla-Bold.ttf);
+  src: url(../public/fonts/sans/Karla/Karla-Bold.ttf);
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: "Karla";
-  src: url(../fonts/sans/Karla/Karla-BoldItalic.ttf);
+  src: url(../public/fonts/sans/Karla/Karla-BoldItalic.ttf);
   font-weight: 500;
   font-style: italic;
 }
 @font-face {
   font-family: "Cormorant";
-  src: url(../fonts/serif/Cormorant/Cormorant-Regular.ttf);
-  font-weight: 300;
+  src: url(../public/fonts/serif/Cormorant/Cormorant-Regular.ttf);
+  font-weight: 400;
   font-style: normal;
 }
 @font-face {
   font-family: "Cormorant";
-  src: url(../fonts/serif/Cormorant/Cormorant-Medium.ttf);
+  src: url(../public/fonts/serif/Cormorant/Cormorant-Medium.ttf);
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: "Butler";
-  src: url(../fonts/serif/Butler/Butler-Regular.otf);
-  font-weight: 300;
+  src: url(../public/fonts/serif/Butler/Butler-Regular.otf);
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Butler";
+  src: url(../public/fonts/serif/Butler/Butler-Bold.otf);
+  font-weight: 500;
   font-style: normal;
 }
 :root[data-theme=light] {
@@ -85,7 +91,7 @@ Base file setting up font and colors for later use.
   --selection-bg-color: #0e0e0e;
   --footer-bg-color: var(--black);
   --head-font: "Butler", "Cormorant", serif;
-  --text-font: "Karla", "Helvetica Neue", "Roboto", sans-serif;
+  --text-font: "Roboto", "Karla", "Helvetica Neue", sans-serif;
   --sub-font: Monospaced, monospace;
 }
 
@@ -155,7 +161,7 @@ body {
   font-size: 1rem;
   font-family: var(--text-font);
   font-weight: 400;
-  line-height: 1.3;
+  line-height: 28px;
 }
 
 * {
@@ -195,14 +201,13 @@ p{font-size:1.125rem;font-weight:200;line-height:1.8}
 */
 p, li {
   font-size: 1.1rem;
-  font-weight: 300;
   line-height: 1.77777778 !important;
 }
 
 h1, h2, h3 {
-  color: var(--heading-color);
-  font-weight: 500;
-  font-family: var(--text-font);
+  color: var(--text-color);
+  margin: 2em 0 0 0;
+  font-family: var(--head-font);
   line-height: 1.5;
 }
 
@@ -211,6 +216,7 @@ h1.base-heading, h2.base-heading, h3.base-heading, h4.base-heading {
 }
 
 h1 {
+  color: var(--heading-color);
   font-size: 4em;
 }
 
@@ -234,13 +240,11 @@ h5, h6 {
 }
 
 h5 {
-  font-weight: 300;
   letter-spacing: 0.03rem;
   line-height: 1.55;
 }
 
 h6 {
-  font-weight: 400;
   line-height: 1.6;
   letter-spacing: 0.03rem;
 }
@@ -248,6 +252,7 @@ h6 {
 h1.serif, h2.serif, h3.serif, h4.serif, h5.serif, h6.serif {
   font-family: var(--head-font);
   line-height: 1.2;
+  font-weight: 400;
 }
 
 .sans-serif {
@@ -333,7 +338,6 @@ li.active {
 
 li.active > a {
   color: var(--heading-color) !important;
-  font-weight: 400;
 }
 
 #header {
@@ -468,7 +472,6 @@ ul.nav {
 
 ul.nav a {
   font-size: 1rem;
-  font-weight: 300;
   color: var(--text-color);
 }
 
@@ -496,7 +499,7 @@ hr {
   text-transform: uppercase;
 }
 
-.headline h1, h2, h3, h4 {
+.headline h1, .headline h2, .headline h3, .headline h4 {
   margin: 0;
 }
 
@@ -596,7 +599,6 @@ footer ul {
 
 .intro > p {
   font-size: 1.7em;
-  font-weight: 100;
   line-height: 1.3;
 }
 
@@ -667,7 +669,6 @@ footer ul {
   font-size: 0.8em !important;
   font-family: var(--sub-font);
   text-align: center;
-  font-weight: 300;
 }
 
 .article-preview {
@@ -707,7 +708,6 @@ footer ul {
 
 .article-abstract {
   font-size: 2rem;
-  font-weight: 300;
   line-height: 1.4 !important;
 }
 
@@ -716,7 +716,6 @@ footer ul {
   color: var(--white) !important;
   background-color: var(--contrast-color-bright);
   font-size: 0.7rem;
-  font-weight: 500;
   margin: 6px;
 }
 
@@ -961,7 +960,6 @@ Say it with words styles
   }
   .navigation ul.nav li a {
     color: var(--link-color);
-    font-weight: 400;
   }
   .p6 {
     width: unset;

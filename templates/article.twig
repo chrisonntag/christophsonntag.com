@@ -57,7 +57,8 @@
   {{ parent() }}
   <div itemscope itemtype="https://schema.org/BlogPosting" class="container">
     <div class="row">
-      <div class="col-8">
+      <div class="col-1"></div>
+      <div class="col-10">
         <div class="headline">
           <h1 itemprop="headline" class="serif">{{ meta.title }}</h1>
           <p class="subtitle">
@@ -89,24 +90,28 @@
           {% endif %}
         </div>
       </div>
-      <div class="col-4 article-preview">
+      <!--<div class="col-4 article-preview">
         <figure class="preview-figure">
           <span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
             <img itemprop="contentUrl" class="preview-image" src="{{ full_url_for('article_static', {'slug': meta.slug}) }}/{{ meta.image }}" />
             <meta itemprop="url" content="{{ full_url_for('article_static', {'slug': meta.slug}) }}/{{ meta.image }}">
           </span>
         </figure>
-      </div>
+      </div>-->
     </div>
 
     <br />
 
     <div class="row">
-      <div class="col-12">
+      <div class="col-2"></div>
+      <div class="col-8">
         <div itemprop="articleBody">
           {{ content|raw }}
         </div>
       </div>
+      <div class="col-2"></div>
     </div>
   </div>
+
+      <div class="col-1"></div>
 {% endblock %}
