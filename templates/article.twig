@@ -57,24 +57,9 @@
   {{ parent() }}
   <div itemscope itemtype="https://schema.org/BlogPosting" class="container">
     <div class="row">
-      <div class="col-1"></div>
-      <div class="col-10">
+      <div class="col-12">
         <div class="headline">
-          <h1 itemprop="headline" class="serif">{{ meta.title }}</h1>
-          <p class="subtitle">
-            <span itemprop="author" itemscope itemtype="https://schema.org/Person">
-              <span itemprop="name">
-                <a href="{{ full_url_for('home') }}">
-                  {{ meta.author }}
-                </a>
-                <meta itemprop="url" content="{{ full_url_for('home') }}">
-              </span>
-            </span> |
-            <span>
-              {{ meta.date|date("d.m.Y") }}
-            </span>
-            <meta itemprop="datePublished" content="{{ meta.date|date("c") }}" />
-          </p>
+          <h1 itemprop="headline" class="serif">{{ meta.title }}</h1> 
           <p itemprop="abstract" class="article-abstract">
             {{ meta.preview_text }}
           </p>
@@ -103,7 +88,25 @@
     <br />
 
     <div class="row">
-      <div class="col-2"></div>
+      <div class="col-2">
+        <div>
+            <p>
+            <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+              <span itemprop="name">
+                <a href="{{ full_url_for('home') }}">
+                  {{ meta.author }}
+                </a>
+                <meta itemprop="url" content="{{ full_url_for('home') }}">
+              </span>
+            </span>
+            <br />
+            <span>
+              {{ meta.date|date("F j, Y") }}
+            </span>
+            <meta itemprop="datePublished" content="{{ meta.date|date("c") }}" />
+          </p>
+        </div>
+      </div>
       <div class="col-8">
         <div itemprop="articleBody">
           {{ content|raw }}

@@ -14,3 +14,12 @@ You can find both the [Scala backend](https://github.com/chrisonntag/say-it-with
 the small [react.js app](https://github.com/chrisonntag/christophsonntag.com/tree/master/say-it-with-songs) on my 
 [GitHub profile](https://github.com/chrisonntag). 
 Check out the deployed project [here](https://christophsonntag.com/project/say-it-with-songs). 
+
+<img width="500" src="/articles/say-it-with-songs/siws_feature.png">
+
+<figcaption>
+
+Screenshot from the say-it-with-songs interface.
+
+</figcaption>
+
