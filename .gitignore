@@ -13,6 +13,7 @@ tmp/
 config.php
 node_modules/
 .cache/
+.parcel-cache/
 
 # Created by https://www.gitignore.io/api/intellij+all
 # Edit at https://www.gitignore.io/?templates=intellij+all
