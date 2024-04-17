@@ -8,10 +8,13 @@
     "build:sass": "sass styles:public/css",
     "watch:sass": "sass --watch styles:public/css",
     "build:songs": "parcel build say-it-with-songs/say-it-with-songs.js --dist-dir public/js --public-url ./",
-    "build:mainapp": "parcel build scripts/main.js --dist-dir public/js",
-    "build": "npm run clean && npm run build:sass && npm run build:songs && npm run build:mainapp"
+    "build:mainapp": "parcel build scripts/main.js --dist-dir public/js --public-url ./",
+    "build:highlight": "parcel build scripts/highlight.js --dist-dir public/js --public-url ./",
+    "build:wiki": "parcel build scripts/wiki.js --dist-dir public/js --public-url ./",
+    "build": "npm run clean && npm run build:sass && npm run build:songs && npm run build:mainapp && npm run build:highlight && npm run build:wiki"
   },
   "dependencies": {
+    "highlight.js": "^11.9.0",
     "parcel": "^2.11.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

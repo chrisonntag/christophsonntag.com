@@ -1,8 +1,4 @@
-const wikipediaPreview = require("wikipedia-preview");
-wikipediaPreview.default.init({
-  detectLinks: true
-});
-
+// Setup the mobile navigation burger menu
 document.addEventListener('DOMContentLoaded', function(event) {
   /**
    * Slide element down.

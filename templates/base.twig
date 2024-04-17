@@ -34,6 +34,9 @@
     <link rel="shortcut icon" href="{{ base_path() }}/images/favicon.ico">
     <link rel="stylesheet" type="text/css" href="{{ base_path() }}/css/simple-grid.min.css">
     <link rel="stylesheet" type="text/css" href="{{ base_path() }}/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{{ base_path() }}/css/wikipedia-preview.css">
+    <link rel="stylesheet" type="text/css" href="{{ base_path() }}/css/wikipedia-preview-link.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/stackoverflow-light.min.css">
   {% endblock %}
 </head>
 <body class="loading">
@@ -232,9 +235,8 @@
 {% endblock %}
 
 <script type="module" src="{{ base_path() }}/js/main.js"></script>
-<script type="javascript">
-
-</script>
+<script type="module" src="{{ base_path() }}/js/highlight.js"></script>
+<script type="module" src="{{ base_path() }}/js/wiki.js"></script>
 {% block scripts %}{% endblock %}
 </body>
 </html>
