@@ -90,7 +90,7 @@
 
   {% if articles|length > 0 %}
     <div itemscope itemtype="https://schema.org/ItemList" class="container">
-      <meta itemprop="numberOfItems" content="{{ articles|length}}" />
+      <meta itemprop="numberOfItems" content="{{ articles|length }}" />
       <div class="row">
         <div class="col-8">
           <h3 class="base-heading">Digital Garden</h3>
@@ -111,36 +111,86 @@
         {% if loop.index0 % cols == 0 %}
           <div class="row">
         {% endif %}
-        <div class="col-{{ 12/cols }}">
-          <div itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="article-preview">
-            <meta itemprop="position" content="{{ loop.index }}" />
-            <span itemprop="item" itemscope itemtype="http://schema.org/BlogPosting">
-              <meta itemprop="abstract" content="{{ article.meta.preview_text }}">
-              <meta itemprop="url" content="{{ full_url_for('article', {
-                'slug': article.meta.slug,
-                'year': article.meta.date|date('Y'),
-                'month': article.meta.date|date('m'),
-                'day': article.meta.date|date('d')
-              }) }}">
-              <a itemprop="url" href="{{ full_url_for('article', {
-                'slug': article.meta.slug,
-                'year': article.meta.date|date('Y'),
-                'month': article.meta.date|date('m'),
-                'day': article.meta.date|date('d')
-              }) }}" title="{{ article.preview_text|striptags }}">
-                  <figure itemprop="image" itemscope itemtype="https://schema.org/ImageObject" class="preview-figure">
-                    <img itemprop="contentUrl" class="preview-image" src="{{ full_url_for('article_static', {'slug': article.meta.slug}) }}/{{ article.meta.image }}" alt="{{ article.preview_text|striptags }}" />
-                    <meta itemprop="url" content="{{ full_url_for('article_static', {'slug': article.meta.slug}) }}/{{ article.meta.image }}">
-                  </figure>
-                  <h4 itemprop="headline" class="base-heading article-preview-title">{{ article.meta.title }}</h4>
-                  <span itemprop="author" itemscope itemtype="https://schema.org/Person" class="hidden">
-                    <span itemprop="name">{{ article.meta.author }}</span>
-                    <meta itemprop="url" content="{{ full_url_for('home') }}">
-                  </span>
-              </a>
-            </span>
+          <div class="col-{{ 12/cols }}">
+
+            {% if article.meta.image %}
+              <div itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="article-preview">
+                <meta itemprop="position" content="{{ loop.index }}" />
+                <span itemprop="item" itemscope itemtype="http://schema.org/BlogPosting">
+                  <meta itemprop="abstract" content="{{ article.meta.preview_text }}">
+                  <meta itemprop="url" content="{{ full_url_for('article', {
+                    'slug': article.meta.slug,
+                    'year': article.meta.date|date('Y'),
+                    'month': article.meta.date|date('m'),
+                    'day': article.meta.date|date('d')
+                  }) }}">
+                  <a itemprop="url" href="{{ full_url_for('article', {
+                    'slug': article.meta.slug,
+                    'year': article.meta.date|date('Y'),
+                    'month': article.meta.date|date('m'),
+                    'day': article.meta.date|date('d')
+                  }) }}" title="{{ article.preview_text|striptags }}">
+                      <figure itemprop="image" itemscope itemtype="https://schema.org/ImageObject" class="preview-figure">
+                        <img itemprop="contentUrl" class="preview-image" src="{{ full_url_for('article_static', {'slug': article.meta.slug}) }}/{{ article.meta.image }}" alt="{{ article.preview_text|striptags }}" />
+                        <meta itemprop="url" content="{{ full_url_for('article_static', {'slug': article.meta.slug}) }}/{{ article.meta.image }}">
+                      </figure>
+                      <h4 itemprop="headline" class="base-heading article-preview-title">{{ article.meta.title }}</h4>
+                      <span itemprop="author" itemscope itemtype="https://schema.org/Person" class="hidden">
+                        <span itemprop="name">{{ article.meta.author }}</span>
+                        <meta itemprop="url" content="{{ full_url_for('home') }}">
+                      </span>
+                  </a>
+                </span>
+              </div>
+            {% else %}
+            <!-- Article element without image -->
+            <div itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="article-preview">
+              <meta itemprop="position" content="{{ loop.index }}" />
+              <span itemprop="item" itemscope itemtype="http://schema.org/BlogPosting">
+                <meta itemprop="abstract" content="{{ article.meta.preview_text }}">
+                <meta itemprop="url" content="{{ full_url_for('article', {
+                  'slug': article.meta.slug,
+                  'year': article.meta.date|date('Y'),
+                  'month': article.meta.date|date('m'),
+                  'day': article.meta.date|date('d')
+                }) }}">
+                <a itemprop="url" href="{{ full_url_for('article', {
+                  'slug': article.meta.slug,
+                  'year': article.meta.date|date('Y'),
+                  'month': article.meta.date|date('m'),
+                  'day': article.meta.date|date('d')
+                }) }}" title="{{ article.preview_text|striptags }}">
+                    <h3 itemprop="headline" class="serif" style="margin: 0;">
+                      {{ article.meta.title }}
+                      <br />
+                      <span class="subtitle">
+                        {{ article.meta.date|date('M j, Y') }}
+                      </span>
+
+                      <span itemprop="author" itemscope itemtype="https://schema.org/Person" class="hidden">
+                        <span itemprop="name">{{ article.meta.author }}</span>
+                        <meta itemprop="url" content="{{ full_url_for('home') }}">
+                      </span>
+                    </h3>
+                </a>
+                {% if article.meta.preview_text|length > 245 %}
+                    <p>{{ article.meta.preview_text|slice(0, 245) }}…</p>
+                {% else %}
+                    <p>{{ article.meta.preview_text }}</p>
+                {% endif %}
+                <p>
+                  <a href="{{ full_url_for('article', {
+                    'slug': article.meta.slug,
+                    'year': article.meta.date|date('Y'),
+                    'month': article.meta.date|date('m'),
+                    'day': article.meta.date|date('d')
+                  }) }}">Read more →</a>
+                </p>
+              </span>
+            </div>
+            {% endif %}
+
           </div>
-        </div>
         {% if (loop.index0 % cols == cols - 1 or loop.last) %}
           </div>
         {% endif %}
