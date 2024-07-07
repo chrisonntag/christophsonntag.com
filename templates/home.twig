@@ -35,6 +35,7 @@
 
 {% block content %}
   <div itemscope itemtype="https://schema.org/Person">
+    <!--
     <div class="col-5 absolute top-0 right-0">
       <div style="position: relative;overflow: hidden;height: 0;width: 100%;padding-bottom: 120%;">
         <div class="absolute top-0 right-0">
@@ -42,25 +43,24 @@
         </div>
       </div>
     </div>
+    -->
     <div class="container">
       <div class="row">
-        <div class="col-7" id="about" itemprop="description">
-          <h1 class="serif">data. engineering. deep learning. analog. music.</h1>
+        <div class="col-2"></div>
+        <div class="col-8" id="about" itemprop="description">
+          <h1 class="serif">data science. music. machine learning. all analog.</h1>
           <span itemprop="name" class="hidden">Christoph Sonntag</span>
           <p>
-            I'm a Masters student in Computer Science at the <a href="https://informatik.univie.ac.at/"><span itemprop="alumniOf">University of Vienna</span></a>, 
-            a skilled developer and engineer focusing on Deep Learning and Data Engineering 
-            and currently into <a href="https://en.wikipedia.org/wiki/Federated_learning">Federated Learning</a>. 
-            I enjoy being in the space between research and application: solving problems with the help of state-of-the-art research. 
-            At the same time, I'm also interested in a broader view on AI, taking into account the ethical, legal,
-            and social implications from its development and usage.
+            I'm a data scientist and machine learning engineer using the skills from my years in software engineering
+            to unveil information in statistical data.
+            My work is rooted in the belief that data is often not even a half-baked representation of the world
+            around us but rather a reflection of how we perceive it – with all the biases and
+            inaccuracies that come with it.
           </p>
           <p>
-            With a Bachelor's degree in Internet Computing from the
-            <a href="https://www.fim.uni-passau.de/"><span itemprop="alumniOf">University of Passau</span></a>, Germany, I've also worked
-            as a web developer, <span itemprop="jobTitle">software engineer</span> and as a lecturer, imparting programming skills to non-computer science students.
-            For the last few years, I've also consulted, implemented and integrated customized software projects
-            for a variety of different clients. 
+            With that in mind, my goal is to create tools and models that also show the imperfection behind the data.
+            Doing so, I enjoy being in the space between research and application, achieving practical solutions
+            with the help of state-of-the-art research.
           </p>
           <p>
             I find joy in creating music, capturing moments through film, and reading and
@@ -79,14 +79,10 @@
             </p>
           </div>
         </div>
+        <div class="col-2"></div>
       </div>
     </div>
   </div>
-
-
-  <br />
-  <br />
-  <br />
 
   {% if articles|length > 0 %}
     <div itemscope itemtype="https://schema.org/ItemList" class="container">
