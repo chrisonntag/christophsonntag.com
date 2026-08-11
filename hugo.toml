@@ -1,0 +1,8 @@
+theme = "ritzy"
+baseURL = 'https://christophsonntag.com/'
+languageCode = 'en-us'
+title = 'Personal Garden'
+
+[params]
+  author = "Christoph Sonntag"
+  description = "Personal garden of Christoph Sonntag"
