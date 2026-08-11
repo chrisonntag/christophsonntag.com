@@ -6,3 +6,7 @@ title = 'Personal Garden'
 [params]
   author = "Christoph Sonntag"
   description = "Personal garden of Christoph Sonntag"
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
