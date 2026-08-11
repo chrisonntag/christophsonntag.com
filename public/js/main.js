@@ -1,2 +1,0 @@
-document.addEventListener("DOMContentLoaded",function(t){let e=0;document.getElementById("burger").addEventListener("click",function(){let t=document.getElementById("navigation-list");0===e?(e=1,t.style.maxHeight="1000px",t.style.opacity="1"):(e=0,t.style.maxHeight="0",function(t,e){let n=0,i=window.setInterval(function(){++n>=1&&(e(),window.clearInterval(i))},900)}(0,function(){t.style.opacity="0"}))})});
-//# sourceMappingURL=main.js.map
