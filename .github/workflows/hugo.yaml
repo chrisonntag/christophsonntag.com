@@ -148,7 +148,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - name: Deploy using Rsync
-        uses: burnett01/rsync-deployments@6.0.0
+        uses: burnett01/rsync-deployments@v9
         with:
           switches: -avrh --delete --exclude=".git" --exclude=".github"
           path: public-micron/
@@ -156,7 +156,6 @@ jobs:
           remote_host: ${{ vars.SSH_HOST }}
           remote_user: ${{ vars.SSH_USERNAME }}
           remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          remote_key_pass: ${{ secrets.SSH_PRIVATE_KEY_PASS }}
 
       - name: Deploy to GitHub Pages
         id: deployment
