@@ -132,6 +132,13 @@ jobs:
         with:
           include-hidden-files: false
           path: ./public
+
+      - name: Install Pandoc
+        run: sudo apt-get update && sudo apt-get install -y pandoc
+
+      - name: Build Micron pages
+        run: ./build-micron.sh content public-micron
+
   deploy:
     runs-on: ubuntu-latest
     needs: build
@@ -142,3 +149,11 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: |
+            public
+            public-micron
