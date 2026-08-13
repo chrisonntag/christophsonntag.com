@@ -147,16 +147,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v7
-      - name: Deploy using Rsync
-        uses: burnett01/rsync-deployments@v9
-        with:
-          switches: -avrh --delete --exclude=".git" --exclude=".github"
-          path: public-micron/
-          remote_path: /home/{{ vars.SSH_USERNAME }}/.nomadnetwork/storage/pages
-          remote_host: ${{ vars.SSH_HOST }}
-          remote_user: ${{ vars.SSH_USERNAME }}
-          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
@@ -168,3 +158,15 @@ jobs:
           path: |
             public
             public-micron
+
+      - name: Deploy using Rsync
+        uses: burnett01/rsync-deployments@v9
+        with:
+          switches: -avrh --delete --exclude=".git" --exclude=".github"
+          path: public-micron/
+          remote_path: /home/${{ vars.SSH_USERNAME }}/.nomadnetwork/storage/pages
+          remote_host: ${{ vars.SSH_HOST }}
+          remote_user: ${{ vars.SSH_USERNAME }}
+          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+
