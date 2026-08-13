@@ -137,7 +137,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y pandoc
 
       - name: Build Micron pages
-        run: ./build-micron.sh content public-micron
+        run: bash ${PWD}/build-micron.sh content public-micron
 
   deploy:
     runs-on: ubuntu-latest
