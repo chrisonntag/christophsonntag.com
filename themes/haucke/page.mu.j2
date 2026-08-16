@@ -1,11 +1,18 @@
-`B{{ site.bg | default('222') }}`F{{ site.fg | default('ddd') }}
 {% if site.nav %}
-{% for item in site.nav %}{{ link(item.url, item.label) }}{% if not loop.last %} `F666|`f {% endif %}{% endfor %}
 
--
+
+{% for item in site.nav %}
+`c`_{{ link(item.url, item.label) }}`_{% if not loop.last %} `F666|`f {% endif %}
+{% endfor %}
+
+`a
+
+
 {% endif %}
 >{{ page.title }}
-{% if page.date %}`F888{{ page.date }}`f
+
+{% if page.date %}`c`F888{{ page.date }}`f
+`a
 {% endif %}
 
 {{ body }}

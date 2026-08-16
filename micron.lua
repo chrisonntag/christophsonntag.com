@@ -125,13 +125,13 @@ function Code(s, attr)
 end
 
 function Link(s, tgt, tit, attr)
-  return "`[" .. s .. "`" .. rewrite_link(tgt) .. "]"
+  return "`_`[" .. s .. "`" .. rewrite_link(tgt) .. "]`_"
 end
 
 function Image(s, src, tit, attr)
   if CFG.images_as_links then
     local label = (s ~= nil and s ~= "") and s or "image"
-    return "`[" .. label .. "`" .. rewrite_file(src) .. "]"
+    return "Image: `_`[" .. label .. "`" .. rewrite_file(src) .. "]`_"
   end
   return ""  -- drop
 end

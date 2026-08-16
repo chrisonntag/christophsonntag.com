@@ -1,19 +1,24 @@
 #!c=0
-# ^^^^ <--> Nomadnet specific to prevent page caching.
-`B{{ site.bg | default('222') }}`F{{ site.fg | default('ddd') }}
->`c{{ site.title }}`a
-{% if site.tagline %}`c`F888{{ site.tagline }}`f`a
+`B{{ site.bg | default('ddd') }}`F{{ site.fg | default('222') }}
+
+`c{{ site.title }}
+{% if site.tagline %}`c`F888{{ site.tagline }}
+`a
+
+``
 {% endif %}
 
--
+
 {% if intro %}
-{{ intro }}
+`c{{ intro }}
+`a
+
 
 {% endif %}
 >>Latest posts
 
 {% for p in posts %}
-{{ link(p.url, p.title) }} {{ ('`F888' ~ p.date ~ '`f') if p.date else '' }}
+`c`_{{ link(p.url, p.title) }}`_ {{ ('`F888' ~ p.date ~ '`f') if p.date else '' }}
 {% endfor %}
 {% if site.footer %}
 
