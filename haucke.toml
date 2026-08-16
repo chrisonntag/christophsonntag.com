@@ -1,0 +1,18 @@
+theme   = "haucke"
+title   = "Christoph Sonntag"
+tagline = "Personal Garden"
+bg      = "222"
+fg      = "ddd"
+footer  = ""
+
+[[nav]]
+label = "Home"
+url   = "index.mu"
+
+[[nav]]
+label = "Posts"
+url   = "posts/index.mu"
+
+[[nav]]
+label = "About"
+url   = "about.mu"

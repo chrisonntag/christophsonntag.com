@@ -1,0 +1,16 @@
+`B{{ site.bg | default('222') }}`F{{ site.fg | default('ddd') }}
+{% if site.nav %}
+{% for item in site.nav %}{{ link(item.url, item.label) }}{% if not loop.last %} `F666|`f {% endif %}{% endfor %}
+
+-
+{% endif %}
+>{{ page.title }}
+{% if page.date %}`F888{{ page.date }}`f
+{% endif %}
+
+{{ body }}
+{% if site.footer %}
+
+-
+`c`F666{{ site.footer }}`f`a
+{% endif %}
